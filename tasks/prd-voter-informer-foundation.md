@@ -140,6 +140,8 @@ Each story should be implemented as a focused change. Data collection can be rep
 **Acceptance Criteria:**
 - [ ] Source inclusion from official ballot qualification or ballot records, not media prominence, fundraising, or party preference.
 - [ ] Display names and party affiliation with equal visual prominence; default to surname ordering with deterministic tie-breaking.
+- [ ] Beneath each candidate name in race lists, profile headers, and comparison headers, show a small, visually secondary link to their official campaign/platform website when available. Use the website's actual hostname as the label (for example, `candidate-name.com`), omitting the scheme, leading `www.`, path, query, and fragment; retain the full verified destination URL. Do not use a generic repeated label such as “Website.”
+- [ ] If no official campaign/platform website is available, omit the link entirely without placeholder text or a disabled control; never guess a URL.
 - [ ] Separate election stages and show participation status with supporting source/date information.
 - [ ] Keep previously ballot-qualified candidates discoverable after primary defeat, withdrawal, or another documented status change.
 - [ ] Distinguish incomplete data collection from a verified absence of candidates.
@@ -284,6 +286,7 @@ Use the owner's supplied sketch as the conceptual reference, not a pixel-level s
 - Desktop-first research layout with equal prominence for candidates.
 - Use visual polish to sustain attention; avoid sensational headlines, constant animation, and default partisan coloring.
 - Preserve readability and accessible citation targets in dense comparisons.
+- Candidate website links sit directly beneath candidate names in smaller, readable type, with consistent styling across candidates and candidate-specific domain labels. Preserve adequate contrast, visible keyboard focus, and usable link targets.
 - Use semantic controls, visible keyboard focus, adequate contrast, and non-color indicators. Desktop-first does not exempt core controls from accessibility.
 - Exact profile/compare layouts remain implementation decisions; no right-hand-panel requirement is implied.
 - At smaller widths, provide usable basic containment and an honest desktop-optimized message if necessary; do not claim a completed mobile research experience.
@@ -315,7 +318,7 @@ These are conceptual entities, not prescribed database tables:
 | Election | Cycle, stage, date/status, authoritative sources |
 | Race | Office, election, constituency, stage relationships |
 | Candidate | Stable person ID, name, factual biographical references |
-| Candidacy | Candidate/race relationship, party as represented in that race, ballot qualification, dated status and sources |
+| Candidacy | Candidate/race relationship, party as represented in that race, optional verified official campaign/platform website URL (HTTP/HTTPS only), ballot qualification, dated status and sources |
 | Policy question | Stable ID, version, precise wording, topic, applicable scope |
 | Local question selection | Race, ordered question references, selection rationale and sources |
 | Position evidence | Candidacy, question version, statement/quotation, optional reviewed classification or summary, evidence dates and citations |

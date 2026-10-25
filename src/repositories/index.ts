@@ -8,3 +8,4 @@ export function getRepository(): ResearchRepository {
   return repository ??= createFileRepository(pathToFileURL(`${process.cwd()}/data/research.json`));
 }
 export type { ResearchRepository } from "./types";
+export { getDistrictCandidateList } from "./candidates";

@@ -103,7 +103,7 @@ export function UsMap() {
       }}
     >
       <title id="map-title">United States map</title>
-      <desc id="map-description">{showDistricts ? "Colorado congressional districts. Hover or focus a district to highlight it." : "Select a state to zoom in."} Press Escape or click the background to return. Research coverage is not yet available.</desc>
+      <desc id="map-description">{showDistricts ? "Colorado congressional districts. Select a district to see candidates." : "Select a state to zoom in."} Press Escape or click the background to return. Candidate lists are currently available for Colorado’s 2026 general election.</desc>
       {states.map((state) => (
         <path
           key={state.id}

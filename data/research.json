@@ -1,14 +1,1464 @@
 {
-  "geographies": [],
-  "elections": [],
-  "races": [],
-  "candidates": [],
-  "candidacies": [],
+  "geographies": [
+    {
+      "id": "co",
+      "name": "Colorado",
+      "type": "state",
+      "stateId": null,
+      "boundaryVintage": "2017",
+      "boundarySourceIds": [
+        "us-atlas-states-2017"
+      ],
+      "geometryRef": "state-08",
+      "overlappingCountyIds": []
+    },
+    {
+      "id": "co-district-1",
+      "name": "Colorado congressional district 1",
+      "type": "district",
+      "stateId": "co",
+      "boundaryVintage": "2026",
+      "boundarySourceIds": [
+        "co-districts-2026"
+      ],
+      "geometryRef": "0801",
+      "overlappingCountyIds": []
+    },
+    {
+      "id": "co-district-2",
+      "name": "Colorado congressional district 2",
+      "type": "district",
+      "stateId": "co",
+      "boundaryVintage": "2026",
+      "boundarySourceIds": [
+        "co-districts-2026"
+      ],
+      "geometryRef": "0802",
+      "overlappingCountyIds": []
+    },
+    {
+      "id": "co-district-3",
+      "name": "Colorado congressional district 3",
+      "type": "district",
+      "stateId": "co",
+      "boundaryVintage": "2026",
+      "boundarySourceIds": [
+        "co-districts-2026"
+      ],
+      "geometryRef": "0803",
+      "overlappingCountyIds": []
+    },
+    {
+      "id": "co-district-4",
+      "name": "Colorado congressional district 4",
+      "type": "district",
+      "stateId": "co",
+      "boundaryVintage": "2026",
+      "boundarySourceIds": [
+        "co-districts-2026"
+      ],
+      "geometryRef": "0804",
+      "overlappingCountyIds": []
+    },
+    {
+      "id": "co-district-5",
+      "name": "Colorado congressional district 5",
+      "type": "district",
+      "stateId": "co",
+      "boundaryVintage": "2026",
+      "boundarySourceIds": [
+        "co-districts-2026"
+      ],
+      "geometryRef": "0805",
+      "overlappingCountyIds": []
+    },
+    {
+      "id": "co-district-6",
+      "name": "Colorado congressional district 6",
+      "type": "district",
+      "stateId": "co",
+      "boundaryVintage": "2026",
+      "boundarySourceIds": [
+        "co-districts-2026"
+      ],
+      "geometryRef": "0806",
+      "overlappingCountyIds": []
+    },
+    {
+      "id": "co-district-7",
+      "name": "Colorado congressional district 7",
+      "type": "district",
+      "stateId": "co",
+      "boundaryVintage": "2026",
+      "boundarySourceIds": [
+        "co-districts-2026"
+      ],
+      "geometryRef": "0807",
+      "overlappingCountyIds": []
+    },
+    {
+      "id": "co-district-8",
+      "name": "Colorado congressional district 8",
+      "type": "district",
+      "stateId": "co",
+      "boundaryVintage": "2026",
+      "boundarySourceIds": [
+        "co-districts-2026"
+      ],
+      "geometryRef": "0808",
+      "overlappingCountyIds": []
+    }
+  ],
+  "elections": [
+    {
+      "id": "co-2026-general",
+      "cycle": 2026,
+      "stage": "general",
+      "date": "2026-11-03",
+      "status": "scheduled",
+      "sourceIds": [
+        "co-2026-calendar"
+      ]
+    }
+  ],
+  "races": [
+    {
+      "id": "co-2026-district-1-general",
+      "office": "house",
+      "electionId": "co-2026-general",
+      "geographyId": "co-district-1",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "co-2026-district-2-general",
+      "office": "house",
+      "electionId": "co-2026-general",
+      "geographyId": "co-district-2",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "co-2026-district-3-general",
+      "office": "house",
+      "electionId": "co-2026-general",
+      "geographyId": "co-district-3",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "co-2026-district-4-general",
+      "office": "house",
+      "electionId": "co-2026-general",
+      "geographyId": "co-district-4",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "co-2026-district-5-general",
+      "office": "house",
+      "electionId": "co-2026-general",
+      "geographyId": "co-district-5",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "co-2026-district-6-general",
+      "office": "house",
+      "electionId": "co-2026-general",
+      "geographyId": "co-district-6",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "co-2026-district-7-general",
+      "office": "house",
+      "electionId": "co-2026-general",
+      "geographyId": "co-district-7",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "co-2026-district-8-general",
+      "office": "house",
+      "electionId": "co-2026-general",
+      "geographyId": "co-district-8",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "id": "melat-kiros",
+      "givenName": "Melat",
+      "familyName": "Kiros",
+      "biography": null,
+      "birthDate": null,
+      "portrait": {
+        "src": "/portraits/melat-kiros.jpg",
+        "sourceId": "melat-kiros-portrait",
+        "credit": "Andra Turner, via Wikimedia Commons — CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      },
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "christy-peterson",
+      "givenName": "Christy",
+      "familyName": "Peterson",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "critter-milton",
+      "givenName": "Critter",
+      "familyName": "Milton",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "chad-humphrey",
+      "givenName": "Chad",
+      "familyName": "Humphrey",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "shimon-blau",
+      "givenName": "Shimon",
+      "familyName": "Blau",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "kevin-stclair",
+      "givenName": "Kevin",
+      "familyName": "StClair",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "john-wren",
+      "givenName": "John",
+      "familyName": "Wren",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "stephen-replin",
+      "givenName": "Stephen",
+      "familyName": "Replin",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "joe-neguse",
+      "givenName": "Joe",
+      "familyName": "Neguse",
+      "biography": null,
+      "birthDate": "1984-05-13",
+      "portrait": {
+        "src": "/portraits/joe-neguse.jpg",
+        "sourceId": "joe-neguse-portrait",
+        "credit": "Office of the Clerk, U.S. House of Representatives"
+      },
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "birthDateSourceId": "joe-neguse-birth"
+    },
+    {
+      "id": "kelley-anne-dennison",
+      "givenName": "Kelley Anne",
+      "familyName": "Dennison",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "gaylon-kent",
+      "givenName": "Gaylon",
+      "familyName": "Kent",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "dwayne-l-romero",
+      "givenName": "Dwayne L.",
+      "familyName": "Romero",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "jeff-hurd",
+      "givenName": "Jeff",
+      "familyName": "Hurd",
+      "biography": null,
+      "birthDate": "1979-08-15",
+      "portrait": {
+        "src": "/portraits/jeff-hurd.jpg",
+        "sourceId": "jeff-hurd-portrait",
+        "credit": "Office of the Clerk, U.S. House of Representatives"
+      },
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "birthDateSourceId": "jeff-hurd-birth"
+    },
+    {
+      "id": "cory-robertson",
+      "givenName": "Cory",
+      "familyName": "Robertson",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "clifton-brown",
+      "givenName": "Clifton",
+      "familyName": "Brown",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "lauren-boebert",
+      "givenName": "Lauren",
+      "familyName": "Boebert",
+      "biography": null,
+      "birthDate": "1986-12-19",
+      "portrait": {
+        "src": "/portraits/lauren-boebert.jpg",
+        "sourceId": "lauren-boebert-portrait",
+        "credit": "Office of the Clerk, U.S. House of Representatives"
+      },
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "birthDateSourceId": "lauren-boebert-birth"
+    },
+    {
+      "id": "eileen-laubacher",
+      "givenName": "Eileen",
+      "familyName": "Laubacher",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "douglas-mangeris",
+      "givenName": "Douglas",
+      "familyName": "Mangeris",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "luis-galvan",
+      "givenName": "Luis",
+      "familyName": "Galvan",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "jeff-crank",
+      "givenName": "Jeff",
+      "familyName": "Crank",
+      "biography": null,
+      "birthDate": "1967-01",
+      "portrait": {
+        "src": "/portraits/jeff-crank.jpg",
+        "sourceId": "jeff-crank-portrait",
+        "credit": "Office of the Clerk, U.S. House of Representatives"
+      },
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "birthDateSourceId": "jeff-crank-birth"
+    },
+    {
+      "id": "jessica-killin",
+      "givenName": "Jessica",
+      "familyName": "Killin",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "christopher-mitchell",
+      "givenName": "Christopher",
+      "familyName": "Mitchell",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "mark-marky-jr-elworth",
+      "givenName": "Mark \"Marky Jr\"",
+      "familyName": "Elworth",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "steven-fuller",
+      "givenName": "Steven",
+      "familyName": "Fuller",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "jason-crow",
+      "givenName": "Jason",
+      "familyName": "Crow",
+      "biography": null,
+      "birthDate": "1979-03-15",
+      "portrait": {
+        "src": "/portraits/jason-crow.jpg",
+        "sourceId": "jason-crow-portrait",
+        "credit": "Office of the Clerk, U.S. House of Representatives"
+      },
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "birthDateSourceId": "jason-crow-birth"
+    },
+    {
+      "id": "jason-clark",
+      "givenName": "Jason",
+      "familyName": "Clark",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "patty-mcmahon",
+      "givenName": "Patty",
+      "familyName": "McMahon",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "meredith-ryan",
+      "givenName": "Meredith",
+      "familyName": "Ryan",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "samir-ezzeldin-witta",
+      "givenName": "Samir Ezzeldin",
+      "familyName": "Witta",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "tim-bennett",
+      "givenName": "Tim",
+      "familyName": "Bennett",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "brittany-pettersen",
+      "givenName": "Brittany",
+      "familyName": "Pettersen",
+      "biography": null,
+      "birthDate": "1981-12-06",
+      "portrait": {
+        "src": "/portraits/brittany-pettersen.jpg",
+        "sourceId": "brittany-pettersen-portrait",
+        "credit": "Office of the Clerk, U.S. House of Representatives"
+      },
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "birthDateSourceId": "brittany-pettersen-birth"
+    },
+    {
+      "id": "susan-hall",
+      "givenName": "Susan",
+      "familyName": "Hall",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "lawrence-kyle-clark",
+      "givenName": "Lawrence Kyle",
+      "familyName": "Clark",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "dan-kilo-sallis",
+      "givenName": "Dan \"Kilo\"",
+      "familyName": "Sallis",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "joe-krzeczkowski",
+      "givenName": "Joe",
+      "familyName": "Krzeczkowski",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "gabe-evans",
+      "givenName": "Gabe",
+      "familyName": "Evans",
+      "biography": null,
+      "birthDate": "1986-07-28",
+      "portrait": {
+        "src": "/portraits/gabe-evans.jpg",
+        "sourceId": "gabe-evans-portrait",
+        "credit": "Office of the Clerk, U.S. House of Representatives"
+      },
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "birthDateSourceId": "gabe-evans-birth"
+    },
+    {
+      "id": "manny-rutinel",
+      "givenName": "Manny",
+      "familyName": "Rutinel",
+      "biography": null,
+      "birthDate": null,
+      "portrait": {
+        "src": "/portraits/manny-rutinel.jpg",
+        "sourceId": "manny-rutinel-portrait",
+        "credit": "Looktothewesternsky, via Wikimedia Commons — CC0",
+        "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/"
+      },
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "dave-wood",
+      "givenName": "Dave",
+      "familyName": "Wood",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    }
+  ],
+  "candidacies": [
+    {
+      "id": "melat-kiros-2026",
+      "candidateId": "melat-kiros",
+      "raceId": "co-2026-district-1-general",
+      "party": "Democratic Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://www.kirosforco.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "christy-peterson-2026",
+      "candidateId": "christy-peterson",
+      "raceId": "co-2026-district-1-general",
+      "party": "Republican Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://christyforamerica.us/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "critter-milton-2026",
+      "candidateId": "critter-milton",
+      "raceId": "co-2026-district-1-general",
+      "party": "Unity Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "chad-humphrey-2026",
+      "candidateId": "chad-humphrey",
+      "raceId": "co-2026-district-1-general",
+      "party": "Libertarian Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://liberty4the1st.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "shimon-blau-2026",
+      "candidateId": "shimon-blau",
+      "raceId": "co-2026-district-1-general",
+      "party": "Unaffiliated",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://blauforcongress.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "kevin-stclair-2026",
+      "candidateId": "kevin-stclair",
+      "raceId": "co-2026-district-1-general",
+      "party": "Democratic Party",
+      "ballotQualified": false,
+      "status": "certified-write-in",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "john-wren-2026",
+      "candidateId": "john-wren",
+      "raceId": "co-2026-district-1-general",
+      "party": "Democratic Party",
+      "ballotQualified": false,
+      "status": "certified-write-in",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "stephen-replin-2026",
+      "candidateId": "stephen-replin",
+      "raceId": "co-2026-district-1-general",
+      "party": "Unaffiliated",
+      "ballotQualified": false,
+      "status": "certified-write-in",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "joe-neguse-2026",
+      "candidateId": "joe-neguse",
+      "raceId": "co-2026-district-2-general",
+      "party": "Democratic Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://joeforcolorado.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "kelley-anne-dennison-2026",
+      "candidateId": "kelley-anne-dennison",
+      "raceId": "co-2026-district-2-general",
+      "party": "Republican Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://kelleyforco.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "gaylon-kent-2026",
+      "candidateId": "gaylon-kent",
+      "raceId": "co-2026-district-2-general",
+      "party": "Libertarian Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "dwayne-l-romero-2026",
+      "candidateId": "dwayne-l-romero",
+      "raceId": "co-2026-district-3-general",
+      "party": "Democratic Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://romeroforcolorado.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "jeff-hurd-2026",
+      "candidateId": "jeff-hurd",
+      "raceId": "co-2026-district-3-general",
+      "party": "Republican Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://jeffhurdforcolorado.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "cory-robertson-2026",
+      "candidateId": "cory-robertson",
+      "raceId": "co-2026-district-3-general",
+      "party": "Libertarian Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "clifton-brown-2026",
+      "candidateId": "clifton-brown",
+      "raceId": "co-2026-district-3-general",
+      "party": "Unaffiliated",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://www.ruhero.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "lauren-boebert-2026",
+      "candidateId": "lauren-boebert",
+      "raceId": "co-2026-district-4-general",
+      "party": "Republican Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://laurenforcolorado.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "eileen-laubacher-2026",
+      "candidateId": "eileen-laubacher",
+      "raceId": "co-2026-district-4-general",
+      "party": "Democratic Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://www.eileenforcolorado.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "douglas-mangeris-2026",
+      "candidateId": "douglas-mangeris",
+      "raceId": "co-2026-district-4-general",
+      "party": "Libertarian Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://mangeris4thepeople2026.vote/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "luis-galvan-2026",
+      "candidateId": "luis-galvan",
+      "raceId": "co-2026-district-4-general",
+      "party": "Republican Party",
+      "ballotQualified": false,
+      "status": "certified-write-in",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "jeff-crank-2026",
+      "candidateId": "jeff-crank",
+      "raceId": "co-2026-district-5-general",
+      "party": "Republican Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://jeffcrankforcongress.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "jessica-killin-2026",
+      "candidateId": "jessica-killin",
+      "raceId": "co-2026-district-5-general",
+      "party": "Democratic Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://www.killinforcolorado.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "christopher-mitchell-2026",
+      "candidateId": "christopher-mitchell",
+      "raceId": "co-2026-district-5-general",
+      "party": "American Constitution Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "mark-marky-jr-elworth-2026",
+      "candidateId": "mark-marky-jr-elworth",
+      "raceId": "co-2026-district-5-general",
+      "party": "Libertarian Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "steven-fuller-2026",
+      "candidateId": "steven-fuller",
+      "raceId": "co-2026-district-5-general",
+      "party": "Unaffiliated",
+      "ballotQualified": false,
+      "status": "certified-write-in",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://www.stevenfuller.net/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "jason-crow-2026",
+      "candidateId": "jason-crow",
+      "raceId": "co-2026-district-6-general",
+      "party": "Democratic Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://jasoncrowforcongress.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "jason-clark-2026",
+      "candidateId": "jason-clark",
+      "raceId": "co-2026-district-6-general",
+      "party": "Republican Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "patty-mcmahon-2026",
+      "candidateId": "patty-mcmahon",
+      "raceId": "co-2026-district-6-general",
+      "party": "Libertarian Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://www.mcmahonforcongress.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "meredith-ryan-2026",
+      "candidateId": "meredith-ryan",
+      "raceId": "co-2026-district-6-general",
+      "party": "Unity Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://votemeredithryan.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "samir-ezzeldin-witta-2026",
+      "candidateId": "samir-ezzeldin-witta",
+      "raceId": "co-2026-district-6-general",
+      "party": "Unaffiliated",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://www.wittaforcongress.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "tim-bennett-2026",
+      "candidateId": "tim-bennett",
+      "raceId": "co-2026-district-7-general",
+      "party": "Republican Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://timbennettforcongress.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "brittany-pettersen-2026",
+      "candidateId": "brittany-pettersen",
+      "raceId": "co-2026-district-7-general",
+      "party": "Democratic Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://brittanypettersen.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "susan-hall-2026",
+      "candidateId": "susan-hall",
+      "raceId": "co-2026-district-7-general",
+      "party": "Unity Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "lawrence-kyle-clark-2026",
+      "candidateId": "lawrence-kyle-clark",
+      "raceId": "co-2026-district-7-general",
+      "party": "American Constitution Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "dan-kilo-sallis-2026",
+      "candidateId": "dan-kilo-sallis",
+      "raceId": "co-2026-district-7-general",
+      "party": "Libertarian Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://dankilo.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "joe-krzeczkowski-2026",
+      "candidateId": "joe-krzeczkowski",
+      "raceId": "co-2026-district-7-general",
+      "party": "Unaffiliated",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://votejoek.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "gabe-evans-2026",
+      "candidateId": "gabe-evans",
+      "raceId": "co-2026-district-8-general",
+      "party": "Republican Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://electgabeevans.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "manny-rutinel-2026",
+      "candidateId": "manny-rutinel",
+      "raceId": "co-2026-district-8-general",
+      "party": "Democratic Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://www.mannyforcolorado.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    },
+    {
+      "id": "dave-wood-2026",
+      "candidateId": "dave-wood",
+      "raceId": "co-2026-district-8-general",
+      "party": "Libertarian Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-24",
+      "sourceIds": [
+        "co-2026-official-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://davewood4colorado.com/",
+        "sourceId": "co-2026-campaign-directory"
+      }
+    }
+  ],
   "questions": [],
   "localSelections": [],
   "positions": [],
   "records": [],
-  "sources": [],
+  "sources": [
+    {
+      "id": "co-2026-official-roster",
+      "url": "https://www.sos.state.co.us/pubs/elections/vote/generalCandidates.html",
+      "title": "Colorado 2026 official candidate list",
+      "type": "official",
+      "publisher": "Colorado Secretary of State",
+      "publishedAt": "2026-09-15",
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "U.S. House of Representatives, districts 1–8; write-in column and withdrawal marks; last updated September 15, 2026"
+    },
+    {
+      "id": "co-2026-calendar",
+      "url": "https://www.sos.state.co.us/pubs/elections/calendars/2026ElectionCalendar.pdf",
+      "title": "Colorado 2026 election calendar",
+      "type": "official",
+      "publisher": "Colorado Secretary of State",
+      "publishedAt": "2026-07-31",
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "Page 1: general election November 3, 2026"
+    },
+    {
+      "id": "us-atlas-states-2017",
+      "url": "https://cdn.jsdelivr.net/npm/us-atlas@3.0.1/states-albers-10m.json",
+      "title": "U.S. atlas state outlines",
+      "type": "official",
+      "publisher": "U.S. Census Bureau / us-atlas",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "Colorado state outline; 2017 cartographic boundaries; Albers USA"
+    },
+    {
+      "id": "co-districts-2026",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Legislative/MapServer/0",
+      "title": "Census 120th congressional district boundaries",
+      "type": "official",
+      "publisher": "U.S. Census Bureau",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "January 1, 2026 vintage; STATE 08; GEOID 0801–0808"
+    },
+    {
+      "id": "joe-neguse-birth",
+      "url": "https://history.house.gov/People/Listing/N/NEGUSE,-Joseph-(N000191)/",
+      "title": "Joe Neguse — House biography",
+      "type": "official",
+      "publisher": "U.S. House of Representatives",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "Concise biography: birth date"
+    },
+    {
+      "id": "joe-neguse-portrait",
+      "url": "https://clerk.house.gov/Members/N000191",
+      "title": "Joe Neguse — official portrait",
+      "type": "official",
+      "publisher": "Office of the Clerk, U.S. House of Representatives",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "Photo of Joe Neguse; JPEG at https://clerk.house.gov/images/members/N000191.jpg"
+    },
+    {
+      "id": "jeff-hurd-birth",
+      "url": "https://history.house.gov/People/Listing/H/HURD,-Jeff-(H001100)/",
+      "title": "Jeff Hurd — House biography",
+      "type": "official",
+      "publisher": "U.S. House of Representatives",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "Concise biography: birth date"
+    },
+    {
+      "id": "jeff-hurd-portrait",
+      "url": "https://clerk.house.gov/Members/H001100",
+      "title": "Jeff Hurd — official portrait",
+      "type": "official",
+      "publisher": "Office of the Clerk, U.S. House of Representatives",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "Photo of Jeff Hurd; JPEG at https://clerk.house.gov/images/members/H001100.jpg"
+    },
+    {
+      "id": "lauren-boebert-birth",
+      "url": "https://history.house.gov/People/Listing/B/BOEBERT,-Lauren-(B000825)/",
+      "title": "Lauren Boebert — House biography",
+      "type": "official",
+      "publisher": "U.S. House of Representatives",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "Concise biography: birth date"
+    },
+    {
+      "id": "lauren-boebert-portrait",
+      "url": "https://clerk.house.gov/Members/B000825",
+      "title": "Lauren Boebert — official portrait",
+      "type": "official",
+      "publisher": "Office of the Clerk, U.S. House of Representatives",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "Photo of Lauren Boebert; JPEG at https://clerk.house.gov/images/members/B000825.jpg"
+    },
+    {
+      "id": "jeff-crank-birth",
+      "url": "https://history.house.gov/People/Listing/C/CRANK,-Jeff-(C001137)/",
+      "title": "Jeff Crank — House biography",
+      "type": "official",
+      "publisher": "U.S. House of Representatives",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "Concise biography: birth date; Jeff Crank has month precision only"
+    },
+    {
+      "id": "jeff-crank-portrait",
+      "url": "https://clerk.house.gov/Members/C001137",
+      "title": "Jeff Crank — official portrait",
+      "type": "official",
+      "publisher": "Office of the Clerk, U.S. House of Representatives",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "Photo of Jeff Crank; JPEG at https://clerk.house.gov/images/members/C001137.jpg"
+    },
+    {
+      "id": "jason-crow-birth",
+      "url": "https://history.house.gov/People/Listing/C/CROW,-Jason-(C001121)/",
+      "title": "Jason Crow — House biography",
+      "type": "official",
+      "publisher": "U.S. House of Representatives",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "Concise biography: birth date"
+    },
+    {
+      "id": "jason-crow-portrait",
+      "url": "https://clerk.house.gov/Members/C001121",
+      "title": "Jason Crow — official portrait",
+      "type": "official",
+      "publisher": "Office of the Clerk, U.S. House of Representatives",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "Photo of Jason Crow; JPEG at https://clerk.house.gov/images/members/C001121.jpg"
+    },
+    {
+      "id": "brittany-pettersen-birth",
+      "url": "https://history.house.gov/People/Listing/P/PETTERSEN,-Brittany-(P000620)/",
+      "title": "Brittany Pettersen — House biography",
+      "type": "official",
+      "publisher": "U.S. House of Representatives",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "Concise biography: birth date"
+    },
+    {
+      "id": "brittany-pettersen-portrait",
+      "url": "https://clerk.house.gov/Members/P000620",
+      "title": "Brittany Pettersen — official portrait",
+      "type": "official",
+      "publisher": "Office of the Clerk, U.S. House of Representatives",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "Photo of Brittany Pettersen; JPEG at https://clerk.house.gov/images/members/P000620.jpg"
+    },
+    {
+      "id": "gabe-evans-birth",
+      "url": "https://history.house.gov/People/Listing/E/EVANS,-Gabe-(E000300)/",
+      "title": "Gabe Evans — House biography",
+      "type": "official",
+      "publisher": "U.S. House of Representatives",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "Concise biography: birth date"
+    },
+    {
+      "id": "gabe-evans-portrait",
+      "url": "https://clerk.house.gov/Members/E000300",
+      "title": "Gabe Evans — official portrait",
+      "type": "official",
+      "publisher": "Office of the Clerk, U.S. House of Representatives",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "Photo of Gabe Evans; JPEG at https://clerk.house.gov/images/members/E000300.jpg"
+    },
+    {
+      "id": "melat-kiros-portrait",
+      "url": "https://commons.wikimedia.org/wiki/File:Melat_Kiros_Portrait.jpg",
+      "title": "Melat Kiros — portrait and license",
+      "type": "independent",
+      "publisher": "Wikimedia Commons / Andra Turner",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "File description and Licensing; original JPEG stored unchanged, displayed in a circular crop"
+    },
+    {
+      "id": "manny-rutinel-portrait",
+      "url": "https://commons.wikimedia.org/wiki/File:Manny_rutinel.jpg",
+      "title": "Manny Rutinel — portrait and license",
+      "type": "independent",
+      "publisher": "Wikimedia Commons / Looktothewesternsky",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "File description and Licensing; original JPEG stored unchanged, displayed in a circular crop"
+    },
+    {
+      "id": "co-2026-campaign-directory",
+      "url": "https://en.wikipedia.org/wiki/2026_United_States_House_of_Representatives_elections_in_Colorado#External_links",
+      "title": "Colorado 2026 House candidates — official campaign website directory",
+      "type": "independent",
+      "publisher": "Wikipedia contributors",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-24",
+      "locator": "External links: Official campaign websites for 1st through 8th district candidates. Website associations only; not used to verify ballot status or policy positions."
+    }
+  ],
   "freshness": [],
   "coverage": [],
   "historicalResults": []

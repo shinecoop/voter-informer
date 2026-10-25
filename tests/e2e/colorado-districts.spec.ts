@@ -32,8 +32,6 @@ test("reveals Colorado districts after zoom and highlights them without changing
   const second = districts.getByRole("button", { name: "Colorado congressional district 2", exact: true });
   await second.focus();
   await expect(highlight).toHaveCSS("transform", "matrix(1.05, 0, 0, 1.05, 0, 0)");
-  await page.keyboard.press("Space");
-  await expect(second).toHaveAttribute("aria-pressed", "true");
   expect(await map.getAttribute("viewBox")).toBe(camera);
   expect(await page.locator("body").innerText()).toBe("");
 

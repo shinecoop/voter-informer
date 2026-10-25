@@ -2,14 +2,16 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 import { districts } from "./colorado-district-paths";
+import { useRouter } from "next/navigation";
+import { candidatePath } from "../domain/elections";
 
 export default function ColoradoDistricts({ outline }: { outline: string }) {
   const clipId = useId();
   const groupRef = useRef<SVGGElement>(null);
   const [hovered, setHovered] = useState<string | null>(null);
   const [focused, setFocused] = useState<string | null>(null);
-  const [selected, setSelected] = useState<string | null>(null);
-  const active = districts.find((district) => district.id === (hovered ?? focused ?? selected));
+  const router = useRouter();
+  const active = districts.find((district) => district.id === (hovered ?? focused));
 
   useEffect(() => {
     const current = document.activeElement;
@@ -33,16 +35,15 @@ export default function ColoradoDistricts({ outline }: { outline: string }) {
             role="button"
             tabIndex={0}
             aria-label={district.name}
-            aria-pressed={selected === district.id}
             onPointerEnter={() => setHovered(district.id)}
             onPointerLeave={() => setHovered(null)}
             onFocus={() => { setHovered(null); setFocused(district.id); }}
             onBlur={() => setFocused(null)}
-            onClick={() => setSelected(district.id)}
+            onClick={() => router.push(candidatePath(Number(district.id.slice(2))))}
             onKeyDown={(event) => {
               if (event.key === "Enter" || event.key === " ") {
                 event.preventDefault();
-                setSelected(district.id);
+                router.push(candidatePath(Number(district.id.slice(2))));
               }
             }}
           />

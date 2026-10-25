@@ -4,6 +4,14 @@ const id = z.string().regex(/^[a-z0-9][a-z0-9._-]*$/);
 const text = z.string().trim().min(1);
 const date = z.iso.date();
 const refs = z.array(id).min(1);
+const websiteUrl = z.url().refine((value) => /^https?:\/\//.test(value), "Website URL must use HTTP(S)");
+const birthDate = z.union([date, z.string().regex(/^\d{4}-(0[1-9]|1[0-2])$/)]);
+const portrait = z.object({
+  src: z.string().regex(/^\/portraits\/[a-z0-9-]+\.jpg$/),
+  sourceId: id,
+  credit: text,
+  licenseUrl: z.enum(["https://creativecommons.org/licenses/by-sa/4.0/", "https://creativecommons.org/publicdomain/zero/1.0/"]).optional(),
+}).strict();
 const review = z.object({
   state: z.enum(["draft", "reviewed"]),
   reviewer: text.nullable(),
@@ -19,8 +27,8 @@ export const entitySchemas = {
   geographies: z.object({ id, name: text, type: z.enum(["state", "district", "county"]), stateId: id.nullable(), boundaryVintage: text, boundarySourceIds: refs, geometryRef: text, overlappingCountyIds: z.array(id) }).strict(),
   elections: z.object({ id, cycle: z.number().int().min(1788).max(2200), stage: z.enum(["primary", "general", "runoff", "special"]), date: date.nullable(), status: z.enum(["scheduled", "completed", "unknown"]), ...sourced }).strict(),
   races: z.object({ id, office: z.enum(["house", "senate"]), electionId: id, geographyId: id, ...sourced }).strict(),
-  candidates: z.object({ id, givenName: text, familyName: text, biography: text.nullable(), ...sourced }).strict(),
-  candidacies: z.object({ id, candidateId: id, raceId: id, party: text, ballotQualified: z.boolean(), status: z.enum(["qualified", "withdrawn", "defeated", "elected", "unknown"]), statusDate: date, ...sourced }).strict(),
+  candidates: z.object({ id, givenName: text, familyName: text, biography: text.nullable(), birthDate: birthDate.nullable().optional(), birthDateSourceId: id.optional(), portrait: portrait.nullable().optional(), ...sourced }).strict(),
+  candidacies: z.object({ id, candidateId: id, raceId: id, party: text, campaignWebsite: z.object({ url: websiteUrl, sourceId: id }).strict().optional(), ballotQualified: z.boolean(), status: z.enum(["qualified", "withdrawn", "defeated", "elected", "unknown", "certified-write-in"]), statusDate: date, ...sourced }).strict(),
   questions: z.object({ id, version: z.number().int().positive(), wording: text, topic: text, raceIds: refs }).strict(),
   localSelections: z.object({ id, raceId: id, questions: z.array(questionRef).min(1), rationale: text, ...sourced, ...publication }).strict(),
   positions: z.object({ id, candidacyId: id, ...questionRef.shape, kind: z.enum(["quotation", "platform-summary"]), statement: text, label: z.enum(["supports", "opposes", "conditional-mixed", "no-explicit-position-found"]).nullable(), evidenceDate: date.nullable(), researchedAt: date, researchScope: text, ...sourced, ...publication }).strict(),
@@ -79,6 +87,8 @@ export const datasetSchema = datasetObject.superRefine((data, ctx) => {
   data.candidacies.forEach((c, i) => {
     link("candidacies", i, "candidateId", "candidates", c.candidateId);
     link("candidacies", i, "raceId", "races", c.raceId);
+        if (c.campaignWebsite) link("candidacies", i, "campaignWebsite", "sources", c.campaignWebsite.sourceId);
+    if (c.status === "certified-write-in" && c.ballotQualified) fail(["candidacies", i, "ballotQualified"], "Certified write-ins are not printed ballot candidates");
     if (c.status === "qualified" && !c.ballotQualified) fail(["candidacies", i, "ballotQualified"], "Qualified status requires ballot qualification");
   });
   data.questions.forEach((q, i) => q.raceIds.forEach((race) => link("questions", i, "raceIds", "races", race)));
@@ -98,6 +108,11 @@ export const datasetSchema = datasetObject.superRefine((data, ctx) => {
     const candidacy = data.candidacies.find((c) => c.id === p.candidacyId);
     if (!questionForRace(p, candidacy?.raceId)) fail(["positions", i, "questionId"], "Question/version must apply to candidacy race");
     if (p.label !== null && p.review.state !== "reviewed") fail(["positions", i, "label"], "Policy classifications require human review");
+  });
+  data.candidates.forEach((candidate, i) => {
+    if (candidate.birthDate && !candidate.birthDateSourceId) fail(["candidates", i, "birthDateSourceId"], "Birth dates require a source");
+    if (candidate.birthDateSourceId) link("candidates", i, "birthDateSourceId", "sources", candidate.birthDateSourceId);
+    if (candidate.portrait) link("candidates", i, "portrait", "sources", candidate.portrait.sourceId);
   });
   data.records.forEach((r, i) => link("records", i, "candidateId", "candidates", r.candidateId));
   data.freshness.forEach((r, i) => {

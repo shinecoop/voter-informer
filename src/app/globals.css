@@ -25,3 +25,33 @@ body {
 }
 .map-highlight-selected { fill: #dbdbdb; transform: none; }
 .us-map:has(.map-state:focus-visible) .map-highlight-focused { stroke: #888; }
+
+.candidate-page { height: 100dvh; overflow-y: auto; overflow-x: hidden; color: #242424; font-family: Arial, Helvetica, sans-serif; }
+.candidate-content { max-width: 1040px; margin-inline: auto; padding: 40px 24px 64px; }
+.candidate-back { color: #666; font-size: 13px; text-decoration: none; }
+.candidate-header { margin-block: 40px 28px; }
+.candidate-header p { color: #666; font-size: 13px; line-height: 1.7; }
+.candidate-header h1 { margin-block: 8px; font-size: 32px; font-weight: 500; letter-spacing: -1px; }
+.candidate-list { display: grid; gap: 12px; list-style: none; padding: 0; margin: 0; }
+.candidate-row { display: grid; grid-template-columns: 64px minmax(0, 1fr) minmax(160px, 0.7fr); align-items: center; gap: 24px; min-height: 108px; padding: 20px 24px; border: 1pt solid #dbdbdb; background: #fff; }
+.candidate-avatar { display: block; width: 64px; height: 64px; border: 0; border-radius: 50%; object-fit: cover; object-position: center 25%; }
+.candidate-avatar-missing { overflow: hidden; background: #f4f4f4; }
+.candidate-avatar-missing svg { width: 100%; height: 100%; fill: #dbdbdb; }
+.candidate-row h2 { font-size: 18px; font-weight: 700; line-height: 1.4; overflow-wrap: anywhere; }
+.candidate-identity { min-width: 0; }
+.candidate-website { display: inline-block; margin-top: 4px; padding-block: 3px; color: #626262; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; text-decoration: underline; text-underline-offset: 3px; }
+.candidate-website:hover { color: #242424; }
+.candidate-meta { display: flex; flex-direction: column; gap: 5px; font-size: 14px; line-height: 1.4; color: #626262; }
+.candidate-status { font-size: 12px; }
+.candidate-notes { margin-top: 28px; font-size: 12px; line-height: 1.8; color: #666; }
+.candidate-notes summary { margin-top: 12px; cursor: pointer; }
+.candidate-notes ul { padding-left: 18px; }
+.candidate-notes a { text-decoration: underline; text-underline-offset: 3px; }
+.candidate-page :focus-visible { outline: 2px solid #888; outline-offset: 4px; }
+@media (max-width: 540px) {
+  .candidate-content { padding: 24px 16px 40px; }
+  .candidate-row { grid-template-columns: 52px minmax(0, 1fr); gap: 6px 16px; padding: 16px; }
+  .candidate-avatar { width: 52px; height: 52px; grid-row: span 2; }
+  .candidate-row h2 { font-size: 16px; }
+  .candidate-meta { grid-column: 2; font-size: 12px; }
+}

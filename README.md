@@ -1,6 +1,6 @@
 # Voter Informer
 
-A centralized election research prototype. This change implements **Milestone A** in [the PRD](tasks/prd-voter-informer-foundation.md): application setup, validation, repository contracts, checks, and deployment preparation. The landing page now includes a lightweight interactive state map; verified election research and district/race navigation remain unavailable.
+A centralized election research prototype. This change implements **Milestone A** in [the PRD](tasks/prd-voter-informer-foundation.md): application setup, validation, repository contracts, checks, and deployment preparation. The landing page now includes a lightweight interactive state map; Colorado’s districts link to sourced 2026 general-election candidate lists. Policy research and candidate comparison remain unavailable.
 
 ## Local setup
 
@@ -50,3 +50,5 @@ The application requests research through `getRepository()`. Reads resolve to de
 No candidate claims, geometry, historical results, finance data, or polling data have been invented. Subsequent milestones must verify geography and ballot scope before populating research. No commit, remote CI run, or deployment is part of local setup.
 
 The landing map uses locally bundled state SVG paths with no new dependencies or runtime geography download. See [map provenance, license, and regeneration](docs/map-source.md).
+
+Colorado district links open `/2026/colorado/district1/candidates` through district 8. Each list includes the official printed-ballot candidates and labeled certified write-ins, ordered by first name, then surname. Ages use the election date, November 3, 2026. Nine local portraits and seven sourced birth dates are currently available; remaining details are explicitly unavailable. Candidate lists scroll within their page; the map remains locked to the viewport. Sources and credits are linked from each list and recorded in [SOURCES.md](docs/SOURCES.md).
