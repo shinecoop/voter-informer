@@ -1,7 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { states } from "./us-map-paths";
+
+const ColoradoDistricts = lazy(() => import("./colorado-districts"));
+const colorado = states.find((state) => state.id === "08")!;
 
 type Camera = { x: number; y: number; width: number; height: number };
 const overview = { x: -58, y: 13, width: 1016, height: 594 };
@@ -12,6 +15,8 @@ export function UsMap() {
   const [hovered, setHovered] = useState<string | null>(null);
   const [focused, setFocused] = useState<string | null>(null);
   const [selected, setSelected] = useState<string | null>(null);
+  const [settledState, setSettledState] = useState<string | null>(null);
+  const showDistricts = selected === "08" && settledState === "08";
   const active = states.find((state) => state.id === (hovered ?? focused ?? selected));
 
   useEffect(() => {
@@ -40,7 +45,7 @@ export function UsMap() {
         width,
         height,
       };
-      if (reducedMotion.matches) { paint(target); return; }
+      if (reducedMotion.matches) { paint(target); setSettledState(selected); return; }
       let previous = performance.now();
       const animate = (now: number) => {
         // Time-based exponential lerp stays consistent across refresh rates and
@@ -58,7 +63,7 @@ export function UsMap() {
           Math.abs(next.x - target.x), Math.abs(next.y - target.y),
           Math.abs(next.width - target.width), Math.abs(next.height - target.height),
         );
-        if (error < target.width * 0.0001) { paint(target); return; }
+        if (error < target.width * 0.0001) { paint(target); setSettledState(selected); return; }
         paint(next);
         frame = requestAnimationFrame(animate);
       };
@@ -74,6 +79,14 @@ export function UsMap() {
     };
   }, [selected]);
 
+  const reset = () => {
+    if (svgRef.current?.querySelector("[data-district-id]:focus")) {
+      svgRef.current.querySelector<SVGPathElement>('[data-state-id="08"]')?.focus();
+    }
+    setSettledState(null);
+    setSelected(null);
+  };
+
   return (
     <svg
       ref={svgRef}
@@ -83,14 +96,14 @@ export function UsMap() {
       aria-labelledby="map-title"
       aria-describedby="map-description"
       onClick={(event) => {
-        if (event.target === event.currentTarget) setSelected(null);
+        if (event.target === event.currentTarget) reset();
       }}
       onKeyDown={(event) => {
-        if (event.key === "Escape") { event.preventDefault(); setSelected(null); }
+        if (event.key === "Escape") { event.preventDefault(); reset(); }
       }}
     >
       <title id="map-title">United States map</title>
-      <desc id="map-description">Select a state to zoom in. Press Escape or click the background to return. Research coverage is not yet available.</desc>
+      <desc id="map-description">{showDistricts ? "Colorado congressional districts. Hover or focus a district to highlight it." : "Select a state to zoom in."} Press Escape or click the background to return. Research coverage is not yet available.</desc>
       {states.map((state) => (
         <path
           key={state.id}
@@ -99,24 +112,25 @@ export function UsMap() {
           className="map-state"
           vectorEffect="non-scaling-stroke"
           role="button"
-          tabIndex={0}
+          tabIndex={showDistricts ? -1 : 0}
           aria-label={state.name}
           aria-pressed={selected === state.id}
           onPointerEnter={() => setHovered(state.id)}
           onPointerLeave={() => setHovered(null)}
           onFocus={() => { setHovered(null); setFocused(state.id); }}
           onBlur={() => setFocused(null)}
-          onClick={() => { setHovered(null); setSelected(state.id); }}
+          onClick={() => { setHovered(null); if (selected !== state.id) setSettledState(null); setSelected(state.id); }}
           onKeyDown={(event) => {
             if (event.key === "Enter" || event.key === " ") {
               event.preventDefault();
               setHovered(null);
+              if (selected !== state.id) setSettledState(null);
               setSelected(state.id);
             }
           }}
         />
       ))}
-      {active && (
+      {active && !(showDistricts && active.id === "08") && (
         <path
           key={active.id}
           d={active.d}
@@ -124,6 +138,11 @@ export function UsMap() {
           vectorEffect="non-scaling-stroke"
           aria-hidden="true"
         />
+      )}
+      {showDistricts && (
+        <Suspense fallback={null}>
+          <ColoradoDistricts outline={colorado.d} />
+        </Suspense>
       )}
     </svg>
   );

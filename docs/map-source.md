@@ -29,3 +29,19 @@ INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
 LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
+
+## Colorado congressional districts
+
+After Colorado's camera finishes zooming, the page lazy-loads eight district paths from the **U.S. Census Bureau TIGERweb Legislative service, layer 0: 120th Congressional Districts**, January 1, 2026 vintage. Checked and retrieved 2026-10-24. [Layer metadata](https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Legislative/MapServer/0) identifies the Census Bureau as the source. The Census [120th Congress documentation](https://www.census.gov/programs-surveys/decennial-census/about/rdo/congressional-districts.120th_Congress.html) identifies these as the boundaries for the 2026 election cycle and reports no Colorado boundary change from 2024. The eight returned GEOIDs are 0801–0808, all with CDSESSN 120 and STATE 08.
+
+The geographic-data request is read-only:
+
+```text
+https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Legislative/MapServer/0/query?where=STATE%3D%2708%27&outFields=GEOID,STATE,CD120,CDSESSN,NAME&returnGeometry=true&outSR=4326&geometryPrecision=5&maxAllowableOffset=0.001&f=geojson
+```
+
+Save that GeoJSON locally, then run `python3 scripts/generate-colorado-districts.py /path/to/colorado-cd120.geojson`. The standard-library-only generator validates the eight district IDs, state, Congress, polygon types, and coordinate extent; records the input SHA-256; and reproduces the lower-48 Albers projection used by the national SVG. Coordinates are rounded to three projected decimals. Server-side generalization is 0.001 geographic degrees, so these are simplified display boundaries, not survey-grade or address/ballot lookup geometry.
+
+The base district layer is clipped to the existing illustrative state outline to avoid seams with the 2017 national map; it does not replace that national boundary dataset. District highlights expand 5% above neighboring shapes, use stable original hit targets, and support keyboard focus/selection. They do not trigger a second camera zoom. Escape returns to the national map and restores focus to Colorado when a district was focused. No visible text, new dependencies, external runtime geographic service, candidate research, or county-overlap claim is introduced. Other states retain the existing behavior.
+
+Attribution: U.S. Census Bureau, TIGERweb. Census-produced geographic data are available for public use; see the Bureau's [TIGER/Line technical documentation](https://www2.census.gov/geo/pdfs/maps-data/data/tiger/tgrshp2024/TGRSHP2024_TechDoc.pdf). Recheck boundary vintage before using the display for a future election cycle.

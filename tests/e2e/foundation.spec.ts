@@ -8,7 +8,7 @@ test("shows only the map and smoothly frames a selected state without scrolling"
   await expect(map.getByRole("button")).toHaveCount(51);
   expect(await page.locator("body").innerText()).toBe("");
   await expect(page.locator("body")).toHaveCSS("background-color", "rgb(255, 255, 255)");
-  const colorado = map.getByRole("button", { name: "Colorado", exact: true });
+  const colorado = map.locator('[data-state-id="08"]');
   await expect(colorado).toHaveCSS("fill", "rgb(219, 219, 219)");
   await expect(colorado).toHaveCSS("stroke", "rgb(255, 255, 255)");
 

@@ -26,3 +26,10 @@ The landing page now uses a white, fixed-viewport layout with locally bundled gr
 Visible page text, header, footer, and captions were removed. State fills are now `#dbdbdb`. Selection smoothly lerps the SVG viewBox until the selected bounds are centered within 75% of the viewport's available width/height, preserving aspect ratio. Escape or blank-background click resets the view; resize reframes the selection and reduced motion skips interpolation.
 
 The full check suite passes (typecheck, lint, data validation, 19 tests, production build). Chromium verifies no visible body text, 51 accessible state controls, the light gray fill, successive camera animation frames, centered framing with screen-pixel border tolerance, keyboard/reset behavior, responsive fitting, and zero page scrolling. Screenshots: `test-results/landing-desktop.png` and `test-results/landing-zoom.png`; both visually inspected. No new dependencies or external publication.
+
+
+## Colorado congressional district layer — 2026-10-24
+
+Prepared and tested in an isolated temporary copy because the original vi-setup worktree was removed. After the owner approved the new location, the patch was applied to `/Users/coopshine/Projects/voter-informer` on 2026-10-24. The full check suite and both Chromium tests passed again in that checkout. No dependencies, commits, or remote services were changed.
+
+`npm run check` passed: strict typecheck, zero-warning lint, research validation, 19 unit/repository tests, and production build. Both Chromium tests passed, covering the original camera flow plus delayed district reveal, eight accessible district paths, white borders, measured 5% hover enlargement, keyboard highlight/selection without camera movement, Escape focus restoration, reduced motion, and other-state exclusion. `test-results/colorado-districts.png` was visually inspected. District geometry comes from the Census CD120 service (January 1, 2026 vintage); see `map-source.md` for its source query, SHA-256, projection, attribution and display limitations. No district/race research content is claimed.
