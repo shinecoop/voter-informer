@@ -1,6 +1,6 @@
 # Voter Informer
 
-A centralized election research prototype. This change implements **Milestone A** in [the PRD](tasks/prd-voter-informer-foundation.md): application setup, validation, repository contracts, checks, and deployment preparation. It does not contain verified election research or an interactive atlas.
+A centralized election research prototype. This change implements **Milestone A** in [the PRD](tasks/prd-voter-informer-foundation.md): application setup, validation, repository contracts, checks, and deployment preparation. The landing page now includes a lightweight interactive state map; verified election research and district/race navigation remain unavailable.
 
 ## Local setup
 
@@ -26,7 +26,7 @@ Open http://127.0.0.1:3000. Development and production servers bind to loopback.
 | `npm run check` | Typecheck, lint, data validation, unit tests, build |
 | `npm run test:e2e` | Chromium smoke test against production build |
 
-For browser tests, run `npx --no-install playwright install chromium` once, then `npm run build && npm run test:e2e`. Linux may also need Playwright system dependencies (`--with-deps`, subject to local installation approval). The smoke test owns its loopback server on port 3100 and checks page content, keyboard skip navigation, styling, browser errors, and narrow-screen containment. Screenshot: `test-results/foundation-desktop.png`. Generated artifacts are ignored. CI runs all checks plus Chromium tests on pushes and pull requests; no deployment job is configured.
+For browser tests, run `npx --no-install playwright install chromium` once, then `npm run build && npm run test:e2e`. Linux may also need Playwright system dependencies (`--with-deps`, subject to local installation approval). The smoke test owns its loopback server on port 3100 and checks the text-free SVG, state color, centered 75% camera framing, keyboard selection/reset, reduced motion, responsive refitting, browser errors, and disabled scrolling. Screenshot: `test-results/landing-desktop.png`. Generated artifacts are ignored. CI runs all checks plus Chromium tests on pushes and pull requests; no deployment job is configured.
 
 ## Verified toolchain
 
@@ -48,3 +48,5 @@ Development and production builds explicitly use Next.js’s supported Webpack o
 The application requests research through `getRepository()`. Reads resolve to detached arrays, missing records to `null`, and load/validation failures reject with `RepositoryError`. Await reads in server components; Next handles rendering/loading failures, while future interactive views should provide their own loading and error UI. A repository instance holds one validated snapshot until process restart/rebuild; file edits are not a live CMS. Question IDs are versioned: `get("questions", id, version)` requires an exact version. Other collections use `get(collection, id)`.
 
 No candidate claims, geometry, historical results, finance data, or polling data have been invented. Subsequent milestones must verify geography and ballot scope before populating research. No commit, remote CI run, or deployment is part of local setup.
+
+The landing map uses locally bundled state SVG paths with no new dependencies or runtime geography download. See [map provenance, license, and regeneration](docs/map-source.md).

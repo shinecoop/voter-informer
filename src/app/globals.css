@@ -1,11 +1,27 @@
 @import "tailwindcss";
 
-@theme {
-  --color-paper: #f6f4ee;
-  --color-ink: #202d32;
-  --color-accent: #225c50;
-  --font-sans: Arial, Helvetica, sans-serif;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: #fff;
 }
 
-body { background: var(--color-paper); color: var(--color-ink); }
-a:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 5px; }
+.landing { width: 100%; height: 100dvh; }
+.us-map { display: block; width: 100%; height: 100%; }
+.map-state { fill: #dbdbdb; stroke: #fff; stroke-width: 1; stroke-linejoin: round; cursor: pointer; outline: none; }
+.map-highlight {
+  fill: #d0d0d0;
+  stroke: #fff;
+  stroke-width: 1;
+  stroke-linejoin: round;
+  pointer-events: none;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(1.05);
+}
+.map-highlight-selected { fill: #dbdbdb; transform: none; }
+.us-map:has(.map-state:focus-visible) .map-highlight-focused { stroke: #888; }
