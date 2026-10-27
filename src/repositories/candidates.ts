@@ -17,6 +17,7 @@ export async function getDistrictCandidateList(repository: ResearchRepository, y
     if (!person) throw new RepositoryError("Candidate identity is unavailable");
     return {
       ...person,
+      candidacyId: entry.id,
       party: entry.party,
             campaignWebsite: entry.campaignWebsite,
       status: entry.status,

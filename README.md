@@ -1,6 +1,6 @@
 # Voter Informer
 
-A centralized election research prototype. This change implements **Milestone A** in [the PRD](tasks/prd-voter-informer-foundation.md): application setup, validation, repository contracts, checks, and deployment preparation. The landing page now includes a lightweight interactive state map; Colorado’s districts link to sourced 2026 general-election candidate lists. Policy research and candidate comparison remain unavailable.
+A centralized election research prototype. This change implements **Milestone A** in [the PRD](tasks/prd-voter-informer-foundation.md): application setup, validation, repository contracts, checks, and deployment preparation. The landing page now includes a lightweight interactive state map; Colorado’s districts link to sourced 2026 general-election candidate lists. Dedicated candidate platform pages now support evidence-backed, human-approved research. Jason Crow has ten populated issue drafts awaiting human approval; public pages honestly show pending review until approval. Candidate comparison remains unavailable.
 
 ## Local setup
 
@@ -40,7 +40,9 @@ Development and production builds explicitly use Next.js’s supported Webpack o
 - `src/domain/schema.ts`: runtime Zod schemas, inferred types, relationship and publication gates.
 - `src/repositories/types.ts`: asynchronous storage-independent read contract.
 - `src/repositories/file.ts`: validated file snapshot adapter; replace this behind `getRepository()` to migrate storage.
-- `data/research.json`: intentionally empty public research collections.
+- `data/research.json`: sourced identity/ballot records and candidacy-bound research; public editorial reads exclude drafts.
+- `src/app/platforms/[candidacyId]/page.tsx`: shareable U.S. House platform pages.
+- `docs/candidate-platforms.md`: issue taxonomy, approval procedure, and Jason Crow evidence-audit ledger.
 - `tests/fixtures`: clearly synthetic records, never imported by the application.
 - `docs/data.md`: data editing and publication rules.
 - `docs/deployment.md`: Vercel settings, current free-plan verification, and pending deployment steps.

@@ -29,7 +29,10 @@ test("all eight candidate routes show the official roster and first-name orderin
             await website.focus();
             await expect(website).toBeFocused();
             const gaylon = list.locator(".candidate-row").filter({ has: page.getByRole("heading", { name: "Kent, Gaylon", exact: true }) });
-            await expect(gaylon.getByRole("link")).toHaveCount(0);
+            await expect(gaylon.getByRole("link")).toHaveCount(2);
+            const platformUrl = `/platforms/${await gaylon.getAttribute("id")}`;
+            await expect(gaylon.getByRole("link", { name: "Kent, Gaylon", exact: true })).toHaveAttribute("href", platformUrl);
+            await expect(gaylon.getByRole("link", { name: "View platform", exact: true })).toHaveAttribute("href", platformUrl);
       await expect(list.getByText("Age unavailable", { exact: true })).toHaveCount(2);
       await page.screenshot({ path: "test-results/candidates-desktop.png" });
     }
