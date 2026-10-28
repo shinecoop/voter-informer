@@ -49,9 +49,13 @@ test("district click and keyboard activation navigate to the matching candidate 
   await districts.getByRole("button", { name: "Colorado congressional district 4", exact: true }).click();
   await expect(page).toHaveURL(/\/2026\/colorado\/district4\/candidates$/);
   await expect(page.getByRole("heading", { name: "Boebert, Lauren", exact: true })).toBeVisible();
-  await page.getByRole("link", { name: "Back to map" }).click();
-  await page.getByRole("button", { name: "Colorado", exact: true }).focus();
+  await page.getByRole("navigation", { name: "Main navigation" }).getByRole("link", { name: "Map", exact: true }).click();
+  await expect(page).toHaveURL("/");
+  const colorado = page.getByRole("button", { name: "Colorado", exact: true });
+  await colorado.focus();
+  await expect(colorado).toBeFocused();
   await page.keyboard.press("Enter");
+  await expect(colorado).toHaveAttribute("aria-pressed", "true");
   const second = districts.getByRole("button", { name: "Colorado congressional district 2", exact: true });
   await second.focus();
   await page.keyboard.press("Space");

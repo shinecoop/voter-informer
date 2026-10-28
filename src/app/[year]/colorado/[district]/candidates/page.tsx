@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { RaceBrowser } from "../../../../../components/race-browser";
+import { getNavigationCoverage } from "../../../../../repositories/navigation";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PlatformNavigation } from "../../../../../components/platform-navigation";
@@ -18,11 +20,12 @@ export default async function Candidates({ params }: { params: Promise<{ year: s
   if (!result) notFound();
   return (
     <main className="candidate-page">
+      <RaceBrowser coverage={await getNavigationCoverage(getRepository())} />
       <PlatformNavigation />
-      <div className="candidate-content">
-        <Link href="/" className="candidate-back">← Back to map</Link>
+      <div className="candidate-content" id="race-page-content" tabIndex={-1}>
+
         <header className="candidate-header">
-          <p>{year} / Colorado / District {result.districtNumber}</p>
+
           <h1>Candidates</h1>
           <p>U.S. House · General election · November 3, {year}</p>
         </header>

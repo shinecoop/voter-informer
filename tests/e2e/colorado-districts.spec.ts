@@ -33,7 +33,7 @@ test("reveals Colorado districts after zoom and highlights them without changing
   await second.focus();
   await expect(highlight).toHaveCSS("transform", "matrix(1.05, 0, 0, 1.05, 0, 0)");
   expect(await map.getAttribute("viewBox")).toBe(camera);
-  expect(await page.locator("body").innerText()).toBe("");
+  await expect(page.getByRole("button", { name: "Browse races" })).toBeVisible();
 
   await page.keyboard.press("Escape");
   await expect(districts).toHaveCount(0);
