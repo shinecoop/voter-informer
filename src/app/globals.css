@@ -197,7 +197,7 @@ body {
 .platform-preview-minimal .platform-draft-notice { display: flex; align-items: baseline; justify-content: space-between; gap: 8px 20px; flex-wrap: wrap; margin-top: 12px; color: var(--preview-muted); font-size: 14px; }
 .platform-preview-minimal .platform-draft-notice h2 { font-size: inherit; font-weight: 500; line-height: 1.5; }
 .platform-preview-minimal .platform-draft-notice a { padding-block: 6px; }
-.platform-preview-minimal .platform-research-notes { margin-top: 32px; padding: 24px; background: var(--preview-tint); }
+.platform-preview-minimal .platform-research-notes { overflow-wrap: anywhere; margin-top: 32px; padding: 24px; background: var(--preview-tint); }
 .platform-preview-minimal .platform-research-notes h2 { margin-bottom: 12px; font-size: 20px; font-weight: 500; letter-spacing: -0.025em; }
 .platform-research-columns { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 24px; }
 .platform-preview-minimal .platform-research-notes p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--preview-muted); }

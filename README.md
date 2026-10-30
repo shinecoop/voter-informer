@@ -1,6 +1,6 @@
 # Voter Informer
 
-A centralized election research prototype. This change implements **Milestone A** in [the PRD](tasks/prd-voter-informer-foundation.md): application setup, validation, repository contracts, checks, and deployment preparation. The landing page now includes a lightweight interactive state map; Colorado’s districts link to sourced 2026 general-election candidate lists. Dedicated candidate platform pages now support evidence-backed, human-approved research. Jason Crow has ten populated issue drafts awaiting human approval; public pages honestly show pending review until approval. Candidate comparison remains unavailable.
+A centralized election research prototype. This change implements **Milestone A** in [the PRD](tasks/prd-voter-informer-foundation.md): application setup, validation, repository contracts, checks, and deployment preparation. The landing page now includes a lightweight interactive state map; Colorado’s districts link to sourced 2026 general-election candidate lists. Dedicated candidate platform pages now support evidence-backed, human-approved research. All 38 listed candidates now use the Crow platform reader for the user-testing MVP, with candidate-specific source-linked research, dated coverage notes, and explicit research gaps. Automated evidence review does not confer human approval. Candidate comparison remains unavailable.
 
 ## Local setup
 
@@ -40,7 +40,7 @@ Development and production builds explicitly use Next.js’s supported Webpack o
 - `src/domain/schema.ts`: runtime Zod schemas, inferred types, relationship and publication gates.
 - `src/repositories/types.ts`: asynchronous storage-independent read contract.
 - `src/repositories/file.ts`: validated file snapshot adapter; replace this behind `getRepository()` to migrate storage.
-- `data/research.json`: sourced identity/ballot records and candidacy-bound research; public editorial reads exclude drafts.
+- `data/research.json`: sourced identity/ballot records and candidacy-bound research; standard public editorial reads exclude drafts, with an explicit user-testing platform route for the researched roster.
 - `src/app/platforms/[candidacyId]/page.tsx`: shareable U.S. House platform pages.
 - `docs/candidate-platforms.md`: issue taxonomy, approval procedure, and Jason Crow evidence-audit ledger.
 - `tests/fixtures`: clearly synthetic records, never imported by the application.
@@ -53,4 +53,4 @@ No candidate claims, geometry, historical results, finance data, or polling data
 
 The landing map uses locally bundled state SVG paths with no new dependencies or runtime geography download. See [map provenance, license, and regeneration](docs/map-source.md).
 
-Colorado district links open `/2026/colorado/district1/candidates` through district 8. Each list includes the official printed-ballot candidates and labeled certified write-ins, ordered by first name, then surname. Ages use the election date, November 3, 2026. Nine local portraits and seven sourced birth dates are currently available; remaining details are explicitly unavailable. Candidate lists scroll within their page; the map remains locked to the viewport. Sources and credits are linked from each list and recorded in [SOURCES.md](docs/SOURCES.md).
+Colorado district links open `/2026/colorado/district1/candidates` through district 8. Each list includes the official printed-ballot candidates and labeled certified write-ins, ordered by first name, then surname. Ages use the election date, November 3, 2026. Twenty-six selected portraits and seven sourced birth dates are currently available. Twelve profiles use the default avatar: nine photos were withheld for presentation quality and three remain unavailable. See [the photo review](docs/portrait-quality-review.md). See [the completeness audit](docs/platform-completeness-audit.md). Candidate lists scroll within their page; the map remains locked to the viewport. Sources and credits are linked from each list and recorded in [SOURCES.md](docs/SOURCES.md).

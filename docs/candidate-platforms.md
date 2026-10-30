@@ -6,11 +6,23 @@ Every listed U.S. House candidacy has `/platforms/<candidacyId>`, including `/pl
 
 The initial common issue taxonomy is economy, housing, health care, education, climate and energy, immigration, gun policy, democracy, veterans, and foreign policy. This is a deliberately limited taxonomy, not a complete inventory of a candidate's views. For example, the single health-care draft is not comprehensive reproductive-health coverage. No positions are inferred for other issues or candidates.
 
+## Roster-wide user-testing MVP — October 30, 2026
+
+All 38 listed candidates now use the identical shared reader as Crow, including the compact topic/summary rows, portrait when available, source links in new tabs, and research notes. Research coverage is recorded in `platformResearch`; every candidate has an inspected-source scope, date, limitations, and source references. Missing positions are bounded to the named sources and are not inferred from party affiliation. See [the roster evidence ledger](platform-roster-evidence-audit.md).
+
+`getCandidatePlatformForUserTesting` now supports all valid House candidacies. The standard approved-only repository and schema approval requirements remain intact. Research data stays draft with no invented reviewer or approval, even after automated evidence and code review. A separate development-only preview route remains available. This expands the owner-authorized user-testing MVP from Crow to the full roster.
+
+## Initial Crow user-testing MVP — October 30, 2026
+
+At the project owner’s explicit direction, `/platforms/jason-crow-2026` now serves the current preview’s design, ten draft summaries, source-heading links, portrait, and research notes in production. This is a narrow exception for user testing, not an attestation of human research review. The page identifies itself as an unreviewed MVP. Approval and review metadata remain unchanged.
+
+Initially, `getCandidatePlatformForUserTesting` allowed only `jason-crow-2026`; the roster-wide extension above supersedes that restriction. The development preview remains available at its existing URL and still returns 404 in production. The historical approval procedure and research audit below remain applicable when transitioning out of user testing.
+
 ## Local draft preview
 
-Run `npm run dev` and open <http://127.0.0.1:3000/preview/platforms/jason-crow-2026>, or use **Preview draft platform** on Crow's normal page in development. This uses the same platform layout with all ten drafted proposals, issue navigation, excerpts, and source details. A prominent banner and per-issue labels identify unapproved drafts; missing approval dates are never fabricated.
+Run `npm run dev` and open <http://127.0.0.1:3000/preview/platforms/jason-crow-2026>. This uses the same compact platform layout with all ten drafted proposals, inline source links, and research notes. A status notice and shared research notes identify unapproved drafts; missing approval dates are never fabricated.
 
-The preview selects the highest editorial version per issue, including drafts, through a separate development-only read path. Both the route and repository return no preview outside `NODE_ENV=development`; production requests return 404. It is noindex/nofollow, not an authenticated CMS. Keep development bound to loopback; do not expose it to a public network. No research data or approval metadata is modified. Public pages continue to exclude drafts even in development.
+The preview selects the highest editorial version per issue, including drafts, through a separate development-only read path. Both the route and repository return no preview outside `NODE_ENV=development`; production requests return 404. It is noindex/nofollow, not an authenticated CMS. Keep development bound to loopback; do not expose it to a public network. No research data or approval metadata is modified. The standard repository continues to exclude drafts; the roster-wide user-testing route is the explicit exception described above.
 
 Run `npm run test:preview` for the Chromium development-preview checks; this reuses a running loopback development server on port 3000, or starts and stops one if none is running. Production browser checks separately verify the preview is unavailable.
 
@@ -75,9 +87,11 @@ Audit workflow: `edit-evidence` (the available evidence-review skill), including
 - **MAJOR if represented as confirmed current policy:** current 2026 applicability remains **UNVERIFIED** for every statement. Obtain dated reaffirmation or a human decision grounded in current evidence before publishing as current election research. No “latest statement” claim is made.
 - **MINOR, corrected:** H's metadata title was adjusted to the retrieved HTML title, `Issues | Representative Jason Crow`.
 - Campaign navigation provenance was observed in the initial retrieval; the independent two-source audit did not separately retest that route. Publisher attribution is independently supported by the campaign footer.
-- The ten populated revisions remain `publication: "draft"`, with null reviewer/review date and `approval: null`. Automated review supplies no human attestation. Consequently Crow's public page correctly remains review-pending and does not reveal draft summaries or quotes.
+- The ten populated revisions remain `publication: "draft"`, with null reviewer/review date and `approval: null`. Automated review supplies no human attestation. Crow’s records remain unapproved. As of October 30, the explicit user-testing exception above exposes them without claiming approval.
 - This is partial research within ten categories, not complete issue coverage. Linked detail pages, dated reaffirmations, historical versions, legislative records, and outcome evidence were outside this audit. No guarantee of correctness or publication readiness is implied.
 
 ## Verification
 
-Schema/repository tests exercise evidence resolution, candidacy association, explicit approval, draft exclusion, scope/status consistency, and prior approved-version retention. Chromium tests exercise public pending content, issue links, mobile/keyboard operation, nested-list return navigation, invalid routes, and the actual page rendered against a separate synthetic approved snapshot (including no-position and draft-revision states). Synthetic approvals are test-only and never applied to Crow or production data. The unavailable `dev-browser` skill was replaced by the project's existing Playwright browser workflow.
+Schema/repository tests exercise evidence resolution, candidacy association, explicit approval, draft exclusion, scope/status consistency, and prior approved-version retention. Chromium tests exercise the production Crow MVP, other candidates’ pending content, issue deep links, mobile/keyboard operation, nested-list return navigation, invalid routes, and the actual page rendered against a separate synthetic approved snapshot (including no-position and draft-revision states). Synthetic approvals are test-only and never applied to Crow or production data. The unavailable `dev-browser` skill was replaced by the project's existing Playwright browser workflow.
+
+The [completeness follow-up](platform-completeness-audit.md) records all 380 issue checks, 208 issue findings containing 209 source-linked summaries, and initially 35 sourced portraits. The subsequent [presentation review](portrait-quality-review.md) retains 26 photos and uses the default silhouette for twelve candidates. A checked gap is distinct from “no position”; unsupported or ambiguously attributed material remains unimported. All ten Crow excerpts were rechecked and retained.

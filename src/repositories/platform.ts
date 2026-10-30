@@ -10,6 +10,7 @@ export interface CandidatePlatform {
   geography: Entity<"geographies">;
   issues: { id: PlatformIssueId; label: string; record: Entity<"platformIssues"> | null }[];
   sources: Entity<"sources">[];
+  research?: Entity<"platformResearch">;
 }
 
 /** Every taxonomy issue is returned, in taxonomy order. Unresearched issues have a null record. */

@@ -1,6 +1,6 @@
 # Sources
 
-Updated: 2026-10-24. Election research is limited to congressional races for now. Add or update an entry whenever an external source informs site content; note what it supports.
+Updated: 2026-10-30. Election research is limited to congressional races for now. Add or update an entry whenever an external source informs site content; note what it supports.
 
 ## Used on the site
 
@@ -31,3 +31,9 @@ Geometry queries, generation details, limitations, and attribution are in [map-s
 
 - [Next.js installation](https://nextjs.org/docs/app/getting-started/installation) and [Tailwind PostCSS setup](https://tailwindcss.com/docs/installation/using-postcss) — Framework and styling setup guidance.
 - [Vercel Hobby plan](https://vercel.com/docs/plans/hobby) and [platform limits](https://vercel.com/docs/limits) — Hosting eligibility and quota information in deployment documentation; recheck before deployment.
+
+## Portrait and platform follow-up
+
+[The completeness audit](platform-completeness-audit.md) lists the 26 added portraits and their credits/source pages, the nine retained photographs, and the three unresolved portraits (Kevin StClair, Susan Hall, and Dan Sallis). `data/research.json` records original image URLs in each portrait source locator; `data/portrait-research.json` records checked outcomes and local hashes. New campaign/publisher images are credited to their supplying source without inventing a Creative Commons license. Witta’s media kit explicitly provides its images for editorial/news purposes. Photographs are cropped/resized for identification; original files and page snapshots are retained in the ignored Firecrawl research folder.
+
+The later [photo presentation review](portrait-quality-review.md) withholds nine unsuitable images while preserving their provenance in the research archive. Twenty-six photos remain displayed and twelve candidates use the default silhouette. Source availability does not by itself qualify a photograph for display.

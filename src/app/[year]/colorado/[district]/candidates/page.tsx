@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PlatformNavigation } from "../../../../../components/platform-navigation";
+import { DefaultAvatar } from "../../../../../components/default-avatar";
 import { COLORADO_ELECTION_YEAR } from "../../../../../domain/elections";
 import { getDistrictCandidateList, getRepository } from "../../../../../repositories";
 
@@ -32,9 +33,7 @@ export default async function Candidates({ params }: { params: Promise<{ year: s
               {candidate.portrait ? (
                 <Image className="candidate-avatar" src={candidate.portrait.src} width={64} height={64} unoptimized alt={`Portrait of ${candidate.givenName} ${candidate.familyName}`} />
               ) : (
-                <span className="candidate-avatar candidate-avatar-missing" role="img" aria-label={`Photo unavailable for ${candidate.givenName} ${candidate.familyName}`}>
-                  <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="24" r="11" /><path d="M11 62v-9a21 21 0 0 1 42 0v9Z" /></svg>
-                </span>
+                <DefaultAvatar className="candidate-avatar" name={`${candidate.givenName} ${candidate.familyName}`} />
               )}
               <div className="candidate-identity">
                               <h2><Link className="candidate-name" href={`/platforms/${candidate.candidacyId}`}>{candidate.familyName}, {candidate.givenName}</Link></h2>
@@ -62,7 +61,7 @@ export default async function Candidates({ params }: { params: Promise<{ year: s
             <summary>Sources &amp; photo credits</summary>
             <ul>{result.sources.map((source) => <li key={source.id}><a href={source.url}>{source.title}</a><span> · Retrieved {source.retrievedAt}</span></li>)}</ul>
             <ul>{result.candidates.map((candidate) => candidate.portrait && (
-              <li key={candidate.id}>{candidate.givenName} {candidate.familyName}: {candidate.portrait.credit}. Original file unchanged; circular display crop.
+              <li key={candidate.id}>{candidate.givenName} {candidate.familyName}: {candidate.portrait.credit}. Cropped for display.
                 {candidate.portrait.licenseUrl && <> <a href={candidate.portrait.licenseUrl}>Image license</a>.</>}
               </li>
             ))}</ul>

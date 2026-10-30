@@ -4,6 +4,12 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { promisify } from "node:util";
 import { expect, test } from "@playwright/test";
+import { readFileSync } from "node:fs";
+const roster = JSON.parse(readFileSync(new URL("../../data/research.json", import.meta.url), "utf8")) as {
+  candidacies: { id: string; candidateId: string }[];
+  candidates: { id: string; portrait?: { sourceId: string } | null }[];
+  sources: { id: string; url: string }[];
+};
 import { platformIssueFixture, platformResearchFixture, researchFixture } from "../fixtures/research";
 
 const crowPath = "/platforms/jason-crow-2026";
@@ -37,7 +43,10 @@ async function isolatedPlatform() {
         try { await Platform({ params: Promise.resolve({ candidacyId }) }); throw new Error('Expected 404'); }
         catch (error) { if (error.digest !== 'NEXT_HTTP_ERROR_FALLBACK;404') throw error; }
       }
-      console.log(renderToStaticMarkup(await Platform({ params: Promise.resolve({ candidacyId: 'candidacy' }) })));
+      const { PlatformPage } = await import(pathToFileURL(${JSON.stringify(resolve("src/components/platform-page.tsx"))}).href);
+      const { getCandidatePlatform } = await import(pathToFileURL(${JSON.stringify(resolve("src/repositories/platform.ts"))}).href);
+      const { getRepository } = await import(pathToFileURL(${JSON.stringify(resolve("src/repositories/index.ts"))}).href);
+      console.log(renderToStaticMarkup(await PlatformPage({ platform: await getCandidatePlatform(getRepository(), 'candidacy') })));
     `;
     const { stdout } = await promisify(execFile)(process.execPath, ["--import", "tsx", "--input-type=module", "-e", script], { cwd: process.cwd(), maxBuffer: 1024 * 1024, timeout: 30_000 });
     const css = (await readFile(resolve("src/app/globals.css"), "utf8")).replace('@import "tailwindcss";', "");
@@ -47,22 +56,33 @@ async function isolatedPlatform() {
   }
 }
 
-test("Crow direct route honestly shows pending review and issue navigation", async ({ page }) => {
+test("Crow public route serves the user-testing MVP with all ten unreviewed summaries", async ({ page }) => {
   expect((await page.goto(crowPath))?.status()).toBe(200);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Jason Crow");
-  await expect(page.getByText("U.S. House · Colorado congressional district 6 · Democratic Party", { exact: true })).toBeVisible();
-  await expect(page.getByText("General election · 2026-11-03", { exact: true })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Platform review pending", exact: true })).toBeVisible();
-  await expect(page.getByText("Not yet reviewed", { exact: true })).toHaveCount(10);
-  await expect(page.getByText("No stated position found in sources reviewed", { exact: true })).toHaveCount(0);
-  const veterans = page.getByRole("navigation", { name: "Platform issues" }).getByRole("link", { name: "Veterans", exact: true });
-  await veterans.focus();
-  await expect(veterans).toBeFocused();
-  await page.keyboard.press("Enter");
-  await expect(page).toHaveURL(`${crowPath}#veterans`);
-  await expect(page.locator("#veterans")).toBeInViewport();
-    await expect.poll(() => page.getByRole("main").evaluate((element) => element.scrollTop)).toBeGreaterThan(0);
-  await expect(page.locator("#veterans")).toBeFocused();
+  await expect(page.getByRole("heading", { name: "User-testing MVP — not reviewed", exact: true })).toBeVisible();
+  await expect(page.locator(".platform-statement")).toHaveCount(10);
+  await expect(page.getByRole("navigation", { name: "Platform issues" })).toHaveCount(0);
+  await expect(page.getByText("Reviewed: position found", { exact: true })).toHaveCount(0);
+  const notes = page.getByRole("region", { name: "Research notes" });
+  await expect(notes).toContainText("have not received human review or approval");
+  await expect(notes).toContainText("Reviewed: Pending · Approved: Not approved");
+  for (const width of [1440, 768, 390]) {
+    await page.setViewportSize({ width, height: 900 });
+    await expect(page.getByRole("main")).toHaveClass(/platform-preview-minimal/);
+    expect(await page.getByRole("main").evaluate(element => element.scrollWidth <= element.clientWidth)).toBe(true);
+    await page.screenshot({ path: `test-results/crow-public-mvp-${width}.png` });
+  }
+  for (const link of await page.locator(".platform-claim").all()) {
+    await expect(link).toHaveAttribute("href", /#:~:text=/);
+    await expect(link).toHaveAttribute("target", "_blank");
+  }
+});
+
+test("other candidates use the same reader and disclose their research scope", async ({ page }) => {
+  await page.goto("/platforms/brittany-pettersen-2026");
+  await expect(page.getByRole("main")).toHaveClass(/platform-preview-minimal/);
+  await expect(page.getByRole("region", { name: "Research notes" })).toContainText("Research scope:");
+  expect(await page.locator(".platform-proposal").count()).toBeGreaterThan(0);
 });
 
 test("candidate name and View platform navigate, and explicit and browser back restore the nested list", async ({ page }) => {
@@ -90,8 +110,7 @@ test("mobile direct hash, issue anchors and return link work without horizontal 
   await page.setViewportSize({ width: 390, height: 700 });
   await page.goto(`${listPath}#jason-crow-2026`);
   await expect(page.locator("#jason-crow-2026")).toBeInViewport();
-  await page.goto(crowPath);
-  await page.getByRole("navigation", { name: "Platform issues" }).getByRole("link", { name: "Foreign policy", exact: true }).click();
+  await page.goto(`${crowPath}#foreign-policy`);
   await expect(page).toHaveURL(`${crowPath}#foreign-policy`);
   await expect(page.locator("#foreign-policy")).toBeInViewport();
   expect(await page.getByRole("main").evaluate((element) => element.scrollWidth <= element.clientWidth)).toBe(true);
@@ -131,4 +150,47 @@ test("isolated approved rendering shows evidence, honest no-position findings, a
   await expect(page.getByRole("heading", { name: "Platform review pending", exact: true })).toHaveCount(0);
   expect(await page.content()).not.toContain("PRIVATE DRAFT");
   expect(await page.getByRole("main").evaluate((element) => element.scrollWidth <= element.clientWidth)).toBe(true);
+});
+
+
+test("every roster platform uses Crow's design with sourced findings and responsive research notes", async ({ page }) => {
+  for (const candidacy of roster.candidacies) {
+    expect((await page.goto(`/platforms/${candidacy.id}`))?.status()).toBe(200);
+    await expect(page.getByRole("main")).toHaveClass(/platform-preview-minimal/);
+    await expect(page.locator(".platform-issue")).toHaveCount(10);
+    const candidate = roster.candidates.find(candidate => candidate.id === candidacy.candidateId)!;
+    const portrait = page.locator(".platform-portrait");
+    await expect(portrait).toHaveCount(1);
+    await expect(portrait).toBeVisible();
+    if (candidate.portrait) {
+      await expect(portrait).toBeVisible();
+      await expect.poll(() => portrait.evaluate(image => (image as HTMLImageElement).complete && (image as HTMLImageElement).naturalWidth > 0)).toBe(true);
+      const source = roster.sources.find(source => source.id === candidate.portrait!.sourceId)!;
+      await expect(page.locator(".platform-photo-credit a").first()).toHaveAttribute("href", source.url);
+    } else {
+      await expect(portrait).toHaveClass(/candidate-avatar-missing/);
+      await expect(portrait).toHaveAttribute("role", "img");
+      await expect(portrait).toHaveAttribute("aria-label", /^Default profile image for /);
+      await expect(page.locator(".platform-photo-credit")).toHaveCount(0);
+    }
+    for (const proposal of await page.locator(".platform-proposal").all()) {
+      expect(await proposal.locator(".platform-claim").count()).toBeGreaterThan(0);
+    }
+    await expect(page.getByRole("region", { name: "Research notes" })).toContainText("Research scope:");
+    await expect(page.getByRole("navigation", { name: "Platform issues" })).toHaveCount(0);
+    await page.setViewportSize({ width: 390, height: 900 });
+    expect(await page.getByRole("main").evaluate(element => element.scrollWidth <= element.clientWidth)).toBe(true);
+    if (candidacy.id === "gaylon-kent-2026") {
+      await page.locator(".candidate-header").screenshot({ path: "test-results/kent-default-header-mobile.png" });
+    }
+    await page.getByRole("region", { name: "Research notes" }).scrollIntoViewIfNeeded();
+    expect(await page.getByRole("main").evaluate(element => element.scrollWidth <= element.clientWidth)).toBe(true);
+  }
+  for (const width of [1440, 768, 390]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/platforms/melat-kiros-2026");
+    await expect(page.locator(".platform-portrait")).toBeVisible();
+    await expect.poll(() => page.locator(".platform-portrait").evaluate(image => (image as HTMLImageElement).complete && (image as HTMLImageElement).naturalWidth > 0)).toBe(true);
+    await page.screenshot({ path: `test-results/roster-platform-${width}.png` });
+  }
 });

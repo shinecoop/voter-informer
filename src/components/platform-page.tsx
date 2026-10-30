@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { DefaultAvatar } from "./default-avatar";
 import { sourceTextUrl } from "../domain/source-link";
 import { PlatformNavigation } from "./platform-navigation";
 import type { Entity } from "../domain/schema";
@@ -84,7 +85,8 @@ function ThesisStatement({ proposal, sourceById }: {
     : sourceTextUrl(source.url, evidence.excerpt);
   let offset = 0;
   const parts = [];
-  for (const phrase of thesisPhrases[proposal.id] ?? []) {
+  const phrases = thesisPhrases[proposal.id] ?? [...proposal.summary.matchAll(/“([^”]+)”/g)].map(match => match[1]!).filter(Boolean);
+  for (const phrase of phrases) {
     if (!evidence.excerpt.replace(/\s+/g, " ").includes(phrase)) continue;
     const start = proposal.summary.indexOf(phrase, offset);
     if (start < 0) continue;
@@ -95,15 +97,16 @@ function ThesisStatement({ proposal, sourceById }: {
   return <>{parts}{proposal.summary.slice(offset)}</>;
 }
 
-export async function PlatformPage({ platform, preview = false }: { platform: CandidatePlatform; preview?: boolean }) {
-  const { candidate, candidacy, election, geography, issues, sources } = platform;
+export async function PlatformPage({ platform, preview = false, userTesting = false }: { platform: CandidatePlatform; preview?: boolean; userTesting?: boolean }) {
+  const { candidate, candidacy, election, geography, issues, sources, research } = platform;
   const state = geography.stateId ? await getRepository().get("geographies", geography.stateId) : null;
   const districtNumber = geography.id.match(/district-?(\d+)$/)?.[1];
   const listUrl = state?.id === "co" && districtNumber
     ? `/${election.cycle}/colorado/district${districtNumber}/candidates#${candidacy.id}`
     : null;
   const pending = issues.every((issue) => issue.record === null);
-  const compactPreview = preview && candidacy.id === "jason-crow-2026";
+  const draftView = preview || userTesting;
+  const compactPreview = draftView;
   const firstRecord = issues[0]?.record;
   const sharedReview = compactPreview && firstRecord && issues.every(({ record }) => record &&
     record.researchedAt === firstRecord.researchedAt &&
@@ -114,35 +117,38 @@ export async function PlatformPage({ platform, preview = false }: { platform: Ca
     record?.publication === "draft" && record.status === "position-found"
   );
   const sourceById = new Map(sources.map((source) => [source.id, source]));
+  const portraitSource = candidate.portrait && sourceById.get(candidate.portrait.sourceId);
   return (
-    <main className={`candidate-page platform-page${preview ? " platform-preview" : ""}${compactPreview ? " platform-preview-minimal" : ""}`}>
+    <main className={`candidate-page platform-page${draftView ? " platform-preview" : ""}${compactPreview ? " platform-preview-minimal" : ""}`}>
       <div className="candidate-content platform-content">
         {listUrl ? <Link href={listUrl} className="candidate-back">← Back to candidates</Link> : <Link href="/" className="candidate-back">← Back to map</Link>}
         {compactPreview && <a className="platform-skip" href="#platform-issues">Skip to policy positions</a>}
-        {compactPreview && <aside className="platform-draft-notice" aria-label="Draft preview"><h2>Draft preview — not approved</h2><Link href={`/platforms/${candidacy.id}`}>View public page</Link></aside>}
+        {compactPreview && <aside className="platform-draft-notice" aria-label={userTesting ? "User-testing status" : "Draft preview"}><h2>{userTesting ? "User-testing MVP — not reviewed" : "Draft preview — not approved"}</h2>{userTesting ? <a href="#platform-research-heading">Research notes</a> : <Link href={`/platforms/${candidacy.id}`}>View public page</Link>}</aside>}
         {preview && !compactPreview && <aside className="platform-pending" aria-label="Draft preview"><h2>Draft preview — not approved</h2><p>This local preview shows how the researched content will look. It does not record human review or publish these drafts. Source dates are unknown; current 2026 applicability still needs confirmation.</p><Link href={`/platforms/${candidacy.id}`}>View public page</Link></aside>}
-        {!preview && process.env.NODE_ENV === "development" && <p><Link href={`/preview/platforms/${candidacy.id}`}>Preview draft platform</Link> · Local development only</p>}
+        {!draftView && process.env.NODE_ENV === "development" && <p><Link href={`/preview/platforms/${candidacy.id}`}>Preview draft platform</Link> · Local development only</p>}
         <header className="candidate-header">
-          {preview && candidate.portrait && <Image className="platform-portrait" src={candidate.portrait.src} width={144} height={168} unoptimized loading="eager" alt={`Portrait of ${candidate.givenName} ${candidate.familyName}`} />}
+          {draftView && (candidate.portrait
+            ? <Image className="platform-portrait" src={candidate.portrait.src} width={144} height={168} unoptimized loading="eager" alt={`Portrait of ${candidate.givenName} ${candidate.familyName}`} />
+            : <DefaultAvatar className="platform-portrait" name={`${candidate.givenName} ${candidate.familyName}`} />)}
           {!compactPreview && <p>{election.cycle} / {state?.name ?? "State unavailable"} / {geography.name}</p>}
           <h1>{candidate.givenName} {candidate.familyName}</h1>
-          {preview && <p className="platform-intro">Where the candidate stands</p>}
+          {draftView && <p className="platform-intro">Where the candidate stands</p>}
           <p>U.S. House · {geography.name} · {candidacy.party}</p>
           <p className="platform-election">{election.stage.charAt(0).toUpperCase() + election.stage.slice(1)} election · {election.date ?? "Election date unavailable"}</p>
           {candidacy.status === "certified-write-in" && <p>Certified write-in</p>}
           {candidacy.status === "withdrawn" && <p>Withdrawn</p>}
           {candidacy.campaignWebsite && <a className="candidate-website" href={candidacy.campaignWebsite.url} target="_blank" rel="noopener noreferrer" title="Opens in a new tab">Campaign website</a>}
         </header>
-        {pending && <aside className="platform-pending" aria-label="Review status"><h2>Platform review pending</h2><p>No approved issue reviews are available for this candidacy yet. This does not mean the candidate has no policy positions.</p></aside>}
+        {pending && !compactPreview && <aside className="platform-pending" aria-label="Review status"><h2>Platform review pending</h2><p>No approved issue reviews are available for this candidacy yet. This does not mean the candidate has no policy positions.</p></aside>}
         <PlatformNavigation issues={compactPreview ? [] : issues.map(({ id, label }) => ({ id, label }))} />
         {!compactPreview && <p className="platform-limitations">Coverage is limited to the sources and research dates listed for each reviewed issue. Summaries are not endorsements or a complete account of the candidate’s views. “Not yet reviewed” is different from finding no stated position in the sources reviewed.</p>}
         <div className="platform-issues" id="platform-issues" tabIndex={compactPreview ? -1 : undefined}>
           {issues.map(({ id, label, record }) => (
             <section key={id} id={id} className="platform-issue" aria-labelledby={`${id}-heading`} tabIndex={-1}>
               <h2 id={`${id}-heading`}>{label}</h2>
-              {!record ? <p className="platform-status">Not yet reviewed</p> : <>
-                {!sharedDraftStatus && <p className="platform-status">{record.publication === "draft" ? (record.status === "position-found" ? "Draft: position found — awaiting human review" : "Draft: no stated position found — awaiting human review") : (record.status === "position-found" ? "Reviewed: position found" : "No stated position found in sources reviewed")}</p>}
-                {record.status === "no-position-found" && <p>This finding applies only to the research scope below. It does not establish that the candidate has no position.</p>}
+              {!record ? <p className="platform-status">{compactPreview ? "No verified summary available for this issue." : "Not yet reviewed"}</p> : <>
+                {!sharedDraftStatus && (!compactPreview || record.status !== "position-found") && <p className="platform-status">{record.publication === "draft" ? (record.status === "position-found" ? "Draft: position found — awaiting human review" : "Draft: no stated position found — awaiting human review") : (record.status === "position-found" ? "Reviewed: position found" : "No stated position found in sources reviewed")}</p>}
+                {!compactPreview && record.status === "no-position-found" && <p>This finding applies only to the research scope below. It does not establish that the candidate has no position.</p>}
                 {record.proposals.map((proposal) => (
                   <article key={proposal.id} className="platform-proposal">
                     {compactPreview ? <>
@@ -163,7 +169,7 @@ export async function PlatformPage({ platform, preview = false }: { platform: Ca
                     </details></>}
                   </article>
                 ))}
-                {(!sharedReview || !compactPreview || record.proposals.length === 0) && <div className="platform-review">
+                {!compactPreview && <div className="platform-review">
                   {!sharedReview && <p>Researched: <time dateTime={record.researchedAt}>{record.researchedAt}</time> · Reviewed: {record.review.reviewedAt ?? "Pending"} · Approved: {record.approval?.approvedAt ?? "Not approved"}</p>}
                   {(!compactPreview || record.proposals.length === 0) && <p><strong>Research scope:</strong> {record.researchScope}</p>}
                   {!compactPreview && <details>
@@ -183,16 +189,20 @@ export async function PlatformPage({ platform, preview = false }: { platform: Ca
           <div className="platform-research-columns">
             <div>
               <p>Summaries cover only the linked sources and research dates. They are not endorsements or a complete account of the candidate’s views. Unreviewed does not mean no position.</p>
-              <p>Source dates are unknown; applicability to 2026 still needs confirmation. This preview does not approve or publish drafts.</p>
-              <p id="platform-external-note">Source links open in a new tab at the relevant issue heading in supporting browsers. Expand the section to read the quoted passage. Campaign links also open in a new tab.</p>
+              {research && <><p><strong>Research scope:</strong> {research.scope}</p><p>{research.limitations}</p></>}
+              <p>Source dates and current applicability vary; see each linked source and the research scope. {userTesting ? "These draft summaries are available for user testing and have not received human review or approval." : "This preview does not approve or publish drafts."}</p>
+              <p>Research covers the candidate-specific campaign, official, and attributed reporting sources listed here. A missing summary means the checked sources did not support a summary for this profile; it does not mean the candidate has no position.</p>
+              <p id="platform-external-note">Source links open in a new tab at the cited passage or issue heading where the source and browser support highlighting. Expand collapsed source sections to read the passage. Campaign links also open in a new tab.</p>
             </div>
             <div>
+              {research && <p>Research checked: <time dateTime={research.researchedAt}>{research.researchedAt}</time></p>}
+              {research && research.sourceIds.map(id => { const source = sourceById.get(id); return source ? <p key={id}><a href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a></p> : null; })}
               {sharedDraftStatus && <p className="platform-status platform-shared-status">All {issues.length} issues: Draft: position found — awaiting human review</p>}
               {sharedReview && <p className="platform-shared-review">Researched: <time dateTime={sharedReview.researchedAt}>{sharedReview.researchedAt}</time> · Reviewed: {sharedReview.review.reviewedAt ?? "Pending"} · Approved: {sharedReview.approval?.approvedAt ?? "Not approved"}</p>}
             </div>
           </div>
         </footer>}
-        {preview && candidate.portrait && <footer className="platform-photo-credit"><p>Portrait: {candidate.portrait.credit}.{candidate.portrait.licenseUrl && <> <a href={candidate.portrait.licenseUrl} target="_blank" rel="noopener noreferrer" title="Opens in a new tab">Image license</a>.</>}</p></footer>}
+        {draftView && candidate.portrait && <footer className="platform-photo-credit"><p>Portrait: {portraitSource ? <a href={portraitSource.url} target="_blank" rel="noopener noreferrer" title="Portrait source (opens in a new tab)">{candidate.portrait.credit}</a> : candidate.portrait.credit}.{candidate.portrait.licenseUrl && <> <a href={candidate.portrait.licenseUrl} target="_blank" rel="noopener noreferrer" title="Opens in a new tab">Image license</a>.</>}</p></footer>}
       </div>
     </main>
   );

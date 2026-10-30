@@ -4,7 +4,7 @@ import { datasetSchema } from "../src/domain/schema";
 import { PLATFORM_ISSUES } from "../src/domain/platform";
 import { createFileRepository } from "../src/repositories/file";
 import { getCandidatePlatform } from "../src/repositories/platform";
-import { getCandidatePlatformPreview } from "../src/repositories/platform-preview";
+import { getCandidatePlatformForUserTesting, getCandidatePlatformPreview } from "../src/repositories/platform-preview";
 
 const file = new URL("../data/research.json", import.meta.url);
 
@@ -50,7 +50,7 @@ describe("Crow collected research publication boundary", () => {
     }
   });
 
-  it("never returns collected Crow drafts or draft-only citations on his public page", async () => {
+  it("keeps the standard approved-only repository path unchanged", async () => {
     const repository = createFileRepository(file);
     const platform = await getCandidatePlatform(repository, "jason-crow-2026");
     expect(platform).not.toBeNull();
@@ -60,4 +60,19 @@ describe("Crow collected research publication boundary", () => {
     expect(platform!.sources.map((source) => source.id)).not.toContain("crow-house-issues-20261025");
     expect(await repository.list("platformIssues")).toEqual([]);
   });
+  it("exposes the researched user-testing MVP in production, preserving draft metadata", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    const repository = createFileRepository(file);
+    const platform = await getCandidatePlatformForUserTesting(repository, "jason-crow-2026");
+    expect(platform!.issues.filter(issue => issue.record !== null)).toHaveLength(10);
+    for (const { record } of platform!.issues) {
+      expect(record!.publication).toBe("draft");
+      expect(record!.review.state).toBe("draft");
+      expect(record!.approval).toBeNull();
+    }
+    expect((await getCandidatePlatformForUserTesting(repository, "brittany-pettersen-2026"))!.research).toBeDefined();
+    expect(await getCandidatePlatformForUserTesting(repository, "unknown-candidacy")).toBeNull();
+    expect(await repository.list("platformIssues")).toEqual([]);
+  });
+
 });

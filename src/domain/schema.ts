@@ -33,6 +33,16 @@ export const entitySchemas = {
   questions: z.object({ id, version: z.number().int().positive(), wording: text, topic: text, raceIds: refs }).strict(),
   localSelections: z.object({ id, raceId: id, questions: z.array(questionRef).min(1), rationale: text, ...sourced, ...publication }).strict(),
   positions: z.object({ id, candidacyId: id, ...questionRef.shape, kind: z.enum(["quotation", "platform-summary"]), statement: text, label: z.enum(["supports", "opposes", "conditional-mixed", "no-explicit-position-found"]).nullable(), evidenceDate: date.nullable(), researchedAt: date, researchScope: text, ...sourced, ...publication }).strict(),
+  platformResearch: z.object({
+    id, candidacyId: id, researchedAt: date, scope: text, limitations: text, sourceIds: z.array(id),
+    issueChecks: z.array(z.object({
+      issueId: z.enum(PLATFORM_ISSUES.map((issue) => issue.id)),
+      finding: z.enum(["position-found", "no-supported-summary"]),
+      notes: text,
+    }).strict()).length(PLATFORM_ISSUES.length).optional(),
+  }).strict().refine((record) => !record.issueChecks || new Set(record.issueChecks.map(check => check.issueId)).size === PLATFORM_ISSUES.length, {
+    message: "Issue checks must cover each platform issue exactly once",
+  }),
   platformIssues: z.object({
     id, candidacyId: id, issueId: z.enum(PLATFORM_ISSUES.map((issue) => issue.id)),
     version: z.number().int().positive(),
@@ -66,6 +76,7 @@ const datasetObject = z.object({
   freshness: z.array(entitySchemas.freshness), coverage: z.array(entitySchemas.coverage),
   historicalResults: z.array(entitySchemas.historicalResults),
   platformIssues: z.array(entitySchemas.platformIssues).default([]),
+  platformResearch: z.array(entitySchemas.platformResearch).default([]),
 }).strict();
 
 export type Dataset = z.infer<typeof datasetObject>;
@@ -89,6 +100,12 @@ export const datasetSchema = datasetObject.superRefine((data, ctx) => {
       }
     });
   }
+  const researchCandidacies = new Set<string>();
+  data.platformResearch.forEach((record, index) => {
+    if (researchCandidacies.has(record.candidacyId)) fail(["platformResearch", index, "candidacyId"], "Duplicate candidacy research coverage");
+    researchCandidacies.add(record.candidacyId);
+    if (!data.candidacies.some(candidacy => candidacy.id === record.candidacyId)) fail(["platformResearch", index, "candidacyId"], "Missing candidacy");
+  });
   const link = (collection: Collection, index: number, field: string, target: Collection, value: string) => {
     if (!exists(target, value)) fail([collection, index, field], `Missing ${target}: ${value}`);
   };

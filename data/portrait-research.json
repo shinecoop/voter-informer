@@ -1,0 +1,681 @@
+[
+  {
+    "candidateId": "melat-kiros",
+    "checkedAt": "2026-10-30",
+    "status": "retained",
+    "sourceIds": [
+      "melat-kiros-portrait"
+    ],
+    "notes": "Existing named official/Commons source, attribution and local JPEG checked; retained without replacing the source asset.",
+    "localSha256": "84aba2d82f910f283d845ff2478270a83eb7bdaf27222b8b436a2ef1c8640b30",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "christy-peterson",
+    "checkedAt": "2026-10-30",
+    "status": "added",
+    "sourceIds": [
+      "christy-peterson-portrait"
+    ],
+    "notes": "Portrait within candidate-named campaign flyer; cropped to face and shoulders. Identity assessed from source context and the inspected image; this is not independent authentication of the photograph. Rights/license not independently established; credit identifies the supplying source.",
+    "snapshot": ".firecrawl/roster-second-pass/christy-peterson-2026-home.json",
+    "imageUrl": "https://christyforamerica.us/wp-content/uploads/2026/04/35-052226-CD1-Flyer-Fav-new-scaled.png",
+    "localSha256": "0a737c3d2cdbc8b690a4607957f76ec0c0a59387c3e4667bcb751fb2840dc32a",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "critter-milton",
+    "checkedAt": "2026-10-30",
+    "status": "withheld",
+    "sourceIds": [
+      "critter-milton-portrait"
+    ],
+    "notes": "Source identity retained from the sourcing audit. Photo deliberately withheld from display after presentation review: Casual sports-jersey snapshot; clear photograph, but not a professional profile presentation.",
+    "snapshot": ".firecrawl/platform-roster/critter-milton-2026-profile.json",
+    "imageUrl": "https://denverite.com/cdn-cgi/image/width=3840,quality=75,format=auto/https://wp-denverite.s3.amazonaws.com/wp-content/uploads/sites/4/2026/09/260928-CRITTER-MILTON-CD1-ELECTION-CANDIDATES-COPOLITICS-WASHINGTON-PARK-KEVINJBEATY-03.jpg",
+    "localSha256": "94641a17a9f04dc0f6c43814011c557960dd4e6daaed0714b218c534e0c96066",
+    "withheldPortrait": {
+      "src": "/portraits/critter-milton.jpg",
+      "sourceId": "critter-milton-portrait",
+      "credit": "Kevin J. Beaty / Denverite"
+    },
+    "archivedPath": ".firecrawl/portrait-quality-review/withheld/critter-milton.jpg",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "default",
+      "reason": "Casual sports-jersey snapshot; clear photograph, but not a professional profile presentation."
+    }
+  },
+  {
+    "candidateId": "chad-humphrey",
+    "checkedAt": "2026-10-30",
+    "status": "added",
+    "sourceIds": [
+      "chad-humphrey-portrait"
+    ],
+    "notes": "Chad%20Humphrey.jpg. Identity assessed from source context and the inspected image; this is not independent authentication of the photograph. Rights/license not independently established; credit identifies the supplying source.",
+    "snapshot": ".firecrawl/roster-second-pass/chad-humphrey-2026-home.json",
+    "imageUrl": "https://cdn.watchkeeperholdings.com/Chad%20Humphrey.jpg",
+    "localSha256": "6233822c566f21d49a5f798f40ef14da5407d4c2d4ae932cd25c4fe5f4667fbd",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "shimon-blau",
+    "checkedAt": "2026-10-30",
+    "status": "added",
+    "sourceIds": [
+      "shimon-blau-portrait"
+    ],
+    "notes": "shimon-portrait-2026.jpg. Identity assessed from source context and the inspected image; this is not independent authentication of the photograph. Rights/license not independently established; credit identifies the supplying source.",
+    "snapshot": ".firecrawl/roster-second-pass/shimon-blau-2026-home.json",
+    "imageUrl": "https://blauforcongress.com/__l5e/assets-v1/5ba843a0-7b23-4bf6-bcbe-150ab2a6a596/shimon-portrait-2026.jpg",
+    "localSha256": "8e114104d70cfc82a62a8ec0f21c86e89542c765f694b201841fef127da91924",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "kevin-stclair",
+    "checkedAt": "2026-10-30",
+    "status": "unavailable",
+    "sourceIds": [
+      "roster-kevin-stclair-2026-profile",
+      "followup-kevin-stclair-2026-survey"
+    ],
+    "notes": "Candidate profile contains a photo-submission placeholder; no attributable portrait found in the inspected source/search scope.",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "default",
+      "reason": "No sufficiently identified source photograph available in the prior research scope."
+    }
+  },
+  {
+    "candidateId": "john-wren",
+    "checkedAt": "2026-10-30",
+    "status": "withheld",
+    "sourceIds": [
+      "john-wren-portrait"
+    ],
+    "notes": "Source identity retained from the sourcing audit. Photo deliberately withheld from display after presentation review: Soft webcam capture with a virtual background; insufficient clarity for a professional profile portrait.",
+    "snapshot": ".firecrawl/roster-second-pass/john-wren-2026-interview.json",
+    "imageUrl": "https://www.westword.com/wp-content/uploads/sites/2/ww-media/mediaserver/den/2024-25/img_3977.webp?quality=75&strip=all",
+    "localSha256": "09a384767a5f469b005f4cc2ac28244c421780c3d61d332a8923157a783b24cf",
+    "withheldPortrait": {
+      "src": "/portraits/john-wren.jpg",
+      "sourceId": "john-wren-portrait",
+      "credit": "John Wren, via Westword"
+    },
+    "archivedPath": ".firecrawl/portrait-quality-review/withheld/john-wren.jpg",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "default",
+      "reason": "Soft webcam capture with a virtual background; insufficient clarity for a professional profile portrait."
+    }
+  },
+  {
+    "candidateId": "stephen-replin",
+    "checkedAt": "2026-10-30",
+    "status": "added",
+    "sourceIds": [
+      "stephen-replin-portrait"
+    ],
+    "notes": "Named campaign portrait. Identity assessed from source context and the inspected image; this is not independent authentication of the photograph. Rights/license not independently established; credit identifies the supplying source.",
+    "snapshot": ".firecrawl/roster-second-pass/stephen-replin-2026-home.json",
+    "imageUrl": "https://stephenreplinforcongress.com/wp-content/uploads/2026/09/stephen-replin-campaign-portrait.webp",
+    "localSha256": "1bd1980f4d7ce671670950124911445ffc9b787295ca78a19d4c97b873577032",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "joe-neguse",
+    "checkedAt": "2026-10-30",
+    "status": "retained",
+    "sourceIds": [
+      "joe-neguse-portrait"
+    ],
+    "notes": "Existing named official/Commons source, attribution and local JPEG checked; retained without replacing the source asset.",
+    "localSha256": "7742fd84a15541b9ab73f76cf7787e71423374702beea372027b89aac42b9b95",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "kelley-anne-dennison",
+    "checkedAt": "2026-10-30",
+    "status": "added",
+    "sourceIds": [
+      "kelley-anne-dennison-portrait"
+    ],
+    "notes": "51f0a976a_Untitleddesign.png. Identity assessed from source context and the inspected image; this is not independent authentication of the photograph. Rights/license not independently established; credit identifies the supplying source.",
+    "snapshot": ".firecrawl/roster-second-pass/kelley-anne-dennison-2026-home.json",
+    "imageUrl": "https://media.base44.com/images/public/69c1ca1c8681beedc46ac093/51f0a976a_Untitleddesign.png",
+    "localSha256": "12b1425d78693193d97f2998a0a96c6ac580f4760c4afda39a476012571dd262",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "gaylon-kent",
+    "checkedAt": "2026-10-30",
+    "status": "withheld",
+    "sourceIds": [
+      "gaylon-kent-portrait"
+    ],
+    "notes": "Source identity retained from the sourcing audit. Photo deliberately withheld from display after presentation review: Extreme close-up cuts off much of the face; unsuitable as a neutral professional profile portrait.",
+    "snapshot": ".firecrawl/roster-second-pass/gaylon-kent-2026-survey.json",
+    "imageUrl": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/gkent.jpg",
+    "localSha256": "4c8a7e7049176415706e6533126350b466897db9bfab8d58d313e59baa86c7b1",
+    "withheldPortrait": {
+      "src": "/portraits/gaylon-kent.jpg",
+      "sourceId": "gaylon-kent-portrait",
+      "credit": "Gaylon Kent portrait, via Ballotpedia"
+    },
+    "archivedPath": ".firecrawl/portrait-quality-review/withheld/gaylon-kent.jpg",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "default",
+      "reason": "Extreme close-up cuts off much of the face; unsuitable as a neutral professional profile portrait."
+    }
+  },
+  {
+    "candidateId": "dwayne-l-romero",
+    "checkedAt": "2026-10-30",
+    "status": "added",
+    "sourceIds": [
+      "dwayne-l-romero-portrait"
+    ],
+    "notes": "Headshot directly beneath Dwayne Romero’s named questionnaire heading. Identity assessed from source context and the inspected image; this is not independent authentication of the photograph. Rights/license not independently established; credit identifies the supplying source.",
+    "snapshot": ".firecrawl/platform-roster/cory-robertson-2026-questionnaire.json",
+    "imageUrl": "https://extras.denverpost.com/app/elections/2026/general/candidate-headshots/Dwayne-Romero.jpg",
+    "localSha256": "80c2773e5ec4fd7b016c031323b0f19b3ad4d3b033de575b6d153b9b91d9b101",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "jeff-hurd",
+    "checkedAt": "2026-10-30",
+    "status": "retained",
+    "sourceIds": [
+      "jeff-hurd-portrait"
+    ],
+    "notes": "Existing named official/Commons source, attribution and local JPEG checked; retained without replacing the source asset.",
+    "localSha256": "6444f599270eb79f58cf1b638e01b525cd5f203b51d382c147c8487decaa32d6",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "cory-robertson",
+    "checkedAt": "2026-10-30",
+    "status": "withheld",
+    "sourceIds": [
+      "cory-robertson-portrait"
+    ],
+    "notes": "Source identity retained from the sourcing audit. Photo deliberately withheld from display after presentation review: Low-angle indoor selfie with an off-camera gaze and distracting background.",
+    "snapshot": ".firecrawl/platform-roster/cory-robertson-2026-questionnaire.json",
+    "imageUrl": "https://extras.denverpost.com/app/elections/2026/general/candidate-headshots/Cory-Robertson.jpg",
+    "localSha256": "837b3710a3c6a49b7dbc4e678366d1ec0480fc9d57c3b0314fd45b9f4d807970",
+    "withheldPortrait": {
+      "src": "/portraits/cory-robertson.jpg",
+      "sourceId": "cory-robertson-portrait",
+      "credit": "Cory Robertson candidate questionnaire, via The Denver Post"
+    },
+    "archivedPath": ".firecrawl/portrait-quality-review/withheld/cory-robertson.jpg",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "default",
+      "reason": "Low-angle indoor selfie with an off-camera gaze and distracting background."
+    }
+  },
+  {
+    "candidateId": "clifton-brown",
+    "checkedAt": "2026-10-30",
+    "status": "added",
+    "sourceIds": [
+      "clifton-brown-portrait"
+    ],
+    "notes": "Named candidate infobox portrait; broken homepage portrait replaced. Identity assessed from source context and the inspected image; this is not independent authentication of the photograph. Rights/license not independently established; credit identifies the supplying source.",
+    "snapshot": ".firecrawl/roster-second-pass/clifton-brown-2026-survey.json",
+    "imageUrl": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/CliftonBrown2026_2026-07-27_173352.jpg",
+    "localSha256": "3c718fa0dba65ea7b2a4ecfa2e4d7b619b664050b0bf7a726c2a9c2be1a5ac76",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "lauren-boebert",
+    "checkedAt": "2026-10-30",
+    "status": "retained",
+    "sourceIds": [
+      "lauren-boebert-portrait"
+    ],
+    "notes": "Existing named official/Commons source, attribution and local JPEG checked; retained without replacing the source asset.",
+    "localSha256": "b4dd3b2840f42180334e6d9daa09b2f98741314417d5c55e6da70666bd51992b",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "eileen-laubacher",
+    "checkedAt": "2026-10-30",
+    "status": "added",
+    "sourceIds": [
+      "eileen-laubacher-portrait"
+    ],
+    "notes": "A photo of Rear Admiral Eileen Laubacher, candidate for Congress in Colorado's 4th Congressional District.. Identity assessed from source context and the inspected image; this is not independent authentication of the photograph. Rights/license not independently established; credit identifies the supplying source.",
+    "snapshot": ".firecrawl/roster-second-pass/eileen-laubacher-2026-home.json",
+    "imageUrl": "https://images.squarespace-cdn.com/content/v1/681a4fa46e182e47cab3db76/549f4057-270f-41d6-8eb5-37f17457383b/EileenforColorado_HeroPhoto.jpg",
+    "localSha256": "068337364f42016724c5f864367db68488d166f78cf033e4bd59d358bf382d44",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "douglas-mangeris",
+    "checkedAt": "2026-10-30",
+    "status": "added",
+    "sourceIds": [
+      "douglas-mangeris-portrait"
+    ],
+    "notes": "Embedded portrait next to candidate biography. Identity assessed from source context and the inspected image; this is not independent authentication of the photograph. Rights/license not independently established; credit identifies the supplying source.",
+    "snapshot": ".firecrawl/roster-second-pass/douglas-mangeris-2026-home.json",
+    "imageUrl": "embedded:photo-originals/douglas-mangeris-flyer.image",
+    "localSha256": "adea2577fa2b1ed77157071593f571ead35e957dfcc9e05132950e7e1bcc6bc1",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "luis-galvan",
+    "checkedAt": "2026-10-30",
+    "status": "added",
+    "sourceIds": [
+      "luis-galvan-portrait"
+    ],
+    "notes": "Portrait beside the candidate biography. Identity assessed from source context and the inspected image; this is not independent authentication of the photograph. Rights/license not independently established; credit identifies the supplying source.",
+    "snapshot": ".firecrawl/roster-second-pass/luis-galvan-2026-home.json",
+    "imageUrl": "https://assets.ls-assets.com/uploads/3e33c0d8-1a48-4901-88bc-7ed41b3994c8/855c24b3-10f2-40b6-a141-e2df7c763213.jpg?w=480",
+    "localSha256": "739f53acbef18fe65f1eaaa7952e40d476ec04a1713f02435806a788e033249d",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "jeff-crank",
+    "checkedAt": "2026-10-30",
+    "status": "retained",
+    "sourceIds": [
+      "jeff-crank-portrait"
+    ],
+    "notes": "Existing named official/Commons source, attribution and local JPEG checked; retained without replacing the source asset.",
+    "localSha256": "d2b55e64340ef6dc3aeb3cbbe1cf6f478901426199a7c8fae5bdae793c719efb",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "jessica-killin",
+    "checkedAt": "2026-10-30",
+    "status": "added",
+    "sourceIds": [
+      "jessica-killin-portrait"
+    ],
+    "notes": "Campaign hero portrait. Identity assessed from source context and the inspected image; this is not independent authentication of the photograph. Rights/license not independently established; credit identifies the supplying source.",
+    "snapshot": ".firecrawl/platform-roster/jessica-killin-2026.json",
+    "imageUrl": "https://run.imgix.net/0cdc1c93-4d9e-4c61-b29f-a8691a56ce6f/4bdac8cd-d999-45f3-989a-2ce0d9a7e87a/4bdac8cd-d999-45f3-989a-2ce0d9a7e87a.jpeg?ixlib=js-3.8.0&bri=0&con=0&sat=0&high=0&shad=0&usm=0&rect=8%2C856%2C8161%2C5632&auto=compress%2Cformat&fit=fillmax&w=2048&q=75&s=62d7a10c49b4ef879c43c6b895501c39",
+    "localSha256": "c7abcdf8ee6f592ee211c9cda93ea0629546e7d31ce956d7818a818cb3aa4209",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "christopher-mitchell",
+    "checkedAt": "2026-10-30",
+    "status": "added",
+    "sourceIds": [
+      "christopher-mitchell-portrait"
+    ],
+    "notes": "Ballotpedia infobox portrait for Christopher Mitchell. Identity assessed from source context and the inspected image; this is not independent authentication of the photograph. Rights/license not independently established; credit identifies the supplying source.",
+    "snapshot": ".firecrawl/platform-roster/christopher-mitchell-2026-profile.json",
+    "imageUrl": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Christopher-Mitchell.PNG",
+    "localSha256": "0b44f47b05e6f9ce5803b572a100e4a1095c62fc79a849e8d363898f5f9d2440",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "mark-marky-jr-elworth",
+    "checkedAt": "2026-10-30",
+    "status": "withheld",
+    "sourceIds": [
+      "mark-marky-jr-elworth-portrait"
+    ],
+    "notes": "Source identity retained from the sourcing audit. Photo deliberately withheld from display after presentation review: Casual car-side snapshot with a cap shading the face and uneven exposure.",
+    "snapshot": ".firecrawl/platform-roster/mark-marky-jr-elworth-2026-interview.json",
+    "imageUrl": "https://www.westword.com/wp-content/uploads/sites/2/2026/10/mark-cd5-e1793119850189.jpg?quality=75&strip=all",
+    "localSha256": "52d5071ee60a7e847de5406976b2e6e53c919be1950348697cfadf3757ae3b99",
+    "withheldPortrait": {
+      "src": "/portraits/mark-marky-jr-elworth.jpg",
+      "sourceId": "mark-marky-jr-elworth-portrait",
+      "credit": "Mark Elworth, via Westword"
+    },
+    "archivedPath": ".firecrawl/portrait-quality-review/withheld/mark-marky-jr-elworth.jpg",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "default",
+      "reason": "Casual car-side snapshot with a cap shading the face and uneven exposure."
+    }
+  },
+  {
+    "candidateId": "steven-fuller",
+    "checkedAt": "2026-10-30",
+    "status": "withheld",
+    "sourceIds": [
+      "steven-fuller-portrait"
+    ],
+    "notes": "Source identity retained from the sourcing audit. Photo deliberately withheld from display after presentation review: Small, dim portrait extracted from a campaign flyer; face lacks sufficient detail.",
+    "snapshot": ".firecrawl/platform-roster/steven-fuller-2026.json",
+    "imageUrl": "https://images.squarespace-cdn.com/content/v1/6906241850bd3a11ff955c56/ab246bd3-552f-4e86-b92f-bb2833856e1a/Congress.jpg",
+    "localSha256": "42646987149cefa1a8dcc3469e82ec22696f481e7dd98c90b91e44416e80d934",
+    "withheldPortrait": {
+      "src": "/portraits/steven-fuller.jpg",
+      "sourceId": "steven-fuller-portrait",
+      "credit": "Steven Fuller campaign website"
+    },
+    "archivedPath": ".firecrawl/portrait-quality-review/withheld/steven-fuller.jpg",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "default",
+      "reason": "Small, dim portrait extracted from a campaign flyer; face lacks sufficient detail."
+    }
+  },
+  {
+    "candidateId": "jason-crow",
+    "checkedAt": "2026-10-30",
+    "status": "retained",
+    "sourceIds": [
+      "jason-crow-portrait"
+    ],
+    "notes": "Existing named official/Commons source, attribution and local JPEG checked; retained without replacing the source asset.",
+    "localSha256": "98aa40cbd64d0d93c774bf6064f71f4a231866e727637c172e7ea6f910ed345c",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "jason-clark",
+    "checkedAt": "2026-10-30",
+    "status": "withheld",
+    "sourceIds": [
+      "jason-clark-portrait"
+    ],
+    "notes": "Source identity retained from the sourcing audit. Photo deliberately withheld from display after presentation review: Soft, tightly cropped indoor snapshot with insufficient detail and distracting background.",
+    "snapshot": ".firecrawl/platform-roster/jason-clark-2026-campaign.json",
+    "imageUrl": "https://i0.wp.com/jasonclarkuscongress.com/wp-content/uploads/2026/06/Clark-photo-of-Clark.jpg?resize=300%2C300&ssl=1",
+    "localSha256": "b172576f65f9ae1d5647f1c736a6cf2c293ba6420d8e3cb4ad234e90dab8e96a",
+    "withheldPortrait": {
+      "src": "/portraits/jason-clark.jpg",
+      "sourceId": "jason-clark-portrait",
+      "credit": "Jason Clark campaign website"
+    },
+    "archivedPath": ".firecrawl/portrait-quality-review/withheld/jason-clark.jpg",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "default",
+      "reason": "Soft, tightly cropped indoor snapshot with insufficient detail and distracting background."
+    }
+  },
+  {
+    "candidateId": "patty-mcmahon",
+    "checkedAt": "2026-10-30",
+    "status": "withheld",
+    "sourceIds": [
+      "patty-mcmahon-portrait"
+    ],
+    "notes": "Source identity retained from the sourcing audit. Photo deliberately withheld from display after presentation review: Low-resolution event/video capture; face is too soft for a clear profile portrait.",
+    "snapshot": ".firecrawl/roster-second-pass/patty-mcmahon-2026-home.json",
+    "imageUrl": "https://static.wixstatic.com/media/94cac8_8bfe95b567764c3084617a4e856fe613~mv2.jpg/v1/fill/w_316,h_572,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/94cac8_8bfe95b567764c3084617a4e856fe613~mv2.jpg",
+    "localSha256": "37adb1887bac6898964078d516e6bc838362d677510c0a3656d8371dd6f28a8b",
+    "withheldPortrait": {
+      "src": "/portraits/patty-mcmahon.jpg",
+      "sourceId": "patty-mcmahon-portrait",
+      "credit": "Patty McMahon campaign website"
+    },
+    "archivedPath": ".firecrawl/portrait-quality-review/withheld/patty-mcmahon.jpg",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "default",
+      "reason": "Low-resolution event/video capture; face is too soft for a clear profile portrait."
+    }
+  },
+  {
+    "candidateId": "meredith-ryan",
+    "checkedAt": "2026-10-30",
+    "status": "added",
+    "sourceIds": [
+      "meredith-ryan-portrait"
+    ],
+    "notes": "Campaign image near candidate biography. Identity assessed from source context and the inspected image; this is not independent authentication of the photograph. Rights/license not independently established; credit identifies the supplying source.",
+    "snapshot": ".firecrawl/platform-roster/meredith-ryan-2026.json",
+    "imageUrl": "https://votemeredithryan.com/_assets/media/7283148175f973e9db780e05d6d9b75e.jpg",
+    "localSha256": "c7f94dc546840c9161155e89162aa2685a00411a1c90219d4265f8bba092d288",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "samir-ezzeldin-witta",
+    "checkedAt": "2026-10-30",
+    "status": "added",
+    "sourceIds": [
+      "samir-ezzeldin-witta-portrait"
+    ],
+    "notes": "Campaign media-kit portrait. Identity assessed from source context and the inspected image; this is not independent authentication of the photograph. Rights/license not independently established; credit identifies the supplying source.",
+    "snapshot": ".firecrawl/roster-second-pass/samir-ezzeldin-witta-2026-media-kit.json",
+    "imageUrl": "https://www.wittaforcongress.com/_next/image/?url=%2Fimages%2Fdr-witta-portrait.jpg&w=3840&q=75",
+    "localSha256": "d71da839866e91073945c211728e88a4d8ceccab25b12c89815a30eb76642079",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "tim-bennett",
+    "checkedAt": "2026-10-30",
+    "status": "added",
+    "sourceIds": [
+      "tim-bennett-portrait"
+    ],
+    "notes": "Campaign biography portrait. Identity assessed from source context and the inspected image; this is not independent authentication of the photograph. Rights/license not independently established; credit identifies the supplying source.",
+    "snapshot": ".firecrawl/roster-second-pass/tim-bennett-2026-bio.json",
+    "imageUrl": "https://img1.wsimg.com/isteam/ip/d0fa6ee6-1ba3-4b33-b86d-cdbb0d08911d/meettim.jpg/:/rs=w:400,cg:true,m",
+    "localSha256": "f144bc0a6979131a47b62bb69bc915ce77116578e22c8215ccf57a6198104a89",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "brittany-pettersen",
+    "checkedAt": "2026-10-30",
+    "status": "retained",
+    "sourceIds": [
+      "brittany-pettersen-portrait"
+    ],
+    "notes": "Existing named official/Commons source, attribution and local JPEG checked; retained without replacing the source asset.",
+    "localSha256": "b739e0cb56fd53a16ff7870ff41967bc859ed892758f44573e0f274261f13b51",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "susan-hall",
+    "checkedAt": "2026-10-30",
+    "status": "unavailable",
+    "sourceIds": [
+      "roster-susan-hall-2026-guide",
+      "followup-susan-hall-2026-blog",
+      "followup-susan-hall-2026-questionnaire"
+    ],
+    "notes": "Search returns a different UK politician. The inspected Colorado sources and archived blog did not provide a sufficiently identified portrait.",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "default",
+      "reason": "No sufficiently identified source photograph available in the prior research scope."
+    }
+  },
+  {
+    "candidateId": "lawrence-kyle-clark",
+    "checkedAt": "2026-10-30",
+    "status": "withheld",
+    "sourceIds": [
+      "lawrence-kyle-clark-portrait"
+    ],
+    "notes": "Source identity retained from the sourcing audit. Photo deliberately withheld from display after presentation review: Low-angle car selfie with uneven framing and lighting.",
+    "snapshot": ".firecrawl/roster-second-pass/lawrence-kyle-clark-2026-profile.json",
+    "imageUrl": "https://s3.amazonaws.com/ballotpedia-api4/files/thumbs/200/300/Lawrence_Clark_2025.jpeg",
+    "localSha256": "8dcabe3353d510344ad15288f02de282c0ca1da6c6d27f47767253d13707a4fb",
+    "withheldPortrait": {
+      "src": "/portraits/lawrence-kyle-clark.jpg",
+      "sourceId": "lawrence-kyle-clark-portrait",
+      "credit": "Lawrence Kyle Clark portrait, via Ballotpedia"
+    },
+    "archivedPath": ".firecrawl/portrait-quality-review/withheld/lawrence-kyle-clark.jpg",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "default",
+      "reason": "Low-angle car selfie with uneven framing and lighting."
+    }
+  },
+  {
+    "candidateId": "dan-kilo-sallis",
+    "checkedAt": "2026-10-30",
+    "status": "unavailable",
+    "sourceIds": [
+      "roster-dan-kilo-sallis-2026-policy",
+      "roster-dan-kilo-sallis-2026",
+      "followup-dan-kilo-sallis-2026-home",
+      "followup-dan-kilo-sallis-2026-survey"
+    ],
+    "notes": "Campaign site and named directory profile have no candidate portrait; the directory uses a photo-submission placeholder.",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "default",
+      "reason": "No sufficiently identified source photograph available in the prior research scope."
+    }
+  },
+  {
+    "candidateId": "joe-krzeczkowski",
+    "checkedAt": "2026-10-30",
+    "status": "added",
+    "sourceIds": [
+      "joe-krzeczkowski-portrait"
+    ],
+    "notes": "Named campaign portrait. Identity assessed from source context and the inspected image; this is not independent authentication of the photograph. Rights/license not independently established; credit identifies the supplying source.",
+    "snapshot": ".firecrawl/platform-roster/joe-krzeczkowski-2026.json",
+    "imageUrl": "https://joeforco.com/wp-content/uploads/2026/04/Joe-Krzeczkowski_Location_006.jpg",
+    "localSha256": "96397358b7a1809ba811cfde8fc75e96089147ae8b56176403c02274d79c71c2",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "gabe-evans",
+    "checkedAt": "2026-10-30",
+    "status": "retained",
+    "sourceIds": [
+      "gabe-evans-portrait"
+    ],
+    "notes": "Existing named official/Commons source, attribution and local JPEG checked; retained without replacing the source asset.",
+    "localSha256": "bc1a51c3f0683d92fffecd8ffdc3dc1609fab74ec636065975824cb07a983ae2",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "manny-rutinel",
+    "checkedAt": "2026-10-30",
+    "status": "retained",
+    "sourceIds": [
+      "manny-rutinel-portrait"
+    ],
+    "notes": "Existing named official/Commons source, attribution and local JPEG checked; retained without replacing the source asset.",
+    "localSha256": "e8606f0f07bb50f51e7eb0954fb12e55685ae49c2df6b64588c109f4aa3eb4d9",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  },
+  {
+    "candidateId": "dave-wood",
+    "checkedAt": "2026-10-30",
+    "status": "added",
+    "sourceIds": [
+      "dave-wood-portrait"
+    ],
+    "notes": "Campaign photograph of Dave Wood. Identity assessed from source context and the inspected image; this is not independent authentication of the photograph. Rights/license not independently established; credit identifies the supplying source.",
+    "snapshot": ".firecrawl/platform-roster/dave-wood-2026.json",
+    "imageUrl": "https://davewood4colorado.com/wp-content/uploads/2026/07/cottonwood-dave-900-534.jpg",
+    "localSha256": "ff2b0be6d065c7d3bc0562c980bc07bf5683052c8cdf35f53f15dec05988d411",
+    "presentationReview": {
+      "checkedAt": "2026-10-30",
+      "decision": "use",
+      "reason": "Clear, sufficiently detailed portrait with readable face, suitable framing and lighting; suitable outdoor/workplace portraits retained."
+    }
+  }
+]

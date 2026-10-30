@@ -11,7 +11,7 @@ export function researchFixture(): Dataset {
     candidacies: [{ id: "candidacy", candidateId: "person", raceId: "race", party: "Test affiliation", ballotQualified: true, status: "qualified", statusDate: "2026-10-01", sourceIds: ["source"] }],
     questions: [{ id: "question", version: 1, wording: "Should synthetic policy A be adopted?", topic: "Test policy", raceIds: ["race"] }],
     positions: [{ id: "position", candidacyId: "candidacy", questionId: "question", questionVersion: 1, kind: "platform-summary", statement: "Synthetic summary", label: "supports", evidenceDate: "2026-10-01", researchedAt: "2026-10-02", researchScope: "Synthetic document only", sourceIds: ["source"], publication: "published", review: { state: "reviewed", reviewer: "test-editor", reviewedAt: "2026-10-02" } }],
-    records: [], localSelections: [], freshness: [], coverage: [], historicalResults: [], platformIssues: [],
+    records: [], localSelections: [], freshness: [], coverage: [], historicalResults: [], platformIssues: [], platformResearch: [],
   };
 }
 

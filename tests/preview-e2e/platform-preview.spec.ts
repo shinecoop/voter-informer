@@ -4,11 +4,9 @@ import { expect, test } from "@playwright/test";
 
 const research = datasetSchema.parse(JSON.parse(readFileSync(new URL("../../data/research.json", import.meta.url), "utf8")));
 
-test("local preview displays all ten Crow drafts without approving or publishing them", async ({ page }) => {
+test("local preview displays all ten Crow drafts without recording human approval", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 700 });
-  await page.goto("/platforms/jason-crow-2026");
-  await expect(page.getByRole("heading", { name: "Platform review pending", exact: true })).toBeVisible();
-  await page.getByRole("link", { name: "Preview draft platform", exact: true }).click();
+  await page.goto("/preview/platforms/jason-crow-2026");
   await expect(page).toHaveURL("/preview/platforms/jason-crow-2026");
   await expect(page.getByRole("heading", { name: "Draft preview — not approved", exact: true })).toBeVisible();
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Jason Crow");
@@ -30,8 +28,8 @@ test("local preview displays all ten Crow drafts without approving or publishing
   expect(await page.getByRole("main").evaluate((element) => element.scrollWidth <= element.clientWidth)).toBe(true);
   await page.screenshot({ path: "test-results/crow-draft-preview.png", fullPage: true });
   await page.getByRole("link", { name: "View public page", exact: true }).click();
-  await expect(page.getByRole("heading", { name: "Platform review pending", exact: true })).toBeVisible();
-  await expect(page.locator(".platform-proposal")).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "User-testing MVP — not reviewed", exact: true })).toBeVisible();
+  await expect(page.locator(".platform-proposal")).toHaveCount(10);
 });
 
 test("unknown preview candidacies return 404", async ({ page }) => {
@@ -89,7 +87,7 @@ test("Jason Crow preview has compact, readable spacing at desktop, tablet and ph
 test("research context follows the issues and source links open a separate tab", async ({ page, context }) => {
   await page.goto("/preview/platforms/jason-crow-2026");
   const notes = page.getByRole("region", { name: "Research notes" });
-  await expect(notes).toContainText("Source dates are unknown");
+  await expect(notes).toContainText("Source dates and current applicability vary");
   await expect(notes).toContainText("All 10 issues");
   await expect(notes).toContainText("Researched: 2026-10-25");
   expect(await notes.evaluate(element => Boolean(element.previousElementSibling?.classList.contains("platform-issues")))).toBe(true);
