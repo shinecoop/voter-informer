@@ -6,8 +6,8 @@ import { promisify } from "node:util";
 import { expect, test } from "@playwright/test";
 import { platformIssueFixture, platformResearchFixture, researchFixture } from "../fixtures/research";
 
-const crowPath = "/platforms/jason-crow-2026";
-const listPath = "/2026/colorado/district6/candidates";
+const crowPath = "/2026/colorado/us-house/district-6/candidates/jason-crow-2026";
+const listPath = "/2026/colorado/us-house/district-6/candidates";
 
 // Render the actual server page against an isolated snapshot, never production data.
 // Native disclosures and evidence links are then exercised in Chromium.
@@ -15,13 +15,17 @@ async function isolatedPlatform() {
   const directory = await mkdtemp(join(tmpdir(), "platform-browser-"));
   try {
     const data = platformResearchFixture();
+    data.geographies[0]!.id = "co";
+    data.geographies[1]!.id = "co-district-6";
+    data.geographies[1]!.stateId = "co";
+    data.races[0]!.geographyId = "co-district-6";
     data.platformIssues.push(
       { ...platformIssueFixture(), id: "housing-v1", issueId: "housing", status: "no-position-found", proposals: [] },
       { ...platformIssueFixture(), id: "economy-v2", version: 2, publication: "draft", approval: null, review: { state: "draft", reviewer: null, reviewedAt: null }, proposals: [{ id: "draft", summary: "PRIVATE DRAFT SUMMARY", evidence: [{ sourceId: "source", excerpt: "PRIVATE DRAFT EXCERPT", locator: "Private" }] }] },
     );
     // Also exercise the page's non-House guard with valid synthetic Senate context.
     const senate = researchFixture();
-    data.races.push({ ...senate.races[0]!, id: "senate-race" });
+    data.races.push({ ...senate.races[0]!, id: "senate-race", geographyId: "co" });
     data.candidacies.push({ ...senate.candidacies[0]!, id: "senate-candidacy", raceId: "senate-race" });
     await mkdir(join(directory, "data"));
     await writeFile(join(directory, "data/research.json"), JSON.stringify(data));
@@ -29,15 +33,15 @@ async function isolatedPlatform() {
       import React from 'react';
       import { renderToStaticMarkup } from 'react-dom/server';
       import { pathToFileURL } from 'node:url';
-      const { default: Platform, generateStaticParams } = await import(pathToFileURL(${JSON.stringify(resolve("src/app/platforms/[candidacyId]/page.tsx"))}).href);
+      const { default: Platform, generateStaticParams } = await import(pathToFileURL(${JSON.stringify(resolve("src/app/[year]/colorado/us-house/[district]/candidates/[candidacyId]/page.tsx"))}).href);
       process.chdir(${JSON.stringify(directory)});
       const params = await generateStaticParams();
       if (params.some(p => p.candidacyId === 'senate-candidacy') || !params.some(p => p.candidacyId === 'candidacy')) throw new Error('Incorrect static params');
       for (const candidacyId of ['missing', 'senate-candidacy']) {
-        try { await Platform({ params: Promise.resolve({ candidacyId }) }); throw new Error('Expected 404'); }
+        try { await Platform({ params: Promise.resolve({ year: "2026", district: "district-6", candidacyId }) }); throw new Error('Expected 404'); }
         catch (error) { if (error.digest !== 'NEXT_HTTP_ERROR_FALLBACK;404') throw error; }
       }
-      console.log(renderToStaticMarkup(await Platform({ params: Promise.resolve({ candidacyId: 'candidacy' }) })));
+      console.log(renderToStaticMarkup(await Platform({ params: Promise.resolve({ year: '2026', district: 'district-6', candidacyId: 'candidacy' }) })));
     `;
     const { stdout } = await promisify(execFile)(process.execPath, ["--import", "tsx", "--input-type=module", "-e", script], { cwd: process.cwd(), maxBuffer: 1024 * 1024, timeout: 30_000 });
     const css = (await readFile(resolve("src/app/globals.css"), "utf8")).replace('@import "tailwindcss";', "");
@@ -101,7 +105,7 @@ test("mobile direct hash, issue anchors and return link work without horizontal 
 });
 
 test("unknown platform routes return 404", async ({ page }) => {
-  for (const path of ["/platforms/unknown-candidacy", "/platforms/jason-crow", "/platforms/jason-crow-2024", "/preview/platforms/jason-crow-2026"]) {
+  for (const path of [`${listPath}/unknown-candidacy`, `${listPath}/jason-crow`, `${listPath}/jason-crow-2024`, "/2026/colorado/us-house/district-1/candidates/jason-crow-2026", "/2024/colorado/us-house/district-6/candidates/jason-crow-2026", "/preview/platforms/jason-crow-2026"]) {
     expect((await page.goto(path))?.status()).toBe(404);
   }
 });
@@ -131,4 +135,12 @@ test("isolated approved rendering shows evidence, honest no-position findings, a
   await expect(page.getByRole("heading", { name: "Platform review pending", exact: true })).toHaveCount(0);
   expect(await page.content()).not.toContain("PRIVATE DRAFT");
   expect(await page.getByRole("main").evaluate((element) => element.scrollWidth <= element.clientWidth)).toBe(true);
+});
+
+
+test("legacy URLs redirect to the office and district hierarchy", async ({ page }) => {
+  await page.goto("/2026/colorado/district6/candidates#jason-crow-2026");
+  await expect(page).toHaveURL(`${listPath}#jason-crow-2026`);
+  await page.goto("/platforms/jason-crow-2026");
+  await expect(page).toHaveURL(crowPath);
 });

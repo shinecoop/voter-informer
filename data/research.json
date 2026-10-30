@@ -193,6 +193,42 @@
       "sourceIds": [
         "co-2026-official-roster"
       ]
+    },
+    {
+      "id": "co-2026-senate-general",
+      "office": "senate",
+      "electionId": "co-2026-general",
+      "geographyId": "co",
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ]
+    },
+    {
+      "id": "co-2026-governor-general",
+      "office": "governor",
+      "electionId": "co-2026-general",
+      "geographyId": "co",
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ]
+    },
+    {
+      "id": "co-2026-secretary-of-state-general",
+      "office": "secretary-of-state",
+      "electionId": "co-2026-general",
+      "geographyId": "co",
+      "sourceIds": [
+        "co-2026-secretary-of-state-roster"
+      ]
+    },
+    {
+      "id": "co-2026-treasurer-general",
+      "office": "treasurer",
+      "electionId": "co-2026-general",
+      "geographyId": "co",
+      "sourceIds": [
+        "co-2026-treasurer-roster"
+      ]
     }
   ],
   "candidates": [
@@ -657,6 +693,364 @@
       "portrait": null,
       "sourceIds": [
         "co-2026-official-roster"
+      ]
+    },
+    {
+      "id": "mark-baisley",
+      "givenName": "Mark",
+      "familyName": "Baisley",
+      "biography": null,
+      "birthDate": "1955-08-02",
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ],
+      "birthDateSourceId": "mark-baisley-birth"
+    },
+    {
+      "id": "john-hickenlooper",
+      "givenName": "John",
+      "familyName": "Hickenlooper",
+      "biography": null,
+      "birthDate": "1952-02-07",
+      "portrait": {
+        "src": "/portraits/john-hickenlooper.jpg",
+        "sourceId": "john-hickenlooper-portrait",
+        "credit": "Renee Bouchard, United States Senate Photographic Studio, via Wikimedia Commons — public domain; 500px rendition"
+      },
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ],
+      "birthDateSourceId": "john-hickenlooper-birth"
+    },
+    {
+      "id": "bob-chew",
+      "givenName": "Bob",
+      "familyName": "Chew",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ]
+    },
+    {
+      "id": "christopher-baum",
+      "givenName": "Christopher",
+      "familyName": "Baum",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ]
+    },
+    {
+      "id": "blake-huber",
+      "givenName": "Blake",
+      "familyName": "Huber",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ]
+    },
+    {
+      "id": "adam-withrow",
+      "givenName": "Adam",
+      "familyName": "Withrow",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ]
+    },
+    {
+      "id": "donald-willoughby",
+      "givenName": "Donald",
+      "familyName": "Willoughby",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ]
+    },
+    {
+      "id": "will-powers",
+      "givenName": "Will",
+      "familyName": "Powers",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ]
+    },
+    {
+      "id": "ryan-apelbaum",
+      "givenName": "Ryan",
+      "familyName": "Apelbaum",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ]
+    },
+    {
+      "id": "victor-marx",
+      "givenName": "Victor",
+      "familyName": "Marx",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ]
+    },
+    {
+      "id": "george-washington-markert",
+      "givenName": "George Washington",
+      "familyName": "Markert",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ]
+    },
+    {
+      "id": "phil-weiser",
+      "givenName": "Phil",
+      "familyName": "Weiser",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ]
+    },
+    {
+      "id": "lesley-dahlkemper",
+      "givenName": "Lesley",
+      "familyName": "Dahlkemper",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ]
+    },
+    {
+      "id": "stephen-t-hamilton",
+      "givenName": "Stephen T.",
+      "familyName": "Hamilton",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ]
+    },
+    {
+      "id": "james-k-treibert",
+      "givenName": "James K",
+      "familyName": "Treibert",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ]
+    },
+    {
+      "id": "eric-mulder",
+      "givenName": "Eric",
+      "familyName": "Mulder",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ]
+    },
+    {
+      "id": "wayne-harlos",
+      "givenName": "Wayne",
+      "familyName": "Harlos",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ]
+    },
+    {
+      "id": "jeff-peckman",
+      "givenName": "Jeff",
+      "familyName": "Peckman",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ]
+    },
+    {
+      "id": "t-j-cole",
+      "givenName": "T.J.",
+      "familyName": "Cole",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ]
+    },
+    {
+      "id": "erik-underwood",
+      "givenName": "Erik",
+      "familyName": "Underwood",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ]
+    },
+    {
+      "id": "frank-atwood",
+      "givenName": "Frank",
+      "familyName": "Atwood",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ]
+    },
+    {
+      "id": "greg-lopez",
+      "givenName": "Greg",
+      "familyName": "Lopez",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ]
+    },
+    {
+      "id": "taralyn-romero",
+      "givenName": "Taralyn",
+      "familyName": "Romero",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ]
+    },
+    {
+      "id": "amanda-gonzalez",
+      "givenName": "Amanda",
+      "familyName": "Gonzalez",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-secretary-of-state-roster"
+      ]
+    },
+    {
+      "id": "james-wiley",
+      "givenName": "James",
+      "familyName": "Wiley",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-secretary-of-state-roster"
+      ]
+    },
+    {
+      "id": "sean-vadney",
+      "givenName": "Sean",
+      "familyName": "Vadney",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-secretary-of-state-roster"
+      ]
+    },
+    {
+      "id": "amanda-campbell",
+      "givenName": "Amanda",
+      "familyName": "Campbell",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-secretary-of-state-roster"
+      ]
+    },
+    {
+      "id": "celeste-landry",
+      "givenName": "Celeste",
+      "familyName": "Landry",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-secretary-of-state-roster"
+      ]
+    },
+    {
+      "id": "jeff-bridges",
+      "givenName": "Jeff",
+      "familyName": "Bridges",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-treasurer-roster"
+      ]
+    },
+    {
+      "id": "kevin-grantham",
+      "givenName": "Kevin",
+      "familyName": "Grantham",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-treasurer-roster"
+      ]
+    },
+    {
+      "id": "jodie-barr",
+      "givenName": "Jodie",
+      "familyName": "Barr",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-treasurer-roster"
+      ]
+    },
+    {
+      "id": "marilee-langner-sturgis",
+      "givenName": "Marilee",
+      "familyName": "Langner Sturgis",
+      "biography": null,
+      "birthDate": null,
+      "portrait": null,
+      "sourceIds": [
+        "co-2026-treasurer-roster"
       ]
     }
   ],
@@ -1220,6 +1614,369 @@
         "url": "https://davewood4colorado.com/",
         "sourceId": "co-2026-campaign-directory"
       }
+    },
+    {
+      "id": "mark-baisley-2026",
+      "candidateId": "mark-baisley",
+      "raceId": "co-2026-senate-general",
+      "party": "Republican Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://markbaisley.com/",
+        "sourceId": "co-2026-senate-campaign-directory"
+      }
+    },
+    {
+      "id": "john-hickenlooper-2026",
+      "candidateId": "john-hickenlooper",
+      "raceId": "co-2026-senate-general",
+      "party": "Democratic Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://hickenlooper.com/",
+        "sourceId": "co-2026-senate-campaign-directory"
+      }
+    },
+    {
+      "id": "bob-chew-2026",
+      "candidateId": "bob-chew",
+      "raceId": "co-2026-senate-general",
+      "party": "Forward Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://bobchew2026.com/",
+        "sourceId": "co-2026-senate-campaign-directory"
+      }
+    },
+    {
+      "id": "christopher-baum-2026",
+      "candidateId": "christopher-baum",
+      "raceId": "co-2026-senate-general",
+      "party": "Approval Voting Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ]
+    },
+    {
+      "id": "blake-huber-2026",
+      "candidateId": "blake-huber",
+      "raceId": "co-2026-senate-general",
+      "party": "Libertarian Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ]
+    },
+    {
+      "id": "adam-withrow-2026",
+      "candidateId": "adam-withrow",
+      "raceId": "co-2026-senate-general",
+      "party": "Unity Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ]
+    },
+    {
+      "id": "donald-willoughby-2026",
+      "candidateId": "donald-willoughby",
+      "raceId": "co-2026-senate-general",
+      "party": "Unaffiliated",
+      "ballotQualified": false,
+      "status": "certified-write-in",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ]
+    },
+    {
+      "id": "will-powers-2026",
+      "candidateId": "will-powers",
+      "raceId": "co-2026-senate-general",
+      "party": "Republican Party",
+      "ballotQualified": false,
+      "status": "certified-write-in",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ]
+    },
+    {
+      "id": "ryan-apelbaum-2026",
+      "candidateId": "ryan-apelbaum",
+      "raceId": "co-2026-senate-general",
+      "party": "Republican Party",
+      "ballotQualified": false,
+      "status": "certified-write-in",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-senate-roster"
+      ]
+    },
+    {
+      "id": "victor-marx-2026",
+      "candidateId": "victor-marx",
+      "raceId": "co-2026-governor-general",
+      "party": "Republican Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://www.victor2026.com/",
+        "sourceId": "co-2026-governor-campaign-directory"
+      },
+      "runningMateCandidateId": "george-washington-markert"
+    },
+    {
+      "id": "phil-weiser-2026",
+      "candidateId": "phil-weiser",
+      "raceId": "co-2026-governor-general",
+      "party": "Democratic Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://philforcolorado.com/",
+        "sourceId": "co-2026-governor-campaign-directory"
+      },
+      "runningMateCandidateId": "lesley-dahlkemper"
+    },
+    {
+      "id": "stephen-t-hamilton-2026",
+      "candidateId": "stephen-t-hamilton",
+      "raceId": "co-2026-governor-general",
+      "party": "American Constitution Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ],
+      "runningMateCandidateId": "james-k-treibert"
+    },
+    {
+      "id": "eric-mulder-2026",
+      "candidateId": "eric-mulder",
+      "raceId": "co-2026-governor-general",
+      "party": "Libertarian Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://www.mulderforgovernor.org/",
+        "sourceId": "co-2026-governor-campaign-directory"
+      },
+      "runningMateCandidateId": "wayne-harlos"
+    },
+    {
+      "id": "jeff-peckman-2026",
+      "candidateId": "jeff-peckman",
+      "raceId": "co-2026-governor-general",
+      "party": "Unity Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ],
+      "runningMateCandidateId": "t-j-cole"
+    },
+    {
+      "id": "erik-underwood-2026",
+      "candidateId": "erik-underwood",
+      "raceId": "co-2026-governor-general",
+      "party": "Approval Voting Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://erikunderwood.com/",
+        "sourceId": "co-2026-governor-campaign-directory"
+      },
+      "runningMateCandidateId": "frank-atwood"
+    },
+    {
+      "id": "greg-lopez-2026",
+      "candidateId": "greg-lopez",
+      "raceId": "co-2026-governor-general",
+      "party": "Unaffiliated",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-governor-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://www.greglopez.co/",
+        "sourceId": "co-2026-governor-campaign-directory"
+      },
+      "runningMateCandidateId": "taralyn-romero"
+    },
+    {
+      "id": "amanda-gonzalez-2026",
+      "candidateId": "amanda-gonzalez",
+      "raceId": "co-2026-secretary-of-state-general",
+      "party": "Democratic Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-secretary-of-state-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://www.amandaforcolorado.com/",
+        "sourceId": "co-2026-secretary-of-state-campaign-directory"
+      }
+    },
+    {
+      "id": "james-wiley-2026",
+      "candidateId": "james-wiley",
+      "raceId": "co-2026-secretary-of-state-general",
+      "party": "Republican Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-secretary-of-state-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://wileyforcolorado.com/",
+        "sourceId": "co-2026-secretary-of-state-campaign-directory"
+      }
+    },
+    {
+      "id": "sean-vadney-2026",
+      "candidateId": "sean-vadney",
+      "raceId": "co-2026-secretary-of-state-general",
+      "party": "Libertarian Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-secretary-of-state-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://seanvadneyforsos.org/",
+        "sourceId": "co-2026-secretary-of-state-campaign-directory"
+      }
+    },
+    {
+      "id": "amanda-campbell-2026",
+      "candidateId": "amanda-campbell",
+      "raceId": "co-2026-secretary-of-state-general",
+      "party": "American Constitution Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-secretary-of-state-roster"
+      ]
+    },
+    {
+      "id": "celeste-landry-2026",
+      "candidateId": "celeste-landry",
+      "raceId": "co-2026-secretary-of-state-general",
+      "party": "Forward Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-secretary-of-state-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://www.celeste4sos.com/",
+        "sourceId": "co-2026-secretary-of-state-campaign-directory"
+      }
+    },
+    {
+      "id": "jeff-bridges-2026",
+      "candidateId": "jeff-bridges",
+      "raceId": "co-2026-treasurer-general",
+      "party": "Democratic Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-treasurer-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://bridgesforcolorado.com/",
+        "sourceId": "co-2026-treasurer-campaign-directory"
+      }
+    },
+    {
+      "id": "kevin-grantham-2026",
+      "candidateId": "kevin-grantham",
+      "raceId": "co-2026-treasurer-general",
+      "party": "Republican Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-treasurer-roster"
+      ],
+      "campaignWebsite": {
+        "url": "https://citizensforkevingrantham.com/",
+        "sourceId": "co-2026-treasurer-campaign-directory"
+      }
+    },
+    {
+      "id": "jodie-barr-2026",
+      "candidateId": "jodie-barr",
+      "raceId": "co-2026-treasurer-general",
+      "party": "Libertarian Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-treasurer-roster"
+      ]
+    },
+    {
+      "id": "marilee-langner-sturgis-2026",
+      "candidateId": "marilee-langner-sturgis",
+      "raceId": "co-2026-treasurer-general",
+      "party": "Approval Voting Party",
+      "ballotQualified": true,
+      "status": "qualified",
+      "statusDate": "2026-10-30",
+      "sourceIds": [
+        "co-2026-treasurer-roster"
+      ]
     }
   ],
   "questions": [],
@@ -1465,6 +2222,127 @@
     {
       "id": "crow-house-issues-20261025", "url": "https://crow.house.gov/issues", "title": "Issues | Representative Jason Crow", "type": "official", "publisher": "Office of Congressman Jason Crow, U.S. House of Representatives", "publishedAt": null, "eventDate": null, "retrievedAt": "2026-10-25",
       "locator": "Issue-index descriptions: National Security; An Economy for the Working Class; Gun Violence Prevention; Lower Costs for Coloradans; Fighting Corruption. Index only; linked detail pages not inspected."
+    },
+    {
+      "id": "co-2026-senate-roster",
+      "url": "https://www.sos.state.co.us/pubs/elections/vote/generalCandidates.html",
+      "title": "Colorado 2026 official U.S. Senate candidate list",
+      "type": "official",
+      "publisher": "Colorado Secretary of State",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-30",
+      "locator": "US Senate rows: six printed-ballot candidates and three certified write-ins; certified September 4, 2026. Withdrawal status checked in the retrieved list."
+    },
+    {
+      "id": "co-2026-senate-campaign-directory",
+      "url": "https://en.wikipedia.org/wiki/2026_United_States_Senate_election_in_Colorado#External_links",
+      "title": "Colorado 2026 Senate campaign website directory",
+      "type": "independent",
+      "publisher": "Wikipedia contributors",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-30",
+      "locator": "External links: official campaign websites for Mark Baisley, Bob Chew and John Hickenlooper. Used only for website associations."
+    },
+    {
+      "id": "mark-baisley-birth",
+      "url": "https://en.wikipedia.org/wiki/Mark_Baisley",
+      "title": "Mark Baisley biography",
+      "type": "independent",
+      "publisher": "Wikipedia contributors",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-30",
+      "locator": "Personal details: born August 2, 1955."
+    },
+    {
+      "id": "john-hickenlooper-birth",
+      "url": "https://bioguide.congress.gov/search/bio/H000273",
+      "title": "John Hickenlooper — congressional biography",
+      "type": "official",
+      "publisher": "Biographical Directory of the United States Congress",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-30",
+      "locator": "Biography: born February 7, 1952."
+    },
+    {
+      "id": "john-hickenlooper-portrait",
+      "url": "https://commons.wikimedia.org/wiki/File:John_Hickenlooper,_official_portrait,_117th_Congress.jpeg",
+      "title": "John Hickenlooper official Senate portrait",
+      "type": "official",
+      "publisher": "United States Senate Photographic Studio / Wikimedia Commons",
+      "publishedAt": "2021-02-02",
+      "eventDate": null,
+      "retrievedAt": "2026-10-30",
+      "locator": "Author: Renee Bouchard, United States Senate Photographic Studio. Public domain (U.S. federal government work). Local JPEG uses Wikimedia 500px rendition."
+    },
+    {
+      "id": "co-2026-governor-roster",
+      "url": "https://www.sos.state.co.us/pubs/elections/vote/generalCandidates.html",
+      "title": "Colorado 2026 official Governor candidate list",
+      "type": "official",
+      "publisher": "Colorado Secretary of State",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-30",
+      "locator": "Governor rows and adjacent Lt. Governor running mates; list reflects September 4 certification; retrieved October 30, 2026."
+    },
+    {
+      "id": "co-2026-governor-campaign-directory",
+      "url": "https://en.wikipedia.org/wiki/2026_Colorado_gubernatorial_election#External_links",
+      "title": "Colorado 2026 Governor campaign website directory",
+      "type": "independent",
+      "publisher": "Wikipedia contributors",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-30",
+      "locator": "External links: official campaign websites. Website associations only, not ballot qualification or policy claims."
+    },
+    {
+      "id": "co-2026-secretary-of-state-roster",
+      "url": "https://www.sos.state.co.us/pubs/elections/vote/generalCandidates.html",
+      "title": "Colorado 2026 official Secretary of State candidate list",
+      "type": "official",
+      "publisher": "Colorado Secretary of State",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-30",
+      "locator": "Secretary of State rows; list reflects September 4 certification; retrieved October 30, 2026."
+    },
+    {
+      "id": "co-2026-secretary-of-state-campaign-directory",
+      "url": "https://en.wikipedia.org/wiki/2026_Colorado_Secretary_of_State_election#External_links",
+      "title": "Colorado 2026 Secretary of State campaign website directory",
+      "type": "independent",
+      "publisher": "Wikipedia contributors",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-30",
+      "locator": "External links: official campaign websites. Website associations only, not ballot qualification or policy claims."
+    },
+    {
+      "id": "co-2026-treasurer-roster",
+      "url": "https://www.sos.state.co.us/pubs/elections/vote/generalCandidates.html",
+      "title": "Colorado 2026 official State Treasurer candidate list",
+      "type": "official",
+      "publisher": "Colorado Secretary of State",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-30",
+      "locator": "State Treasurer rows; list reflects September 4 certification; retrieved October 30, 2026."
+    },
+    {
+      "id": "co-2026-treasurer-campaign-directory",
+      "url": "https://en.wikipedia.org/wiki/2026_Colorado_State_Treasurer_election#External_links",
+      "title": "Colorado 2026 State Treasurer campaign website directory",
+      "type": "independent",
+      "publisher": "Wikipedia contributors",
+      "publishedAt": null,
+      "eventDate": null,
+      "retrievedAt": "2026-10-30",
+      "locator": "External links: official campaign websites. Website associations only, not ballot qualification or policy claims."
     }
   ],
   "freshness": [],
@@ -1473,70 +2351,70 @@
   "platformIssues": [
     {
       "id": "crow-2026-economy-v1", "candidacyId": "jason-crow-2026", "issueId": "economy", "version": 1, "status": "position-found",
-      "proposals": [{ "id": "workforce", "summary": "Crow proposes investing in workforce development, apprenticeship training, and growing industries such as health care, technology, and renewable energy.", "evidence": [{ "sourceId": "crow-campaign-values-20261025", "excerpt": "By investing in workforce development, apprenticeship training, and growing industries like healthcare, technology, and renewable energy, we can open the door to career advancement and better opportunities for Colorado families.", "locator": "Better Jobs & More Economic Opportunity, sentence beginning By investing" }] }],
+      "proposals": [{ "id": "workforce", "summary": "Crow proposes “investing in workforce development, apprenticeship training” and growing industries such as health care, technology, and renewable energy.", "evidence": [{ "sourceId": "crow-campaign-values-20261025", "excerpt": "By investing in workforce development, apprenticeship training, and growing industries like healthcare, technology, and renewable energy, we can open the door to career advancement and better opportunities for Colorado families.", "locator": "Better Jobs & More Economic Opportunity, sentence beginning By investing" }] }],
       "sourceIds": ["crow-campaign-values-20261025", "crow-house-issues-20261025"], "researchedAt": "2026-10-25",
       "researchScope": "Campaign Values: Better Jobs & More Economic Opportunity; House Issues index: An Economy for the Working Class. Undated statements retrieved October 25, 2026; chronology and continued applicability to the 2026 election require human confirmation. Limited source review, not exhaustive; no funding level or timetable is supplied in the quoted passage.",
       "publication": "draft", "review": { "state": "draft", "reviewer": null, "reviewedAt": null }, "approval": null
     },
     {
       "id": "crow-2026-housing-v1", "candidacyId": "jason-crow-2026", "issueId": "housing", "version": 1, "status": "position-found",
-      "proposals": [{ "id": "affordable-supply", "summary": "Crow calls for using government resources alongside private-sector activity to create affordable housing for both sale and rent.", "evidence": [{ "sourceId": "crow-campaign-values-20261025", "excerpt": "We need to leverage government resources in partnership with private sector activity to create new affordable housing based on a multi-pronged approach that supports both for sale and rental housing.", "locator": "Housing Affordability, final sentence" }] }],
+      "proposals": [{ "id": "affordable-supply", "summary": "Crow calls for government resources and private-sector partnerships to “create new affordable housing” for both sale and rent.", "evidence": [{ "sourceId": "crow-campaign-values-20261025", "excerpt": "We need to leverage government resources in partnership with private sector activity to create new affordable housing based on a multi-pronged approach that supports both for sale and rental housing.", "locator": "Housing Affordability, final sentence" }] }],
       "sourceIds": ["crow-campaign-values-20261025", "crow-house-issues-20261025"], "researchedAt": "2026-10-25",
       "researchScope": "Campaign Values: Housing Affordability; House Issues index: Lower Costs for Coloradans. Both undated, retrieved October 25, 2026; no chronology established. Limited source review, not exhaustive. The quoted passage does not identify a funding amount, subsidy design, or construction target. Human confirmation of current applicability is pending.",
       "publication": "draft", "review": { "state": "draft", "reviewer": null, "reviewedAt": null }, "approval": null
     },
     {
       "id": "crow-2026-health-care-v1", "candidacyId": "jason-crow-2026", "issueId": "health-care", "version": 1, "status": "position-found",
-      "proposals": [{ "id": "public-option", "summary": "Crow says he will fight for a public health insurance option, with the stated aims of reducing costs and increasing consumer choice.", "evidence": [{ "sourceId": "crow-campaign-values-20261025", "excerpt": "I will fight for a public option that will reduce costs and increase choices for  consumers.", "locator": "Health Care, sentence beginning I will fight for a public option; original double space retained" }] }],
+      "proposals": [{ "id": "public-option", "summary": "Crow says, “I will fight for a public option,” with the stated aims of reducing costs and increasing consumer choice.", "evidence": [{ "sourceId": "crow-campaign-values-20261025", "excerpt": "I will fight for a public option that will reduce costs and increase choices for  consumers.", "locator": "Health Care, sentence beginning I will fight for a public option; original double space retained" }] }],
       "sourceIds": ["crow-campaign-values-20261025", "crow-house-issues-20261025"], "researchedAt": "2026-10-25",
       "researchScope": "Campaign Values: Health Care; House Issues index: Lower Costs for Coloradans. Both undated, retrieved October 25, 2026; chronology and current 2026 applicability unconfirmed. The summary attributes intended benefits rather than predicting effectiveness. The campaign section also discusses preserving existing coverage; no specific public-option implementation is supplied in the quoted sentence. Not comprehensive health-policy coverage, including reproductive health.",
       "publication": "draft", "review": { "state": "draft", "reviewer": null, "reviewedAt": null }, "approval": null
     },
     {
       "id": "crow-2026-education-v1", "candidacyId": "jason-crow-2026", "issueId": "education", "version": 1, "status": "position-found",
-      "proposals": [{ "id": "education-access", "summary": "Crow calls for affordable student loans, reasonable higher-education costs, and accessible, reliable community-college and technical-training opportunities.", "evidence": [{ "sourceId": "crow-campaign-values-20261025", "excerpt": "We must ensure that student loans are affordable, costs of higher education are reasonable, and that community colleges and technical training opportunities are available and reliable so that job training and re-training for tomorrow’s economy is available to all Americans.", "locator": "Education, sentence beginning We must ensure" }] }],
+      "proposals": [{ "id": "education-access", "summary": "Crow calls for ensuring that “student loans are affordable,” higher-education costs are reasonable, and “community colleges and technical training opportunities are available and reliable.”", "evidence": [{ "sourceId": "crow-campaign-values-20261025", "excerpt": "We must ensure that student loans are affordable, costs of higher education are reasonable, and that community colleges and technical training opportunities are available and reliable so that job training and re-training for tomorrow’s economy is available to all Americans.", "locator": "Education, sentence beginning We must ensure" }] }],
       "sourceIds": ["crow-campaign-values-20261025"], "researchedAt": "2026-10-25",
       "researchScope": "Campaign Values: Education, with surrounding context inspected. Undated page retrieved October 25, 2026; no claim this is the latest statement. General goals only: no loan rate, cost cap, or implementation mechanism inferred. Human confirmation of 2026 applicability pending. Limited source review, not exhaustive.",
       "publication": "draft", "review": { "state": "draft", "reviewer": null, "reviewedAt": null }, "approval": null
     },
     {
       "id": "crow-2026-climate-energy-v1", "candidacyId": "jason-crow-2026", "issueId": "climate-energy", "version": 1, "status": "position-found",
-      "proposals": [{ "id": "international-climate", "summary": "Crow calls for renewed cooperation with other countries on climate solutions, including encouraging clean-energy transitions.", "evidence": [{ "sourceId": "crow-campaign-values-20261025", "excerpt": "We must re-engage with other nations to work towards climate solutions, including encouraging clean energy transitions.", "locator": "Environment, sentence beginning We must re-engage" }] }],
+      "proposals": [{ "id": "international-climate", "summary": "Crow calls for the U.S. to “re-engage with other nations to work towards climate solutions,” including “encouraging clean energy transitions.”", "evidence": [{ "sourceId": "crow-campaign-values-20261025", "excerpt": "We must re-engage with other nations to work towards climate solutions, including encouraging clean energy transitions.", "locator": "Environment, sentence beginning We must re-engage" }] }],
       "sourceIds": ["crow-campaign-values-20261025"], "researchedAt": "2026-10-25",
       "researchScope": "Campaign Values: Environment. Undated page retrieved October 25, 2026; the meaning of re-engage is not assigned to a particular administration or treaty. No emissions target or energy deadline inferred. Latest position/current election applicability not established; human confirmation pending. Limited source review, not exhaustive.",
       "publication": "draft", "review": { "state": "draft", "reviewer": null, "reviewedAt": null }, "approval": null
     },
     {
       "id": "crow-2026-immigration-v1", "candidacyId": "jason-crow-2026", "issueId": "immigration", "version": 1, "status": "position-found",
-      "proposals": [{ "id": "dreamers", "summary": "Crow supports a path to citizenship for Dreamers and broader immigration reform intended to give other undocumented immigrants and their families greater certainty.", "evidence": [{ "sourceId": "crow-campaign-values-20261025", "excerpt": "I believe we should provide the Dreamers with a path towards citizenship and reform the immigration system to bring the millions of other undocumented immigrants out of the shadows and provide certainty to them and their families.", "locator": "Immigration, sentence beginning I believe we should" }] }],
+      "proposals": [{ "id": "dreamers", "summary": "Crow supports efforts to “provide the Dreamers with a path towards citizenship” and broader immigration reform to give other undocumented immigrants and their families greater certainty.", "evidence": [{ "sourceId": "crow-campaign-values-20261025", "excerpt": "I believe we should provide the Dreamers with a path towards citizenship and reform the immigration system to bring the millions of other undocumented immigrants out of the shadows and provide certainty to them and their families.", "locator": "Immigration, sentence beginning I believe we should" }] }],
       "sourceIds": ["crow-campaign-values-20261025"], "researchedAt": "2026-10-25",
       "researchScope": "Campaign Values: Immigration, including surrounding discussion of family unity and border security. Undated, retrieved October 25, 2026. Citizenship path is explicitly stated for Dreamers; not generalized to every undocumented immigrant. No eligibility criteria or timetable inferred. Human confirmation of current applicability pending; limited source review, not exhaustive.",
       "publication": "draft", "review": { "state": "draft", "reviewer": null, "reviewedAt": null }, "approval": null
     },
     {
       "id": "crow-2026-gun-policy-v1", "candidacyId": "jason-crow-2026", "issueId": "gun-policy", "version": 1, "status": "position-found",
-      "proposals": [{ "id": "gun-safety", "summary": "Crow’s House office says he is working to pass gun-safety laws while protecting Second Amendment rights; this index description does not specify individual measures.", "evidence": [{ "sourceId": "crow-house-issues-20261025", "excerpt": "As a gun owner, hunter, and former Army Ranger, Jason believes we can protect Second Amendment rights while also reducing gun violence. He is working to pass common-sense gun safety laws that help keep Colorado communities safe.", "locator": "Gun Violence Prevention / Protecting Colorado Communities, index description" }] }],
+      "proposals": [{ "id": "gun-safety", "summary": "Crow’s House office says he wants to “protect Second Amendment rights” and “pass common-sense gun safety laws”; the cited passage does not specify individual measures.", "evidence": [{ "sourceId": "crow-house-issues-20261025", "excerpt": "As a gun owner, hunter, and former Army Ranger, Jason believes we can protect Second Amendment rights while also reducing gun violence. He is working to pass common-sense gun safety laws that help keep Colorado communities safe.", "locator": "Gun Violence Prevention / Protecting Colorado Communities, index description" }] }],
       "sourceIds": ["crow-house-issues-20261025", "crow-campaign-values-20261025"], "researchedAt": "2026-10-25",
       "researchScope": "House Issues index: Gun Violence Prevention; campaign Values: Gun Violence Prevention for context. Both undated, retrieved October 25, 2026; no relative chronology inferred. Used present-tense House description, not campaign claims about past legislation/votes, which are outside feature scope. Specific gun-law mechanisms require further current-source review; limited source review, not exhaustive.",
       "publication": "draft", "review": { "state": "draft", "reviewer": null, "reviewedAt": null }, "approval": null
     },
     {
       "id": "crow-2026-democracy-v1", "candidacyId": "jason-crow-2026", "issueId": "democracy", "version": 1, "status": "position-found",
-      "proposals": [{ "id": "ethics-transparency", "summary": "Crow’s House office says he is working to curb dark money in politics, strengthen ethics rules, and restore trust in government.", "evidence": [{ "sourceId": "crow-house-issues-20261025", "excerpt": "He is fighting to crack down on dark money in politics, strengthen ethics rules, and restore trust in government.", "locator": "Fighting Corruption / Putting People Over Special Interests, final sentence" }] }],
+      "proposals": [{ "id": "ethics-transparency", "summary": "Crow’s House office says he is fighting to “crack down on dark money in politics,” “strengthen ethics rules,” and restore trust in government.", "evidence": [{ "sourceId": "crow-house-issues-20261025", "excerpt": "He is fighting to crack down on dark money in politics, strengthen ethics rules, and restore trust in government.", "locator": "Fighting Corruption / Putting People Over Special Interests, final sentence" }] }],
       "sourceIds": ["crow-house-issues-20261025", "crow-campaign-values-20261025"], "researchedAt": "2026-10-25",
       "researchScope": "House Issues index: Fighting Corruption; campaign Values: Campaign Finance Reform and Defending Our Democracy for context. Both undated, retrieved October 25, 2026; no claim to latest chronology. This draft states broad intentions, not past legislative actions or detailed ethics rules. Other democracy issues need further research; not exhaustive.",
       "publication": "draft", "review": { "state": "draft", "reviewer": null, "reviewedAt": null }, "approval": null
     },
     {
       "id": "crow-2026-veterans-v1", "candidacyId": "jason-crow-2026", "issueId": "veterans", "version": 1, "status": "position-found",
-      "proposals": [{ "id": "va-benefits", "summary": "Crow calls for protecting veterans’ benefits, improving the benefits-claims system, and improving access to, quality of, and timeliness of VA health care.", "evidence": [{ "sourceId": "crow-campaign-values-20261025", "excerpt": "We must fight for those who fought for us by protecting veterans’ benefits, improving the benefits claims system, and improving access, quality, and timeliness of VA health care.", "locator": "Veterans, opening sentence" }] }],
+      "proposals": [{ "id": "va-benefits", "summary": "Crow calls for “protecting veterans’ benefits,” improving the benefits-claims system, and “improving access, quality, and timeliness of VA health care.”", "evidence": [{ "sourceId": "crow-campaign-values-20261025", "excerpt": "We must fight for those who fought for us by protecting veterans’ benefits, improving the benefits claims system, and improving access, quality, and timeliness of VA health care.", "locator": "Veterans, opening sentence" }] }],
       "sourceIds": ["crow-campaign-values-20261025"], "researchedAt": "2026-10-25",
       "researchScope": "Campaign Values: Veterans. Undated page retrieved October 25, 2026; current election applicability needs human confirmation. No guaranteed outcomes, benefit amount, staffing level, or deadline inferred from the quoted goals. Limited source review, not exhaustive.",
       "publication": "draft", "review": { "state": "draft", "reviewer": null, "reviewedAt": null }, "approval": null
     },
     {
       "id": "crow-2026-foreign-policy-v1", "candidacyId": "jason-crow-2026", "issueId": "foreign-policy", "version": 1, "status": "position-found",
-      "proposals": [{ "id": "global-engagement", "summary": "Crow calls for U.S. leadership in international institutions and promotion of human rights and democracy abroad.", "evidence": [{ "sourceId": "crow-campaign-values-20261025", "excerpt": "America needs to resume its global leadership position in international institutions, and promote human rights and democracy abroad.", "locator": "Foreign Policy, sentence beginning America needs" }] }],
+      "proposals": [{ "id": "global-engagement", "summary": "Crow calls for America to “resume its global leadership position in international institutions” and “promote human rights and democracy abroad.”", "evidence": [{ "sourceId": "crow-campaign-values-20261025", "excerpt": "America needs to resume its global leadership position in international institutions, and promote human rights and democracy abroad.", "locator": "Foreign Policy, sentence beginning America needs" }] }],
       "sourceIds": ["crow-campaign-values-20261025", "crow-house-issues-20261025"], "researchedAt": "2026-10-25",
       "researchScope": "Campaign Values: Foreign Policy; House Issues index: National Security for context. Both undated, retrieved October 25, 2026. Does not identify which administration is meant by the campaign page’s surrounding criticism; no chronology or country-specific policy inferred. Human confirmation of current applicability pending. Limited source review, not exhaustive.",
       "publication": "draft", "review": { "state": "draft", "reviewer": null, "reviewedAt": null }, "approval": null

@@ -27,9 +27,9 @@ const questionRef = z.object({ questionId: id, questionVersion: z.number().int()
 export const entitySchemas = {
   geographies: z.object({ id, name: text, type: z.enum(["state", "district", "county"]), stateId: id.nullable(), boundaryVintage: text, boundarySourceIds: refs, geometryRef: text, overlappingCountyIds: z.array(id) }).strict(),
   elections: z.object({ id, cycle: z.number().int().min(1788).max(2200), stage: z.enum(["primary", "general", "runoff", "special"]), date: date.nullable(), status: z.enum(["scheduled", "completed", "unknown"]), ...sourced }).strict(),
-  races: z.object({ id, office: z.enum(["house", "senate"]), electionId: id, geographyId: id, ...sourced }).strict(),
+  races: z.object({ id, office: z.enum(["house", "senate", "governor", "secretary-of-state", "treasurer"]), electionId: id, geographyId: id, ...sourced }).strict(),
   candidates: z.object({ id, givenName: text, familyName: text, biography: text.nullable(), birthDate: birthDate.nullable().optional(), birthDateSourceId: id.optional(), portrait: portrait.nullable().optional(), ...sourced }).strict(),
-  candidacies: z.object({ id, candidateId: id, raceId: id, party: text, campaignWebsite: z.object({ url: websiteUrl, sourceId: id }).strict().optional(), ballotQualified: z.boolean(), status: z.enum(["qualified", "withdrawn", "defeated", "elected", "unknown", "certified-write-in"]), statusDate: date, ...sourced }).strict(),
+  candidacies: z.object({ id, candidateId: id, runningMateCandidateId: id.optional(), raceId: id, party: text, campaignWebsite: z.object({ url: websiteUrl, sourceId: id }).strict().optional(), ballotQualified: z.boolean(), status: z.enum(["qualified", "withdrawn", "defeated", "elected", "unknown", "certified-write-in"]), statusDate: date, ...sourced }).strict(),
   questions: z.object({ id, version: z.number().int().positive(), wording: text, topic: text, raceIds: refs }).strict(),
   localSelections: z.object({ id, raceId: id, questions: z.array(questionRef).min(1), rationale: text, ...sourced, ...publication }).strict(),
   positions: z.object({ id, candidacyId: id, ...questionRef.shape, kind: z.enum(["quotation", "platform-summary"]), statement: text, label: z.enum(["supports", "opposes", "conditional-mixed", "no-explicit-position-found"]).nullable(), evidenceDate: date.nullable(), researchedAt: date, researchScope: text, ...sourced, ...publication }).strict(),
@@ -101,11 +101,17 @@ export const datasetSchema = datasetObject.superRefine((data, ctx) => {
   data.races.forEach((r, i) => {
     link("races", i, "electionId", "elections", r.electionId);
     const g = data.geographies.find((g) => g.id === r.geographyId);
-    if (!g || g.type !== (r.office === "house" ? "district" : "state")) fail(["races", i, "geographyId"], "House requires district; Senate requires state");
+    if (!g || g.type !== (r.office === "house" ? "district" : "state")) fail(["races", i, "geographyId"], "House requires district; statewide offices require state");
   });
   data.candidacies.forEach((c, i) => {
     link("candidacies", i, "candidateId", "candidates", c.candidateId);
     link("candidacies", i, "raceId", "races", c.raceId);
+    if (c.runningMateCandidateId) {
+      link("candidacies", i, "runningMateCandidateId", "candidates", c.runningMateCandidateId);
+      if (c.runningMateCandidateId === c.candidateId || !data.races.some((race) => race.id === c.raceId && race.office === "governor")) {
+        fail(["candidacies", i, "runningMateCandidateId"], "Only governor tickets may have a distinct running mate");
+      }
+    }
         if (c.campaignWebsite) link("candidacies", i, "campaignWebsite", "sources", c.campaignWebsite.sourceId);
     if (c.status === "certified-write-in" && c.ballotQualified) fail(["candidacies", i, "ballotQualified"], "Certified write-ins are not printed ballot candidates");
     if (c.status === "qualified" && !c.ballotQualified) fail(["candidacies", i, "ballotQualified"], "Qualified status requires ballot qualification");

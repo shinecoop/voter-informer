@@ -20,7 +20,7 @@ for (const viewport of [{ width: 1440, height: 800 }, { width: 768, height: 800 
     const controls = (await panel.locator(".race-panel-controls").boundingBox())!;
     expect(initialHeading.y - controls.y - controls.height).toBeLessThanOrEqual(16);
     await choices.getByRole("button", { name: "Colorado" }).click();
-    await expect(choices.getByRole("listitem")).toHaveCount(1);
+    await expect(choices.getByRole("listitem")).toHaveCount(5);
     await expect(trail.getByRole("button")).toHaveText(["States", "Colorado"]);
     await panel.getByRole("button", { name: "U.S. House" }).click();
     await expect(panel.getByRole("link")).toHaveCount(8);
@@ -54,7 +54,7 @@ for (const viewport of [{ width: 1440, height: 800 }, { width: 768, height: 800 
     await panel.getByRole("button", { name: "Colorado" }).click();
     await panel.getByRole("button", { name: "U.S. House" }).click();
     await panel.getByRole("link", { name: "District 8", exact: true }).click();
-    await expect(page).toHaveURL("/2026/colorado/district8/candidates");
+    await expect(page).toHaveURL("/2026/colorado/us-house/district-8/candidates");
     await expect(panel).not.toBeVisible();
     await expect(page.getByRole("heading", { name: "Candidates", exact: true })).toBeVisible();
     const pageTrail = page.getByRole("navigation", { name: "Breadcrumb", exact: true });
@@ -71,7 +71,7 @@ for (const viewport of [{ width: 1440, height: 800 }, { width: 768, height: 800 
       const crumb = breadcrumbs.getByRole("button", { name: label, exact: true });
       await crumb.click();
       await expect(panel.getByRole("heading", { name: heading, exact: true })).toBeFocused();
-      if (label === "District 8") await expect(panel.getByRole("link", { name: "Candidates", exact: true })).toHaveAttribute("href", "/2026/colorado/district8/candidates");
+      if (label === "District 8") await expect(panel.getByRole("link", { name: "Candidates", exact: true })).toHaveAttribute("href", "/2026/colorado/us-house/district-8/candidates");
       await page.keyboard.press("Escape");
       await expect(crumb).toBeFocused();
     }
@@ -91,7 +91,7 @@ for (const viewport of [{ width: 1440, height: 800 }, { width: 768, height: 800 
     }
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
     await panel.getByRole("link", { name: "District 2", exact: true }).click();
-    await expect(page).toHaveURL("/2026/colorado/district2/candidates");
+    await expect(page).toHaveURL("/2026/colorado/us-house/district-2/candidates");
     await page.getByRole("navigation", { name: "Main navigation" }).getByRole("link", { name: "Map", exact: true }).click();
     await expect(page.getByRole("group", { name: "United States map", exact: true })).toBeVisible();
   });

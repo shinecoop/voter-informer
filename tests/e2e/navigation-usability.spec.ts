@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-const candidateUrl = "/2026/colorado/district8/candidates";
+const candidateUrl = "/2026/colorado/us-house/district-8/candidates";
 
 for (const configuration of [
   { width: 1280, height: 320, touch: false, enlargedText: false },
@@ -83,7 +83,7 @@ test("skip link, keyboard browsing, reduced motion, and monochrome targets", asy
     }
   }
   await first.press("Enter");
-  await expect(page).toHaveURL("/2026/colorado/district1/candidates");
+  await expect(page).toHaveURL("/2026/colorado/us-house/district-1/candidates");
   await page.getByRole("link", { name: "Skip navigation" }).focus();
   await page.keyboard.press("Enter");
   await expect(page.locator("#race-page-content")).toBeFocused();
@@ -91,7 +91,7 @@ test("skip link, keyboard browsing, reduced motion, and monochrome targets", asy
 
 test("district switching remains reachable after scrolling a candidate list", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 700 });
-  await page.goto("/2026/colorado/district1/candidates");
+  await page.goto("/2026/colorado/us-house/district-1/candidates");
   await page.getByRole("main").hover();
   await page.mouse.wheel(0, 1400);
   await expect.poll(() => page.getByRole("main").evaluate((element) => element.scrollTop)).toBeGreaterThan(0);
@@ -105,7 +105,7 @@ test("district switching remains reachable after scrolling a candidate list", as
 
 test("sticky-header offset tracks enlarged text and keeps focused links visible", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 568 });
-  await page.goto("/2026/colorado/district1/candidates");
+  await page.goto("/2026/colorado/us-house/district-1/candidates");
   await page.addStyleTag({ content: ".race-navigation :is(button, a, p, span) { font-size: 24px !important; }" });
   const main = page.getByRole("main");
   const header = page.locator(".race-navigation");
@@ -132,7 +132,7 @@ test("modified destination clicks keep the browser open", async ({ page, context
     panel.getByRole("link", { name: "District 2", exact: true }).click({ modifiers: ["ControlOrMeta"] }),
   ]);
   try {
-    await expect(destination).toHaveURL("/2026/colorado/district2/candidates");
+    await expect(destination).toHaveURL("/2026/colorado/us-house/district-2/candidates");
     await expect(panel).toBeVisible();
     await expect(page).toHaveURL(candidateUrl);
   } finally {

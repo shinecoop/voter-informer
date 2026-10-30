@@ -2,7 +2,7 @@
 
 ## Routes and coverage
 
-Every listed U.S. House candidacy has `/platforms/<candidacyId>`, including `/platforms/jason-crow-2026`. Names and **View platform** links open these pages. Return navigation targets the original candidate row and restores saved nested-list scroll position in the same tab when browser storage is available. Direct returns still target the row without storage.
+Every listed U.S. House candidacy has `/<year>/colorado/us-house/district-<number>/candidates/<candidacyId>`, including `/2026/colorado/us-house/district-6/candidates/jason-crow-2026`. Legacy `/platforms/<candidacyId>` and district-list URLs permanently redirect to this hierarchy. Office precedes district; future statewide offices can omit the district segment. Names and **View platform** links open these pages. Return navigation targets the original candidate row and restores saved nested-list scroll position in the same tab when browser storage is available. Direct returns still target the row without storage.
 
 The initial common issue taxonomy is economy, housing, health care, education, climate and energy, immigration, gun policy, democracy, veterans, and foreign policy. This is a deliberately limited taxonomy, not a complete inventory of a candidate's views. For example, the single health-care draft is not comprehensive reproductive-health coverage. No positions are inferred for other issues or candidates.
 

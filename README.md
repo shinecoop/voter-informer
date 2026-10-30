@@ -41,7 +41,7 @@ Development and production builds explicitly use Next.js’s supported Webpack o
 - `src/repositories/types.ts`: asynchronous storage-independent read contract.
 - `src/repositories/file.ts`: validated file snapshot adapter; replace this behind `getRepository()` to migrate storage.
 - `data/research.json`: sourced identity/ballot records and candidacy-bound research; public editorial reads exclude drafts.
-- `src/app/platforms/[candidacyId]/page.tsx`: shareable U.S. House platform pages.
+- `src/app/[year]/colorado/us-house/[district]/candidates/[candidacyId]/page.tsx`: shareable U.S. House platform pages.
 - `docs/candidate-platforms.md`: issue taxonomy, approval procedure, and Jason Crow evidence-audit ledger.
 - `tests/fixtures`: clearly synthetic records, never imported by the application.
 - `docs/data.md`: data editing and publication rules.
@@ -53,4 +53,8 @@ No candidate claims, geometry, historical results, finance data, or polling data
 
 The landing map uses locally bundled state SVG paths with no new dependencies or runtime geography download. See [map provenance, license, and regeneration](docs/map-source.md).
 
-Colorado district links open `/2026/colorado/district1/candidates` through district 8. Each list includes the official printed-ballot candidates and labeled certified write-ins, ordered by first name, then surname. Ages use the election date, November 3, 2026. Nine local portraits and seven sourced birth dates are currently available; remaining details are explicitly unavailable. Candidate lists scroll within their page; the map remains locked to the viewport. Sources and credits are linked from each list and recorded in [SOURCES.md](docs/SOURCES.md).
+Colorado district links open `/2026/colorado/us-house/district-1/candidates` through district 8. Each list includes the official printed-ballot candidates and labeled certified write-ins, ordered by first name, then surname. Ages use the election date, November 3, 2026. Nine local portraits and seven sourced birth dates are currently available; remaining details are explicitly unavailable. Candidate lists scroll within their page; the map remains locked to the viewport. Sources and credits are linked from each list and recorded in [SOURCES.md](docs/SOURCES.md).
+
+Colorado’s statewide U.S. Senate list is available at `/2026/colorado/us-senate/candidates` through **Browse races → Colorado → U.S. Senate**. It includes six printed-ballot candidates and three certified write-ins, campaign links and sourced profile details where verified, with no Senate platform pages. See [Senate roster and provenance](docs/colorado-senate.md).
+
+Colorado also has statewide **Governor**, **Secretary of State**, and **Treasurer** lists under `/2026/colorado/<office>/candidates`. Governor rows include lieutenant governor running mates. See [statewide rosters and sources](docs/colorado-statewide.md).

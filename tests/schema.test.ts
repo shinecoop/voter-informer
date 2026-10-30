@@ -32,3 +32,26 @@ describe("research validation", () => {
     expect(datasetSchema.safeParse(data).success).toBe(true);
   });
 });
+
+
+it.each(["governor", "secretary-of-state", "treasurer"] as const)("requires state geography for %s", (office) => {
+  const data = researchFixture();
+  data.races[0]!.office = office;
+  expect(datasetSchema.safeParse(data).success).toBe(true);
+  data.geographies.push({ ...data.geographies[0]!, id: "district", type: "district", stateId: "state" });
+  data.races[0]!.geographyId = "district";
+  expect(datasetSchema.safeParse(data).success).toBe(false);
+});
+
+it("requires a distinct resolving running mate on a governor ticket", () => {
+  const data = researchFixture();
+  data.candidates.push({ ...data.candidates[0]!, id: "mate" });
+  data.candidacies[0]!.runningMateCandidateId = "mate";
+  expect(datasetSchema.safeParse(data).success).toBe(false);
+  data.races[0]!.office = "governor";
+  expect(datasetSchema.safeParse(data).success).toBe(true);
+  data.candidacies[0]!.runningMateCandidateId = "person";
+  expect(datasetSchema.safeParse(data).success).toBe(false);
+  data.candidacies[0]!.runningMateCandidateId = "absent";
+  expect(datasetSchema.safeParse(data).success).toBe(false);
+});

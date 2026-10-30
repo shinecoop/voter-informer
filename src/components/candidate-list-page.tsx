@@ -1,23 +1,21 @@
 import Image from "next/image";
-import { RaceBrowser } from "../../../../../components/race-browser";
-import { getNavigationCoverage } from "../../../../../repositories/navigation";
 import Link from "next/link";
-import { notFound } from "next/navigation";
-import { PlatformNavigation } from "../../../../../components/platform-navigation";
-import { COLORADO_ELECTION_YEAR } from "../../../../../domain/elections";
-import { getDistrictCandidateList, getRepository } from "../../../../../repositories";
+import { RaceBrowser } from "./race-browser";
+import { PlatformNavigation } from "./platform-navigation";
+import { getNavigationCoverage } from "../repositories/navigation";
+import { getRepository } from "../repositories";
+import type { getSenateCandidateList } from "../repositories/candidates";
 
-export const dynamicParams = false;
-export const metadata = { title: "Congressional Candidates | Voter Informer" };
+type CandidateList = NonNullable<Awaited<ReturnType<typeof getSenateCandidateList>>>;
 
-export function generateStaticParams() {
-  return Array.from({ length: 8 }, (_, index) => ({ year: String(COLORADO_ELECTION_YEAR), district: `district${index + 1}` }));
-}
-
-export default async function Candidates({ params }: { params: Promise<{ year: string; district: string }> }) {
-  const { year, district } = await params;
-  const result = await getDistrictCandidateList(getRepository(), year, district);
-  if (!result) notFound();
+export async function CandidateListPage({ result, officeLabel, listLabel, rosterCheckedAt, platformBasePath }: {
+  result: CandidateList;
+  officeLabel: string;
+  listLabel: string;
+  rosterCheckedAt: string;
+  platformBasePath?: string;
+}) {
+  const { year } = result;
   return (
     <main className="candidate-page">
       <RaceBrowser coverage={await getNavigationCoverage(getRepository())} />
@@ -25,11 +23,10 @@ export default async function Candidates({ params }: { params: Promise<{ year: s
       <div className="candidate-content" id="race-page-content" tabIndex={-1}>
 
         <header className="candidate-header">
-
           <h1>Candidates</h1>
-          <p>U.S. House · General election · November 3, {year}</p>
+          <p>{officeLabel} · General election · November 3, {year}</p>
         </header>
-        <ul className="candidate-list" aria-label={`Colorado district ${result.districtNumber} candidates`}>
+        <ul className="candidate-list" aria-label={listLabel}>
           {result.candidates.map((candidate) => (
             <li key={candidate.candidacyId} id={candidate.candidacyId} className="candidate-row">
               {candidate.portrait ? (
@@ -40,8 +37,9 @@ export default async function Candidates({ params }: { params: Promise<{ year: s
                 </span>
               )}
               <div className="candidate-identity">
-                              <h2><Link className="candidate-name" href={`/platforms/${candidate.candidacyId}`}>{candidate.familyName}, {candidate.givenName}</Link></h2>
-                              <Link className="candidate-platform-link" href={`/platforms/${candidate.candidacyId}`}>View platform</Link>
+                              <h2>{platformBasePath ? <Link className="candidate-name" href={`${platformBasePath}/${candidate.candidacyId}`}>{candidate.familyName}, {candidate.givenName}</Link> : <span>{candidate.familyName}, {candidate.givenName}</span>}</h2>
+                              {candidate.runningMate && <p>Lieutenant governor: {candidate.runningMate.givenName} {candidate.runningMate.familyName}</p>}
+                              {platformBasePath && <Link className="candidate-platform-link" href={`${platformBasePath}/${candidate.candidacyId}`}>View platform</Link>}
                               {candidate.campaignWebsite && (
                                 <a className="candidate-website" href={candidate.campaignWebsite.url}>
                                   {new URL(candidate.campaignWebsite.url).hostname.replace(/^www\./, "")}
@@ -59,7 +57,7 @@ export default async function Candidates({ params }: { params: Promise<{ year: s
         </ul>
         {result.candidates.length === 0 && <p>No candidate records have been collected for this race yet.</p>}
         <footer className="candidate-notes">
-          <p>Roster checked October 24, 2026. Ages on November 3, {year}. Unverified ages and photos are marked unavailable.</p>
+          <p>Roster checked {rosterCheckedAt}. Ages on November 3, {year}. Unverified ages and photos are marked unavailable.</p>
           <p>Certified write-ins are included and labeled; their names are not printed on the ballot.</p>
           <details>
             <summary>Sources &amp; photo credits</summary>

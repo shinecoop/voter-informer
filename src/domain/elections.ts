@@ -1,7 +1,25 @@
 export const COLORADO_ELECTION_YEAR = 2026;
 
-export function candidatePath(district: number): string {
-  return `/${COLORADO_ELECTION_YEAR}/colorado/district${district}/candidates`;
+export function candidatePath(district: number, year: number = COLORADO_ELECTION_YEAR): string {
+  return `/${year}/colorado/us-house/district-${district}/candidates`;
+}
+
+export const COLORADO_STATEWIDE_OFFICES = [
+  { office: "senate", slug: "us-senate", label: "U.S. Senate" },
+  { office: "governor", slug: "governor", label: "Governor" },
+  { office: "secretary-of-state", slug: "secretary-of-state", label: "Secretary of State" },
+  { office: "treasurer", slug: "treasurer", label: "Treasurer" },
+] as const;
+
+export type StatewideOffice = typeof COLORADO_STATEWIDE_OFFICES[number]["office"];
+
+export function statewideCandidatePath(office: StatewideOffice, year: number = COLORADO_ELECTION_YEAR): string {
+  const slug = COLORADO_STATEWIDE_OFFICES.find((entry) => entry.office === office)!.slug;
+  return `/${year}/colorado/${slug}/candidates`;
+}
+
+export function senateCandidatePath(year: number = COLORADO_ELECTION_YEAR): string {
+  return statewideCandidatePath("senate", year);
 }
 
 /** A month-only birth date cannot determine age during the birth month. */

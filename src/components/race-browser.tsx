@@ -29,9 +29,9 @@ export function RaceBrowser({ coverage }: { coverage: BrowserState[] }) {
   const state = coverage.find((entry) => entry.id === level.stateId);
   const race = state?.races.find((entry) => entry.id === level.raceId);
   const district = race?.districts.find((entry) => entry.id === level.districtId);
-  const title = district ? "View candidates" : race ? "Choose a district" : state ? "Choose a race" : "Choose a state";
-  const description = district ? `See the candidates for ${district.label}.` : race ? "Select a district to see its candidates." : state ? "Select the office you want to explore." : "Only states with available races are shown.";
-  const choices: Choice[] = district ? [{ ...district, label: "Candidates" }] : race ? race.districts : state ? state.races.map((entry) => ({
+  const title = district || race?.destination ? "View candidates" : race ? "Choose a district" : state ? "Choose a race" : "Choose a state";
+  const description = race?.destination ? `See the candidates for ${race.label}.` : district ? `See the candidates for ${district.label}.` : race ? "Select a district to see its candidates." : state ? "Select the office you want to explore." : "Only states with available races are shown.";
+  const choices: Choice[] = district ? [{ ...district, label: "Candidates" }] : race?.destination ? [race.destination] : race ? race.districts : state ? state.races.map((entry) => ({
     id: entry.id, label: entry.label, href: entry.destination?.href,
     detail: entry.destination ? "View candidates" : `${entry.districts.length} ${entry.districts.length === 1 ? "district" : "districts"}`,
     next: { stateId: state.id, raceId: entry.id },

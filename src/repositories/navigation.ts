@@ -1,4 +1,4 @@
-import { candidatePath, COLORADO_ELECTION_YEAR } from "../domain/elections";
+import { candidatePath, statewideCandidatePath, COLORADO_ELECTION_YEAR, COLORADO_STATEWIDE_OFFICES } from "../domain/elections";
 import type { ResearchRepository } from "./types";
 
 export type BrowserDestination = { id: string; label: string; href: string };
@@ -25,5 +25,15 @@ export async function getNavigationCoverage(repository: ResearchRepository): Pro
     return [{ id: race.id, label: `District ${number}`, href: candidatePath(number) }];
   }).sort((a, b) => a.label.localeCompare(b.label, "en", { numeric: true }));
   const state = geographies.find((entry) => entry.id === "co" && entry.type === "state");
-  return state && districts.length ? [{ id: state.id, label: state.name, races: [{ id: "house", label: "U.S. House", districts }] }] : [];
+  const available: BrowserRace[] = [];
+  if (districts.length) available.push({ id: "house", label: "U.S. House", districts });
+  for (const { office, label } of COLORADO_STATEWIDE_OFFICES) {
+    const race = races.find((race) => race.id === `co-${COLORADO_ELECTION_YEAR}-${office}-general`
+      && race.office === office && race.geographyId === "co"
+      && elections.some((election) => election.id === race.electionId && election.cycle === COLORADO_ELECTION_YEAR
+        && election.stage === "general" && election.date)
+      && candidacies.some((entry) => entry.raceId === race.id));
+    if (race) available.push({ id: office, label, districts: [], destination: { id: race.id, label: "Candidates", href: statewideCandidatePath(office) } });
+  }
+  return state && available.length ? [{ id: state.id, label: state.name, races: available }] : [];
 }
