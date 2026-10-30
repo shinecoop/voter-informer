@@ -15,6 +15,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
+    "test:preview": "playwright test --config playwright.preview.config.ts",
     "validate:data": "node --import tsx scripts/validate-data.ts",
     "check": "npm run typecheck && npm run lint && npm run validate:data && npm test && npm run build"
   },

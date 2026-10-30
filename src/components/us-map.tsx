@@ -90,6 +90,8 @@ export function UsMap() {
   return (
     <svg
       ref={svgRef}
+      id="race-page-content"
+      tabIndex={-1}
       className="us-map"
       viewBox="-80 -30 1060 690"
       role="group"

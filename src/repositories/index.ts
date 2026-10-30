@@ -9,3 +9,4 @@ export function getRepository(): ResearchRepository {
 }
 export type { ResearchRepository } from "./types";
 export { getDistrictCandidateList } from "./candidates";
+export { getCandidatePlatform, type CandidatePlatform } from "./platform";

@@ -1,12 +1,12 @@
 import { expect, test } from "@playwright/test";
 
-test("shows only the map and smoothly frames a selected state without scrolling", async ({ page }) => {
+test("shows the map with navigation and smoothly frames a selected state without scrolling", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/");
   const map = page.getByRole("group", { name: "United States map" });
   await expect(map.getByRole("button")).toHaveCount(51);
-  expect(await page.locator("body").innerText()).toBe("");
+  await expect(page.getByRole("button", { name: "Browse races" })).toBeVisible();
   await expect(page.locator("body")).toHaveCSS("background-color", "rgb(255, 255, 255)");
   const colorado = map.locator('[data-state-id="08"]');
   await expect(colorado).toHaveCSS("fill", "rgb(219, 219, 219)");

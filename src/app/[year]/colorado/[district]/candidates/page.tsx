@@ -1,6 +1,9 @@
 import Image from "next/image";
+import { RaceBrowser } from "../../../../../components/race-browser";
+import { getNavigationCoverage } from "../../../../../repositories/navigation";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { PlatformNavigation } from "../../../../../components/platform-navigation";
 import { COLORADO_ELECTION_YEAR } from "../../../../../domain/elections";
 import { getDistrictCandidateList, getRepository } from "../../../../../repositories";
 
@@ -17,16 +20,18 @@ export default async function Candidates({ params }: { params: Promise<{ year: s
   if (!result) notFound();
   return (
     <main className="candidate-page">
-      <div className="candidate-content">
-        <Link href="/" className="candidate-back">← Back to map</Link>
+      <RaceBrowser coverage={await getNavigationCoverage(getRepository())} />
+      <PlatformNavigation />
+      <div className="candidate-content" id="race-page-content" tabIndex={-1}>
+
         <header className="candidate-header">
-          <p>{year} / Colorado / District {result.districtNumber}</p>
+
           <h1>Candidates</h1>
           <p>U.S. House · General election · November 3, {year}</p>
         </header>
         <ul className="candidate-list" aria-label={`Colorado district ${result.districtNumber} candidates`}>
           {result.candidates.map((candidate) => (
-            <li key={candidate.id} className="candidate-row">
+            <li key={candidate.candidacyId} id={candidate.candidacyId} className="candidate-row">
               {candidate.portrait ? (
                 <Image className="candidate-avatar" src={candidate.portrait.src} width={64} height={64} unoptimized alt={`Portrait of ${candidate.givenName} ${candidate.familyName}`} />
               ) : (
@@ -35,7 +40,8 @@ export default async function Candidates({ params }: { params: Promise<{ year: s
                 </span>
               )}
               <div className="candidate-identity">
-                              <h2>{candidate.familyName}, {candidate.givenName}</h2>
+                              <h2><Link className="candidate-name" href={`/platforms/${candidate.candidacyId}`}>{candidate.familyName}, {candidate.givenName}</Link></h2>
+                              <Link className="candidate-platform-link" href={`/platforms/${candidate.candidacyId}`}>View platform</Link>
                               {candidate.campaignWebsite && (
                                 <a className="candidate-website" href={candidate.campaignWebsite.url}>
                                   {new URL(candidate.campaignWebsite.url).hostname.replace(/^www\./, "")}

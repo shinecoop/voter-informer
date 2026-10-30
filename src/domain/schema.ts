@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { PLATFORM_ISSUES } from "./platform";
 
 const id = z.string().regex(/^[a-z0-9][a-z0-9._-]*$/);
 const text = z.string().trim().min(1);
@@ -32,6 +33,23 @@ export const entitySchemas = {
   questions: z.object({ id, version: z.number().int().positive(), wording: text, topic: text, raceIds: refs }).strict(),
   localSelections: z.object({ id, raceId: id, questions: z.array(questionRef).min(1), rationale: text, ...sourced, ...publication }).strict(),
   positions: z.object({ id, candidacyId: id, ...questionRef.shape, kind: z.enum(["quotation", "platform-summary"]), statement: text, label: z.enum(["supports", "opposes", "conditional-mixed", "no-explicit-position-found"]).nullable(), evidenceDate: date.nullable(), researchedAt: date, researchScope: text, ...sourced, ...publication }).strict(),
+  platformIssues: z.object({
+    id, candidacyId: id, issueId: z.enum(PLATFORM_ISSUES.map((issue) => issue.id)),
+    version: z.number().int().positive(),
+    status: z.enum(["position-found", "no-position-found"]),
+    proposals: z.array(z.object({
+      id, summary: text,
+      evidence: z.array(z.object({ sourceId: id, excerpt: text, locator: text }).strict()).min(1),
+    }).strict()),
+    ...sourced, researchedAt: date, researchScope: text, ...publication,
+    approval: z.object({ humanReviewer: text, approvedAt: date }).strict().nullable(),
+  }).strict().superRefine((record, ctx) => {
+    const fail = (path: string[], message: string) => ctx.addIssue({ code: "custom", path, message });
+    if (record.status === "position-found" && record.proposals.length === 0) fail(["proposals"], "Found positions require proposals");
+    if (record.status === "no-position-found" && record.proposals.length !== 0) fail(["proposals"], "No-position findings cannot contain proposals");
+    if (record.publication === "published" && record.approval === null) fail(["approval"], "Published platform revisions require explicit human approval");
+    if (record.publication === "draft" && record.approval !== null) fail(["approval"], "Draft platform revisions cannot carry approval");
+  }),
   records: z.object({ id, candidateId: id, kind: z.enum(["vote", "action", "outcome"]), jurisdiction: text, eventDate: date, description: text, ...sourced, ...publication }).strict(),
   sources: z.object({ id, url: z.url().refine((v) => /^https?:\/\//.test(v), "Source URL must use HTTP(S)"), title: text, type: z.enum(["campaign", "official", "independent"]), publisher: text, publishedAt: date.nullable(), eventDate: date.nullable(), retrievedAt: date, locator: text }).strict(),
   freshness: z.object({ id, subjectType: z.enum(["candidacies", "positions", "records"]), subjectId: id, category: z.enum(["ballot", "position", "record", "finance", "polling"]), checkedAt: date.nullable(), intervalDays: z.number().int().positive(), nextReviewAt: date.nullable(), review }).strict(),
@@ -47,6 +65,7 @@ const datasetObject = z.object({
   records: z.array(entitySchemas.records), sources: z.array(entitySchemas.sources),
   freshness: z.array(entitySchemas.freshness), coverage: z.array(entitySchemas.coverage),
   historicalResults: z.array(entitySchemas.historicalResults),
+  platformIssues: z.array(entitySchemas.platformIssues).default([]),
 }).strict();
 
 export type Dataset = z.infer<typeof datasetObject>;
@@ -59,7 +78,7 @@ export const datasetSchema = datasetObject.superRefine((data, ctx) => {
   for (const collection of Object.keys(data) as Collection[]) {
     const seen = new Set<string>();
     data[collection].forEach((item, index) => {
-      const key = "version" in item ? `${item.id}@${item.version}` : item.id;
+      const key = collection !== "platformIssues" && "version" in item ? `${item.id}@${item.version}` : item.id;
       if (seen.has(key)) fail([collection, index, "id"], "Duplicate ID/version");
       seen.add(key);
       if ("sourceIds" in item) for (const sourceId of item.sourceIds) {
@@ -108,6 +127,27 @@ export const datasetSchema = datasetObject.superRefine((data, ctx) => {
     const candidacy = data.candidacies.find((c) => c.id === p.candidacyId);
     if (!questionForRace(p, candidacy?.raceId)) fail(["positions", i, "questionId"], "Question/version must apply to candidacy race");
     if (p.label !== null && p.review.state !== "reviewed") fail(["positions", i, "label"], "Policy classifications require human review");
+  });
+  const platformVersions = new Set<string>();
+  data.platformIssues.forEach((record, i) => {
+    link("platformIssues", i, "candidacyId", "candidacies", record.candidacyId);
+    const candidacy = data.candidacies.find((c) => c.id === record.candidacyId);
+    if (!data.races.some((race) => race.id === candidacy?.raceId && race.office === "house")) {
+      fail(["platformIssues", i, "candidacyId"], "Platform revisions require a House candidacy");
+    }
+    const key = `${record.candidacyId}@${record.issueId}@${record.version}`;
+    if (platformVersions.has(key)) fail(["platformIssues", i, "version"], "Duplicate candidacy/issue/version");
+    platformVersions.add(key);
+    const proposalIds = new Set<string>();
+    record.proposals.forEach((proposal, p) => {
+      if (proposalIds.has(proposal.id)) fail(["platformIssues", i, "proposals", p, "id"], "Duplicate proposal ID");
+      proposalIds.add(proposal.id);
+      proposal.evidence.forEach((evidence, e) => {
+        const path = ["platformIssues", i, "proposals", p, "evidence", e, "sourceId"];
+        if (!exists("sources", evidence.sourceId)) fail(path, `Missing source: ${evidence.sourceId}`);
+        if (!record.sourceIds.includes(evidence.sourceId)) fail(path, "Evidence source must belong to revision sourceIds");
+      });
+    });
   });
   data.candidates.forEach((candidate, i) => {
     if (candidate.birthDate && !candidate.birthDateSourceId) fail(["candidates", i, "birthDateSourceId"], "Birth dates require a source");
