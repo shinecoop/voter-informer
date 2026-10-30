@@ -31,3 +31,7 @@ Geometry queries, generation details, limitations, and attribution are in [map-s
 
 - [Next.js installation](https://nextjs.org/docs/app/getting-started/installation) and [Tailwind PostCSS setup](https://tailwindcss.com/docs/installation/using-postcss) — Framework and styling setup guidance.
 - [Vercel Hobby plan](https://vercel.com/docs/plans/hobby) and [platform limits](https://vercel.com/docs/limits) — Hosting eligibility and quota information in deployment documentation; recheck before deployment.
+
+Colorado’s 2026 U.S. Senate roster, campaign links, birth dates and portrait provenance are documented separately in [Colorado Senate](colorado-senate.md), checked October 30, 2026.
+
+Colorado Governor tickets, Secretary of State and Treasurer rosters and campaign links are documented in [Colorado statewide races](colorado-statewide.md), checked October 30, 2026.

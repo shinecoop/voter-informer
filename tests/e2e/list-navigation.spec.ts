@@ -20,7 +20,7 @@ for (const viewport of [{ width: 1440, height: 800 }, { width: 768, height: 800 
     const controls = (await panel.locator(".race-panel-controls").boundingBox())!;
     expect(initialHeading.y - controls.y - controls.height).toBeLessThanOrEqual(16);
     await choices.getByRole("button", { name: "Colorado" }).click();
-    await expect(choices.getByRole("listitem")).toHaveCount(1);
+    await expect(choices.getByRole("listitem")).toHaveCount(5);
     await expect(trail.getByRole("button")).toHaveText(["States", "Colorado"]);
     await panel.getByRole("button", { name: "U.S. House" }).click();
     await expect(panel.getByRole("link")).toHaveCount(8);
