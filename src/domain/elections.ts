@@ -1,7 +1,7 @@
 export const COLORADO_ELECTION_YEAR = 2026;
 
-export function candidatePath(district: number): string {
-  return `/${COLORADO_ELECTION_YEAR}/colorado/district${district}/candidates`;
+export function candidatePath(district: number, year: number = COLORADO_ELECTION_YEAR): string {
+  return `/${year}/colorado/us-house/district-${district}/candidates`;
 }
 
 /** A month-only birth date cannot determine age during the birth month. */

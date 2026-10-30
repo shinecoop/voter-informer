@@ -1,5 +1,5 @@
-import { notFound } from "next/navigation";
-import { PlatformPage } from "../../../components/platform-page";
+import { notFound, permanentRedirect } from "next/navigation";
+import { candidatePath } from "../../../domain/elections";
 import { getCandidatePlatform, getRepository } from "../../../repositories";
 
 export const dynamicParams = false;
@@ -16,5 +16,7 @@ export default async function Platform({ params }: { params: Promise<{ candidacy
   const { candidacyId } = await params;
   const platform = await getCandidatePlatform(getRepository(), candidacyId);
   if (!platform) notFound();
-  return PlatformPage({ platform });
+  const district = platform.geography.id.match(/district-?(\d+)$/)?.[1];
+  if (platform.geography.stateId !== "co" || !district) notFound();
+  permanentRedirect(`${candidatePath(Number(district), platform.election.cycle)}/${candidacyId}`);
 }

@@ -6,7 +6,7 @@ const research = datasetSchema.parse(JSON.parse(readFileSync(new URL("../../data
 
 test("local preview displays all ten Crow drafts without approving or publishing them", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 700 });
-  await page.goto("/platforms/jason-crow-2026");
+  await page.goto("/2026/colorado/us-house/district-6/candidates/jason-crow-2026");
   await expect(page.getByRole("heading", { name: "Platform review pending", exact: true })).toBeVisible();
   await page.getByRole("link", { name: "Preview draft platform", exact: true }).click();
   await expect(page).toHaveURL("/preview/platforms/jason-crow-2026");

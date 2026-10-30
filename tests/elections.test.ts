@@ -20,8 +20,8 @@ it.each([
   expect(ageOnDate(birthDate, date)).toBe(age);
 });
 
-it("constructs the requested year/state/district/candidates URL", () => {
-  expect(candidatePath(8)).toBe("/2026/colorado/district8/candidates");
+it("constructs the requested year/state/office/district/candidates URL", () => {
+  expect(candidatePath(8)).toBe("/2026/colorado/us-house/district-8/candidates");
 });
 
 const directories: string[] = [];

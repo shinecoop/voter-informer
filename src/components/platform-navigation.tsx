@@ -23,7 +23,7 @@ export function PlatformNavigation({ issues = [] }: { issues?: { id: string; lab
     };
     const save = (event: MouseEvent) => {
       if (!(event.target instanceof Element)) return;
-      const link = event.target.closest<HTMLAnchorElement>('a[href^="/platforms/"]');
+      const link = event.target.closest<HTMLAnchorElement>('a.candidate-name, a.candidate-platform-link');
       const row = link?.closest<HTMLElement>(".candidate-row");
       if (!row || !main.contains(row) || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       const hash = row.id;

@@ -1,3 +1,4 @@
+import { candidatePath } from "../domain/elections";
 import Link from "next/link";
 import Image from "next/image";
 import { sourceTextUrl } from "../domain/source-link";
@@ -100,8 +101,9 @@ export async function PlatformPage({ platform, preview = false }: { platform: Ca
   const state = geography.stateId ? await getRepository().get("geographies", geography.stateId) : null;
   const districtNumber = geography.id.match(/district-?(\d+)$/)?.[1];
   const listUrl = state?.id === "co" && districtNumber
-    ? `/${election.cycle}/colorado/district${districtNumber}/candidates#${candidacy.id}`
+    ? `${candidatePath(Number(districtNumber), election.cycle)}#${candidacy.id}`
     : null;
+  const publicUrl = listUrl ? `${listUrl.split("#")[0]}/${candidacy.id}` : `/platforms/${candidacy.id}`;
   const pending = issues.every((issue) => issue.record === null);
   const compactPreview = preview && candidacy.id === "jason-crow-2026";
   const firstRecord = issues[0]?.record;
@@ -119,12 +121,12 @@ export async function PlatformPage({ platform, preview = false }: { platform: Ca
       <div className="candidate-content platform-content">
         {listUrl ? <Link href={listUrl} className="candidate-back">← Back to candidates</Link> : <Link href="/" className="candidate-back">← Back to map</Link>}
         {compactPreview && <a className="platform-skip" href="#platform-issues">Skip to policy positions</a>}
-        {compactPreview && <aside className="platform-draft-notice" aria-label="Draft preview"><h2>Draft preview — not approved</h2><Link href={`/platforms/${candidacy.id}`}>View public page</Link></aside>}
-        {preview && !compactPreview && <aside className="platform-pending" aria-label="Draft preview"><h2>Draft preview — not approved</h2><p>This local preview shows how the researched content will look. It does not record human review or publish these drafts. Source dates are unknown; current 2026 applicability still needs confirmation.</p><Link href={`/platforms/${candidacy.id}`}>View public page</Link></aside>}
+        {compactPreview && <aside className="platform-draft-notice" aria-label="Draft preview"><h2>Draft preview — not approved</h2><Link href={publicUrl}>View public page</Link></aside>}
+        {preview && !compactPreview && <aside className="platform-pending" aria-label="Draft preview"><h2>Draft preview — not approved</h2><p>This local preview shows how the researched content will look. It does not record human review or publish these drafts. Source dates are unknown; current 2026 applicability still needs confirmation.</p><Link href={publicUrl}>View public page</Link></aside>}
         {!preview && process.env.NODE_ENV === "development" && <p><Link href={`/preview/platforms/${candidacy.id}`}>Preview draft platform</Link> · Local development only</p>}
         <header className="candidate-header">
           {preview && candidate.portrait && <Image className="platform-portrait" src={candidate.portrait.src} width={144} height={168} unoptimized loading="eager" alt={`Portrait of ${candidate.givenName} ${candidate.familyName}`} />}
-          {!compactPreview && <p>{election.cycle} / {state?.name ?? "State unavailable"} / {geography.name}</p>}
+          {!compactPreview && <p>{election.cycle} / {state?.name ?? "State unavailable"} / U.S. House / {geography.name} / Candidates</p>}
           <h1>{candidate.givenName} {candidate.familyName}</h1>
           {preview && <p className="platform-intro">Where the candidate stands</p>}
           <p>U.S. House · {geography.name} · {candidacy.party}</p>

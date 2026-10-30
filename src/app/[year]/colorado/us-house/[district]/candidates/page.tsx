@@ -1,20 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { PlatformNavigation } from "../../../../../components/platform-navigation";
-import { COLORADO_ELECTION_YEAR } from "../../../../../domain/elections";
-import { getDistrictCandidateList, getRepository } from "../../../../../repositories";
+import { PlatformNavigation } from "../../../../../../components/platform-navigation";
+import { candidatePath, COLORADO_ELECTION_YEAR } from "../../../../../../domain/elections";
+import { getDistrictCandidateList, getRepository } from "../../../../../../repositories";
 
 export const dynamicParams = false;
 export const metadata = { title: "Congressional Candidates | Voter Informer" };
 
 export function generateStaticParams() {
-  return Array.from({ length: 8 }, (_, index) => ({ year: String(COLORADO_ELECTION_YEAR), district: `district${index + 1}` }));
+  return Array.from({ length: 8 }, (_, index) => ({ year: String(COLORADO_ELECTION_YEAR), district: `district-${index + 1}` }));
 }
 
 export default async function Candidates({ params }: { params: Promise<{ year: string; district: string }> }) {
   const { year, district } = await params;
-  const result = await getDistrictCandidateList(getRepository(), year, district);
+  const result = await getDistrictCandidateList(getRepository(), year, district.replace(/^district-/, "district"));
   if (!result) notFound();
   return (
     <main className="candidate-page">
@@ -22,7 +22,7 @@ export default async function Candidates({ params }: { params: Promise<{ year: s
       <div className="candidate-content">
         <Link href="/" className="candidate-back">← Back to map</Link>
         <header className="candidate-header">
-          <p>{year} / Colorado / District {result.districtNumber}</p>
+          <p>{year} / Colorado / U.S. House / District {result.districtNumber}</p>
           <h1>Candidates</h1>
           <p>U.S. House · General election · November 3, {year}</p>
         </header>
@@ -37,8 +37,8 @@ export default async function Candidates({ params }: { params: Promise<{ year: s
                 </span>
               )}
               <div className="candidate-identity">
-                              <h2><Link className="candidate-name" href={`/platforms/${candidate.candidacyId}`}>{candidate.familyName}, {candidate.givenName}</Link></h2>
-                              <Link className="candidate-platform-link" href={`/platforms/${candidate.candidacyId}`}>View platform</Link>
+                              <h2><Link className="candidate-name" href={`${candidatePath(result.districtNumber, Number(year))}/${candidate.candidacyId}`}>{candidate.familyName}, {candidate.givenName}</Link></h2>
+                              <Link className="candidate-platform-link" href={`${candidatePath(result.districtNumber, Number(year))}/${candidate.candidacyId}`}>View platform</Link>
                               {candidate.campaignWebsite && (
                                 <a className="candidate-website" href={candidate.campaignWebsite.url}>
                                   {new URL(candidate.campaignWebsite.url).hostname.replace(/^www\./, "")}
